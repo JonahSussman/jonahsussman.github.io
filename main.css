@@ -1,0 +1,38 @@
+/* Less than 992px */
+
+.j-card {
+  display: grid;
+  grid-template-columns: auto 0px;
+  justify-content: space-between;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.j-card-body {
+  padding: 1rem 1rem;
+}
+
+.j-card-img {
+  display: none;
+}
+
+@media (min-width: 992px) {
+  .j-card {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+  }
+  
+  .j-card-body {
+    padding: 1rem 1rem;
+  }
+  
+  .j-card-img {
+    display: block;
+  }
+}
+
