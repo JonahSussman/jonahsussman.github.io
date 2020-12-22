@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="bootstrap.min.css" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+  <link rel="stylesheet" href="blog.css">
+  <link rel="stylesheet" href="main.css">
+  <title>Jonah Sussman</title>
+
+  <script type="module" src="web components/JNav.js"></script>
+  <script type="module" src="web components/JFooter.js"></script>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+  <j-nav></j-nav>
+
+  <div class="container">
+    <div class="j-card bg-dark text-white">
+      <div class="j-card-body">
+        <h1>About me</h1>
+        <p class="container">I'm Jonah Sussman. I'm a CS and Math double major at The University of Alabama. I love challenging myself and solving hard problems.</p>
+        <h3>Experience</h3>
+        <p class="container">Currently, I'm a part of the Digital Forensics and Control Systems Security Lab, researching detecting malware using machine learning on Android. I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.</p>
+        <div id="fun-fact"></div>
+      </div>
+
+      <img class="j-card-img" src="assets/profilepic0.jpg" style="width: 325px; height: 325px">
+    </div>
+
+    <div class="j-card" id="get-in-touch">
+      <div class="j-card-body">
+        <h1>Want to get in touch?</h1>
+        <p class="container">Great! So do I! You can reach me at any of the following places:</p>
+        <div class="container">
+          <p>
+            <b>EMAIL: </b><a href="mailto:sussmanjonah@gmail.com">sussmanjonah@gmail.com</a><br>
+            <b>GITHUB: </b><a href="https://www.github.com/JonahSussman">JonahSussman</a><br>
+            <b>LINKEDIN: </b><a href="https://www.linkedin.com/in/jonah-sussman-889a9b158/">Jonah Sussman</a>
+          </p>
+        </div>
+      </div>
+
+      <!-- <img class="j-card-img" src="assets/profilepic0.jpg" style="width: 325px; height: 325px"> -->
+    </div>
+  </div>
+
+  <j-footer></j-footer>
+
+  <script src="bootstrap.bundle.min.js"></script>
+
+  <script>
+    function rand_select(a) {
+      return a[Math.floor(Math.random() * a.length)];
+    }
+    var attr = new Array(67);
+      attr[0]="<h3>Alignment</h3><p class=\"container\">Chaotic Good</p>";
+      attr[1]="<h3>Temperament</h3><p class=\"container\">98.6 degrees fahrenheit</p>";
+      attr[2]="<h3>Favorite ASCII character</h3><p class=\"container\">0x2A '*'</p>"; //
+      attr[3]="<h3>Favorite SML keyword</h3><p class=\"container\"><code>datatype</code></p>"; //
+      attr[4]="<h3>Favorite Ninja Turtle</h3><p class=\"container\">Donatello</p>"; //
+      attr[5]="<h3>Favorite Abstract Expressionist</h3><p class=\"container\">Paul Klee</p>"; //
+      attr[6]="<h3>Favorite Simple Machine</h3><p class=\"container\">The screw</p>";
+      attr[7]="<h3>Favorite Pok&eacute;mon</h3><p class=\"container\">Ten Question Marks</p>";
+      attr[8]="<h3>Favorite NES Game</h3><p class=\"container\">Kirby's Adventure</p>";
+      attr[9]="<h3>Favorite Group</h3><p class=\"container\">The Monster Group</p>";
+    attr[10]="<h3>Favorite Combinator</h3><p class=\"container\"><code>\\f.(\\x.f(xx))\\x.f(xx)</code></p>"; //
+    attr[11]="<h3>Favorite Color</h3><p class=\"container\">477 nm</p>"; //
+    attr[12]="<h3>Favorite Color Model</h3><p class=\"container\">H/S/B</p>"; //
+    attr[13]="<h3>Favorite Connective</h3><p class=\"container\">&sup;</p>"; //
+    attr[14]="<h3>Favorite MacGyver Ep</h3><p class=\"container\">053 'Hell Week'</p>"; //
+    attr[15]="<h3>Favorite Console Font</h3><p class=\"container\">Iosevka SS03</p>";
+    attr[16]="<h3>Favorite Isomorphism</h3><p class=\"container\">Curry-Howard</p>"; //
+    attr[17]="<h3>Favorite Mega Man Stage</h3><p class=\"container\">Magnet Man (MM3)</p>"; //
+    attr[18]="<h3>Favorite Knot</h3><p class=\"container\">Bowline hitch</p>"; //
+    attr[19]="<h3>Favorite Lanthanide</h3><p class=\"container\">66 Dy (Dysprosium)</p>"; //
+    attr[20]="<h3>Favorite Synthetic Element</h3><p class=\"container\">118 Og (Oganesson)</p>";
+    attr[21]="<h3>Favorite Chord</h3><p class=\"container\">Dm7b5</p>";
+    attr[22]="<h3>Favorite Brass Instrument</h3><p class=\"container\">Mellophone</p>";
+    attr[23]="<h3>Favorite Stream Cipher</h3><p class=\"container\">RC4</p>"; //
+    attr[24]="<h3>Favorite Waveform</h3><p class=\"container\">Sawtooth</p>"; //
+    attr[25]="<h3>Favorite Basic Spice</h3><p class=\"container\">Cumin</p>"; //
+    attr[26]="<h3>Favorite Bean</h3><p class=\"container\">Garbanzo (Chick Pea)</p>"; //
+    attr[27]="<h3>Favorite Gatorade Flavor</h3><p class=\"container\">Yellow</p>"; //
+    attr[28]="<h3>Favorite Foosball Shot</h3><p class=\"container\">Long Push Shot</p>"; //
+    attr[29]="<h3>Favorite Vowel Sound</h3><p class=\"container\">IPA 'ə' (as in 'rhythm')</p>";
+    attr[30]="<h3>Favorite Soda</h3><p class=\"container\">Coke Zero Sugar Caffeine Free</p>";
+    attr[31]="<h3>Favorite Amino Acid</h3><p class=\"container\">Phenylalanine</p>"; //
+    attr[32]="<h3>Favorite Cereal</h3><p class=\"container\">Quaker 100% Natural</p>"; //
+    attr[33]="<h3>Favorite Partial Capo Configuration</h3><p class=\"container\">4 --====</p>"; //
+    attr[34]="<h3>Favorite Band</h3><p class=\"container\">Red Vox</p>";
+    attr[35]="<h3>Favorite Street Fighter III Alpha Character</h3><p class=\"container\">Sakura</p>"; //
+    attr[36]="<h3>Favorite Beach Boys Album</h3><p class=\"container\">Pet Sounds</p>";
+    attr[37]="<h3>Favorite Nontrivial Power of 2</h3><p class=\"container\">32768</p>"; //
+    attr[38]="<h3>Favorite Playstation Game</h3><p class=\"container\">Castlevania: SOTN</p>"; //
+    attr[39]="<h3>Favorite Top Level Domain</h3><p class=\"container\">.net</p>";
+    attr[40]="<h3>Favorite Quake III Level</h3><p class=\"container\">q3dm7</p>"; //
+    attr[41]="<h3>Favorite Super Smash Bros. Character</h3><p class=\"container\">Luigi</p>";
+    attr[42]="<h3>Favorite Editor</h3><p class=\"container\">VS Code</p>";
+    attr[43]="<h3>Favorite Compiler</h3><p class=\"container\">g++</p>";
+    attr[44]="<h3>Favorite Mitochondrial Protein</h3><p class=\"container\">MSFLPSFILS DESKERISKI LTLTHNVAHY GWIPFVLYLG WAHTSNRPNF LNLLSPLPSV</p>"; //
+    attr[45]="<h3>Eye color</h3><p class=\"container\">Brown</p>";
+    attr[46]="<h3>Corrective lenses</h3><p class=\"container\">-0.5, +0.5 (I know, I know)</p>";
+    attr[47]="<h3>Source of calories</h3><p class=\"container\">Complex carbohydrates</p>"; //
+    attr[48]="<h3>Erd&ouml;s Number</h3><p class=\"container\">4</p>"; //
+    attr[49]="<h3>Mathematical Philosophy</h3><p class=\"container\">ultrafinitism</p>"; //
+    attr[50]="<h3>Number of Dead Foosball Player Heads on my Monitor</h3><p class=\"container\">14</p>"; //
+    attr[51]="<h3>Number of Albums Recorded since 1999</h3><p class=\"container\">22</p>"; //
+    attr[52]="<h3>Favorite proof checker</h3><p class=\"container\">Twelf</p>"; //
+    attr[53]="<h3>Height</h3><p class=\"container\">1 Jonah</p>";
+    attr[54]="<h3>Favorite Pinball Machine</h3><p class=\"container\">Rocky and Bullwinkle</p>"; //
+    attr[55]="<h3>Favorite emacs function</h3><p class=\"container\"><code>save-excursion</code></p>"; //
+    attr[56]="<h3>Scout rank</h3><p class=\"container\">First Class; Troop 610, Hamden, CT</p>"; //
+    attr[57]="<h3>Favorite Quake deathmatch level</h3><p class=\"container\"><tt>start</tt></p>"; //
+    attr[58]="<h3>Favorite sneaker</h3><p class=\"container\">New Balance 991</p>"; //
+    attr[59]="<h3>Shoe size</h3><p class=\"container\">1 Jonah-sized Foot</p>"; //
+    attr[60]="<h3>Favorite literary genre</h3><p class=\"container\">hysterical realism</p>"; //
+    attr[61]="<h3>Favorite Counter-Strike tackle</h3><p class=\"container\">b82b14b7</p>"; //
+    attr[62]="<h3>Favorite TF2 class</h3><p class=\"container\">Pyro</p>";
+    attr[63]="<h3>Random fact #1</h3><p class=\"container\">has official RIAA engraved platinum record for work on Weird Al Yankovic's &quot;Running with Scissors&quot;</p>";
+    attr[64]="<h3>Blood type</h3><p class=\"container\">Red</p>";
+    attr[65]="<h3>Favorite DOOM music</h3><p class=\"container\">Rip & Tear</p>";
+    attr[66]="<h3>Favorite naming convention</h3><p class=\"container\"><code>SCREAMING_SNAKE_CASE</code></p>";
+
+    document.getElementById('fun-fact').innerHTML = 
+          rand_select(attr);
+  </script>
+</body>
+
+</html>

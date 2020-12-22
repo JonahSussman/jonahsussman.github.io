@@ -2,33 +2,49 @@
 
 .j-card {
   display: grid;
-  grid-template-columns: auto 0px;
+
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: "body";
+
   justify-content: space-between;
   box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
   border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
+  margin-bottom: 1rem;
 }
 
 .j-card-body {
+  grid-area: body;
   padding: 1rem 1rem;
 }
 
 .j-card-img {
+  grid-area: img;
+  padding: 1rem 1rem;
   display: none;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 768px) {
   .j-card {
-    display: grid;
-    grid-template-columns: auto auto;
-    justify-content: space-between;
-    box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .05);
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: .25rem;
+    grid-template-areas: "img"
+                         "body";
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
   }
   
-  .j-card-body {
-    padding: 1rem 1rem;
+  .j-card-img {
+    margin: auto auto;
+    display: block;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .j-card {
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    grid-template-areas: "body img";
   }
   
   .j-card-img {

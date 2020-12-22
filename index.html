@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link href="bootstrap.min.css" rel="stylesheet">
 
   <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
   <link rel="stylesheet" href="blog.css">
@@ -24,12 +24,10 @@
       <div class="card-body d-flex flex-column align-items-start">
         <h1 class="display-4" id="greeting">My name is Jonah Sussman.</h1>
         <p class="lead my-3">I'm a research assistant and Computer Science and Mathematics double major at The University of Alabama.</p>
-        <p class="lead my-1"></p>
-        <p class="lead my-1"><b>E-mail:</b> <a href="mailto:sussmanjonah@gmail.com" role="main">sussmanjonah@gmail.com</a></p>
-        <p class="lead my-1" id="fun-fact"></p>
+        
         <div class="bd-example my-3">
             <a href="assets/Jonah Sussman Resume ONLINE 2020-12-20.pdf" class="btn btn-outline-light" role="button">View Resume</a>
-            <button type="button" class="btn btn-outline-primary">Get in Touch</button>
+            <a href="about#get-in-touch" class="btn btn-outline-primary" role="button">Get in Touch</a>
         </div>
       </div>
       <img class="card-img-right flex-auto d-none d-md-block border border-light rounded-circle"" src="assets/profilepic0.jpg" style="width: 200px; height: 200px;"/>
@@ -75,8 +73,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
 
   <script>
-    function rand_to(n) {
-      return Math.floor(Math.random() * n);
+    function rand_select(a) {
+      return a[Math.floor(Math.random() * a.length)];
     }
 
     let h = new Date().getHours();
@@ -96,79 +94,7 @@
     let greetings = ['Hey!', 'Hi!', 'Hello!', 'Howdy!', timed_greet];
 
     document.getElementById('greeting').innerText = 
-      greetings[rand_to(greetings.length)] + ' My name is Jonah Sussman.';
-
-var attr = new Array(67);
- attr[0]="<b>Alignment</b>: Chaotic Good";
- attr[1]="<b>Temperament</b>: 98.6 degrees fahrenheit";
- attr[2]="<b>Favorite ASCII character</b>: 0x2A '*'"; //
- attr[3]="<b>Favorite SML keyword</b>: <code>datatype</code>"; //
- attr[4]="<b>Favorite Ninja Turtle</b>: Donatello"; //
- attr[5]="<b>Favorite Abstract Expressionist</b>: Paul Klee"; //
- attr[6]="<b>Favorite Simple Machine</b>: The screw";
- attr[7]="<b>Favorite Pok&eacute;mon</b>: Ten question marks";
- attr[8]="<b>Favorite NES Game</b>: Kirby's Adventure";
- attr[9]="<b>Favorite Group</b>: The Monster Group";
-attr[10]="<b>Favorite Combinator</b>: <code>\\f.(\\x.f(xx))\\x.f(xx)</code>"; //
-attr[11]="<b>Favorite Color</b>: 477 nm"; //
-attr[12]="<b>Favorite Color Model</b>: H/S/B"; //
-attr[13]="<b>Favorite Connective</b>: &sup;"; //
-attr[14]="<b>Favorite MacGyver Ep</b>: 053 'Hell Week'"; //
-attr[15]="<b>Favorite Console Font</b>: Iosevka SS03";
-attr[16]="<b>Favorite Isomorphism</b>: Curry-Howard"; //
-attr[17]="<b>Favorite Mega Man Stage</b>: Magnet Man (MM3)"; //
-attr[18]="<b>Favorite Knot</b>: Bowline hitch"; //
-attr[19]="<b>Favorite Lanthanide</b>: 66 Dy (Dysprosium)"; //
-attr[20]="<b>Favorite Synthetic Element</b>: 118 Og (Oganesson)";
-attr[21]="<b>Favorite Chord</b>: Dm7b5";
-attr[22]="<b>Favorite Brass Instrument</b>: Mellophone";
-attr[23]="<b>Favorite Stream Cipher</b>: RC4"; //
-attr[24]="<b>Favorite Waveform</b>: Sawtooth"; //
-attr[25]="<b>Favorite Basic Spice</b>: Cumin"; //
-attr[26]="<b>Favorite Bean</b>: Garbanzo (Chick Pea)"; //
-attr[27]="<b>Favorite Gatorade Flavor</b>: Yellow"; //
-attr[28]="<b>Favorite Foosball Shot</b>: Long Push Shot"; //
-attr[29]="<b>Favorite Vowel Sound</b>: IPA 'ə' (as in 'rhythm')";
-attr[30]="<b>Favorite Soda</b>: Coke Zero Sugar Caffine Free";
-attr[31]="<b>Favorite Amino Acid</b>: Phenylalanine"; //
-attr[32]="<b>Favorite Cereal</b>: Quaker 100% Natural"; //
-attr[33]="<b>Favorite Partial Capo Configuration</b>: 4 --===="; //
-attr[34]="<b>Favorite Band</b>: Red Vox";
-attr[35]="<b>Favorite Street Fighter III Alpha Character</b>: Sakura"; //
-attr[36]="<b>Favorite Beach Boys Album</b>: Pet Sounds";
-attr[37]="<b>Favorite Nontrivial Power of 2</b>: 32768"; //
-attr[38]="<b>Favorite Playstation Game</b>: Castlevania: SOTN"; //
-attr[39]="<b>Favorite Top Level Domain</b>: .net";
-attr[40]="<b>Favorite Quake III Level</b>: q3dm7"; //
-attr[41]="<b>Favorite Super Smash Bros. Character</b>: Luigi";
-attr[42]="<b>Favorite Editor</b>: VS Code";
-attr[43]="<b>Favorite Compiler</b>: g++";
-attr[44]="<b>Favorite Mitochondrial Protein</b>: MSFLPSFILS DESKERISKI LTLTHNVAHY GWIPFVLYLG WAHTSNRPNF LNLLSPLPSV"; //
-attr[45]="<b>Eye color</b>: Brown";
-attr[46]="<b>Corrective lenses</b>: -0.5, +0.5 (I know, I know)";
-attr[47]="<b>Source of calories</b>: Complex carbohydrates"; //
-attr[48]="<b>Erd&ouml;s Number</b>: 4"; //
-attr[49]="<b>Mathematical Philosophy</b>: ultrafinitism"; //
-attr[50]="<b>Number of Dead Foosball Player Heads on my Monitor</b>: 14"; //
-attr[51]="<b>Number of Albums Recorded since 1999</b>: 22"; //
-attr[52]="<b>Favorite proof checker</b>: Twelf"; //
-attr[53]="<b>Height</b>: 1 Jonah";
-attr[54]="<b>Favorite Pinball Machine</b>: Rocky and Bullwinkle"; //
-attr[55]="<b>Favorite emacs function</b>: <code>save-excursion</code>"; //
-attr[56]="<b>Scout rank</b>: First Class; Troop 610, Hamden, CT"; //
-attr[57]="<b>Favorite Quake deathmatch level</b>: <tt>start</tt>"; //
-attr[58]="<b>Favorite sneaker</b>: New Balance 991"; //
-attr[59]="<b>Shoe size</b>: 1 Jonah-sized Foot"; //
-attr[60]="<b>Favorite literary genre</b>: hysterical realism"; //
-attr[61]="<b>Favorite Counter-Strike tackle</b>: b82b14b7"; //
-attr[62]="<b>Favorite TF2 class</b>: Pyro";
-attr[63]="<b>Random fact #1</b>: has official RIAA engraved platinum record for work on Weird Al Yankovic's &quot;Running with Scissors&quot;";
-attr[64]="<b>Blood type</b>: Red";
-attr[65]="<b>Favorite DOOM music</b>: Rip & Tear";
-attr[66]="<b>Favorite naming convention</b>: <code>SCREAMING_SNAKE_CASE</code>"
-
-document.getElementById('fun-fact').innerHTML = 
-      attr[rand_to(attr.length)];
+      rand_select(greetings) + ' My name is Jonah Sussman.';
   </script>
 </body>
 </html>
