@@ -1,5 +1,24 @@
 /* Less than 992px */
 
+.j-container {
+  width: 100%;
+  max-width: 1320px;
+  padding: 0 var(--bs-gutter-x, .75rem);
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .j-container {
+    padding: 0 calc(var(--bs-gutter-x, .75rem) + 20px);
+  }
+}
+
+@media (min-width: 992px) {
+  .j-container {
+    padding: 0 calc(var(--bs-gutter-x, .75rem) + 40px);
+  }
+}
+
 .j-card {
   display: grid;
 
