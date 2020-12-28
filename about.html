@@ -11,6 +11,7 @@
 
   <script type="module" src="web components/JNav.js"></script>
   <script type="module" src="web components/JFooter.js"></script>
+  <script type="text/javascript" src="js/utils.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -33,15 +34,22 @@
     <div class="card-blue-light stack" id="get-in-touch">
       <h1>Want to get in touch?</h1>
       <p>Great! So do I! You can reach me at any of the following places:</p>
-      <div class="container">
-        <p>
-          <b>EMAIL: </b><a href="mailto:sussmanjonah@gmail.com">sussmanjonah@gmail.com</a><br>
-          <b>GITHUB: </b><a href="https://www.github.com/JonahSussman">JonahSussman</a><br>
-          <b>LINKEDIN: </b><a href="https://www.linkedin.com/in/jonah-sussman-889a9b158/">Jonah Sussman</a>
-        </p>
-      </div>
+      <div class="col-3">
+        <button class="btn-default" style="text-align: center;" onclick="href('mailto:sussmanjonah@gmail.com')">
+          <strong>EMAIL</strong><br>
+          <a href="mailto:sussmanjonah@gmail.com">sussmanjonah@gmail.com</a>
+        </button>
 
-      <!-- <img class="j-card-img" src="assets/profilepic0.jpg" style="width: 325px; height: 325px"> -->
+        <button class="btn-default-dark" style="text-align: center;" onclick="href('https://www.github.com/JonahSussman')">
+          <strong>GITHUB</strong><br>
+          <a href="https://www.github.com/JonahSussman">JonahSussman</a>
+        </button>
+
+        <button class="btn-blue" style="text-align: center;" onclick="href('https://www.linkedin.com/in/jonah-sussman-889a9b158/')">
+          <strong>LINKEDIN</strong><br>
+          <a href="https://www.linkedin.com/in/jonah-sussman-889a9b158/">Jonah Sussman</a>
+        </button>
+      </div>
     </div>
   </main>
 

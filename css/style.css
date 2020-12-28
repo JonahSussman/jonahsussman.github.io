@@ -1,7 +1,7 @@
 .mainnav {
   background-color: black;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 1rem;
 }
 
 .mainnav h2 {
@@ -27,7 +27,7 @@
 }
 
 .mainnav li {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   padding-left: 1rem;
 }
 
@@ -68,6 +68,7 @@
 }
 
 html, body {
+  z-index: -1;
   margin: 0px;
   display: flex;
   flex-direction: column;
@@ -175,6 +176,11 @@ button {
   border-radius: 0;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
+button a {
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+  background-color: black;
+  color: white;
+}
 button:hover {
   background-color: black;
   color: white;
@@ -185,7 +191,8 @@ button:active {
 }
 
 img {
-  box-shadow: 5px 5px #363636;
+  border: 1px solid black;
+  box-shadow: 5px 5px #b5b5b5;
 }
 
 footer, j-footer {
@@ -202,13 +209,22 @@ footer a, j-footer a {
   color: white;
 }
 
-.col-2 {
+.col-3, .col-2 {
   display: grid;
   column-gap: 1rem;
-  grid-template-columns: 1fr 1fr;
 }
 
+.col-2 {
+  grid-template-columns: 1fr 1fr;
+}
 .col-2 > :nth-child(n+3) {
+  margin-top: 1rem;
+}
+
+.col-3 {
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.col-3 > :nth-child(n+4) {
   margin-top: 1rem;
 }
 
@@ -216,16 +232,31 @@ footer a, j-footer a {
   .col-2 {
     grid-template-columns: 1fr;
   }
-
   .col-2 > :nth-child(n+2) {
     margin-top: 1rem;
   }
+
+  .col-3 {
+    grid-template-columns: 1fr 1fr;
+  }
+  .col-3 > :nth-child(n+3) {
+    margin-top: 1rem;
+  }
 }
-.card, .card-yellow-dark, .card-red-dark, .card-red-light, .card-blue-dark, .card-blue-light, .card-blue, .card-green-dark, .card-green-light, .card-green, .card-default-dark, .card-default {
+@media (max-width: 500px) {
+  .col-3 {
+    grid-template-columns: 1fr;
+  }
+  .col-3 > :nth-child(n+2) {
+    margin-top: 1rem;
+  }
+}
+.card, .card-yellow-dark, .card-yellow-light, .card-red-dark, .card-red-light, .card-red, .card-blue-dark, .card-blue-light, .card-blue, .card-green-dark, .card-green-light, .card-green, .card-default-dark, .card-default {
   background-color: white;
   color: black;
   width: 100%;
   box-shadow: 5px 5px #b5b5b5;
+  border: 1px solid black;
   padding: 1rem;
 }
 
@@ -233,91 +264,93 @@ footer a, j-footer a {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #b5b5b5;
-  border: 1px solid black;
 }
-
-.card-default strong {
-  color: #b5b5b5;
+.card-default > a {
+  background-color: white;
+  color: black;
+}
+.card-default > strong {
+  color: #363636;
 }
 
 .btn-default {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #b5b5b5;
-  border-color: black;
 }
-
-.btn-default:hover {
+.btn-default > a {
+  background-color: white;
+  color: black;
+}
+.btn-default:hover, .btn-default:hover a {
   color: white;
   background-color: black;
-}
-
-.btn-default:active {
-  box-shadow: none;
 }
 
 .card-default-dark {
   color: white;
   background-color: black;
-  box-shadow: 5px 5px #363636;
-  border: 1px solid black;
+  box-shadow: 5px 5px #b5b5b5;
 }
-
-.card-default-dark strong {
-  color: #363636;
+.card-default-dark > a {
+  background-color: black;
+  color: white;
+}
+.card-default-dark > strong {
+  color: white;
 }
 
 .btn-default-dark {
   color: white;
   background-color: black;
-  box-shadow: 5px 5px #363636;
-  border-color: white;
+  box-shadow: 5px 5px #b5b5b5;
 }
-
-.btn-default-dark:hover {
+.btn-default-dark > a {
+  background-color: black;
+  color: white;
+}
+.btn-default-dark:hover, .btn-default-dark:hover a {
   color: black;
   background-color: white;
-}
-
-.btn-default-dark:active {
-  box-shadow: none;
 }
 
 .card-green {
   color: white;
   background-color: #48c774;
   box-shadow: 5px 5px #b5b5b5;
-  border: 1px solid black;
 }
-
-.card-green strong {
-  color: #b5b5b5;
+.card-green > a {
+  background-color: #48c774;
+  color: white;
+}
+.card-green > strong {
+  color: white;
 }
 
 .btn-green {
   color: white;
   background-color: #48c774;
   box-shadow: 5px 5px #b5b5b5;
-  border-color: white;
 }
-
-.btn-green:hover {
+.btn-green > a {
+  background-color: #48c774;
+  color: white;
+}
+.btn-green:hover, .btn-green:hover a {
   color: #48c774;
   background-color: white;
-}
-
-.btn-green:active {
-  box-shadow: none;
 }
 
 .card-green-light {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #48c774;
-  border: 1px solid black;
 }
-
-.card-green-light strong {
+.card-green-light > a {
+  background-color: white;
+  color: black;
+}
+.card-green-light > strong {
   color: #48c774;
 }
 
@@ -325,26 +358,26 @@ footer a, j-footer a {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #48c774;
-  border-color: black;
 }
-
-.btn-green-light:hover {
+.btn-green-light > a {
+  background-color: white;
+  color: black;
+}
+.btn-green-light:hover, .btn-green-light:hover a {
   color: white;
   background-color: black;
-}
-
-.btn-green-light:active {
-  box-shadow: none;
 }
 
 .card-green-dark {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #48c774;
-  border: 1px solid black;
 }
-
-.card-green-dark strong {
+.card-green-dark > a {
+  background-color: black;
+  color: white;
+}
+.card-green-dark > strong {
   color: #48c774;
 }
 
@@ -352,53 +385,53 @@ footer a, j-footer a {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #48c774;
-  border-color: white;
 }
-
-.btn-green-dark:hover {
+.btn-green-dark > a {
+  background-color: black;
+  color: white;
+}
+.btn-green-dark:hover, .btn-green-dark:hover a {
   color: black;
   background-color: white;
 }
 
-.btn-green-dark:active {
-  box-shadow: none;
-}
-
 .card-blue {
-  color: black;
+  color: white;
   background-color: #3273dc;
   box-shadow: 5px 5px #b5b5b5;
-  border: 1px solid black;
 }
-
-.card-blue strong {
-  color: #b5b5b5;
+.card-blue > a {
+  background-color: #3273dc;
+  color: white;
+}
+.card-blue > strong {
+  color: white;
 }
 
 .btn-blue {
-  color: black;
+  color: white;
   background-color: #3273dc;
   box-shadow: 5px 5px #b5b5b5;
-  border-color: black;
 }
-
-.btn-blue:hover {
+.btn-blue > a {
+  background-color: #3273dc;
+  color: white;
+}
+.btn-blue:hover, .btn-blue:hover a {
   color: #3273dc;
-  background-color: black;
-}
-
-.btn-blue:active {
-  box-shadow: none;
+  background-color: white;
 }
 
 .card-blue-light {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #3273dc;
-  border: 1px solid black;
 }
-
-.card-blue-light strong {
+.card-blue-light > a {
+  background-color: white;
+  color: black;
+}
+.card-blue-light > strong {
   color: #3273dc;
 }
 
@@ -406,26 +439,26 @@ footer a, j-footer a {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #3273dc;
-  border-color: black;
 }
-
-.btn-blue-light:hover {
+.btn-blue-light > a {
+  background-color: white;
+  color: black;
+}
+.btn-blue-light:hover, .btn-blue-light:hover a {
   color: white;
   background-color: black;
-}
-
-.btn-blue-light:active {
-  box-shadow: none;
 }
 
 .card-blue-dark {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #3273dc;
-  border: 1px solid black;
 }
-
-.card-blue-dark strong {
+.card-blue-dark > a {
+  background-color: black;
+  color: white;
+}
+.card-blue-dark > strong {
   color: #3273dc;
 }
 
@@ -433,26 +466,53 @@ footer a, j-footer a {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #3273dc;
-  border-color: white;
 }
-
-.btn-blue-dark:hover {
+.btn-blue-dark > a {
+  background-color: black;
+  color: white;
+}
+.btn-blue-dark:hover, .btn-blue-dark:hover a {
   color: black;
   background-color: white;
 }
 
-.btn-blue-dark:active {
-  box-shadow: none;
+.card-red {
+  color: white;
+  background-color: #ff3860;
+  box-shadow: 5px 5px #b5b5b5;
+}
+.card-red > a {
+  background-color: #ff3860;
+  color: white;
+}
+.card-red > strong {
+  color: white;
+}
+
+.btn-red {
+  color: white;
+  background-color: #ff3860;
+  box-shadow: 5px 5px #b5b5b5;
+}
+.btn-red > a {
+  background-color: #ff3860;
+  color: white;
+}
+.btn-red:hover, .btn-red:hover a {
+  color: #ff3860;
+  background-color: white;
 }
 
 .card-red-light {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #ff3860;
-  border: 1px solid black;
 }
-
-.card-red-light strong {
+.card-red-light > a {
+  background-color: white;
+  color: black;
+}
+.card-red-light > strong {
   color: #ff3860;
 }
 
@@ -460,26 +520,26 @@ footer a, j-footer a {
   color: black;
   background-color: white;
   box-shadow: 5px 5px #ff3860;
-  border-color: black;
 }
-
-.btn-red-light:hover {
+.btn-red-light > a {
+  background-color: white;
+  color: black;
+}
+.btn-red-light:hover, .btn-red-light:hover a {
   color: white;
   background-color: black;
-}
-
-.btn-red-light:active {
-  box-shadow: none;
 }
 
 .card-red-dark {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #ff3860;
-  border: 1px solid black;
 }
-
-.card-red-dark strong {
+.card-red-dark > a {
+  background-color: black;
+  color: white;
+}
+.card-red-dark > strong {
   color: #ff3860;
 }
 
@@ -487,26 +547,53 @@ footer a, j-footer a {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #ff3860;
-  border-color: white;
 }
-
-.btn-red-dark:hover {
+.btn-red-dark > a {
+  background-color: black;
+  color: white;
+}
+.btn-red-dark:hover, .btn-red-dark:hover a {
   color: black;
   background-color: white;
 }
 
-.btn-red-dark:active {
-  box-shadow: none;
+.card-yellow-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #ffdd57;
+}
+.card-yellow-light > a {
+  background-color: white;
+  color: black;
+}
+.card-yellow-light > strong {
+  color: #ffdd57;
+}
+
+.btn-yellow-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #ffdd57;
+}
+.btn-yellow-light > a {
+  background-color: white;
+  color: black;
+}
+.btn-yellow-light:hover, .btn-yellow-light:hover a {
+  color: white;
+  background-color: black;
 }
 
 .card-yellow-dark {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #ffdd57;
-  border: 1px solid black;
 }
-
-.card-yellow-dark strong {
+.card-yellow-dark > a {
+  background-color: black;
+  color: white;
+}
+.card-yellow-dark > strong {
   color: #ffdd57;
 }
 
@@ -514,16 +601,14 @@ footer a, j-footer a {
   color: white;
   background-color: black;
   box-shadow: 5px 5px #ffdd57;
-  border-color: white;
 }
-
-.btn-yellow-dark:hover {
+.btn-yellow-dark > a {
+  background-color: black;
+  color: white;
+}
+.btn-yellow-dark:hover, .btn-yellow-dark:hover a {
   color: black;
   background-color: white;
-}
-
-.btn-yellow-dark:active {
-  box-shadow: none;
 }
 
 .img-black {
@@ -546,6 +631,11 @@ footer a, j-footer a {
   box-shadow: 5px 5px #ff3860;
 }
 
+.img-yellow {
+  border: 1px solid black;
+  box-shadow: 5px 5px #ffdd57;
+}
+
 .img-float-left, .img-float-right {
   width: min(20vw, 200px);
   margin-bottom: 1rem;
@@ -559,4 +649,11 @@ footer a, j-footer a {
 .img-float-left {
   float: left;
   margin-right: 1rem;
+}
+
+.crazy-jonah {
+  transition: text-shadow 0.2s ease-in-out;
+}
+.crazy-jonah:hover {
+  text-shadow: 0.2rem 0.2rem #ff3860, 0.4rem 0.4rem #3273dc;
 }

@@ -1,7 +1,7 @@
 .mainnav {
   background-color: black;
   color: white;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 1rem;
 }
 
 .mainnav h2 {
@@ -27,7 +27,7 @@
 }
 
 .mainnav li {
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   padding-left: 1rem;
 }
 

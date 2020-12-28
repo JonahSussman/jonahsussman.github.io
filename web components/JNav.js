@@ -7,9 +7,13 @@ function navResponse() {
   }
 }
 
+function rb(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
 let html = /* html */ `
 <ul>
-  <h2><a href="/">Jonah Sussman</a></h2>
+  <h2 class="crazy-jonah"><a href="/">Jonah Sussman</a></h2>
   <li id="navburger">
     <a id="linavburger" href="javascript:void(0);" onclick="navResponse()" style="fill: white;">
       <svg viewBox="0 0 100 100" width="30" height="30">
@@ -26,12 +30,38 @@ let html = /* html */ `
 </ul>
 `;
 
+// let colors = [
+//   'hsl(171, 100%, 41%)',
+//   'hsl(217, 71%, 53%)',
+//   'hsl(204, 86%, 53%)',
+//   'hsl(141, 53%, 53%)',
+//   'hsl(48, 100%, 67%)',
+//   'hsl(348, 100%, 61%)'
+// ];
+
+// let arr = [];
+
+// while (arr.length < 3) {
+//   let r = 0;
+//   do {
+//     r = rb(0, colors.length - 1);
+//   } while (arr.includes(r));
+//   arr.push(r);
+// }
+
+// let css = /* css */`.crazy-jonah:hover { text-shadow: ${rb(-9, 9)}px ${rb(-9, 9)}px ${colors[arr[0]]}, ${rb(-9, 9)}px ${rb(-9, 9)}px ${colors[arr[1]]}, ${rb(-9, 9)}px ${rb(-9, 9)}px ${colors[arr[2]]};}`;
+
 class JNav extends HTMLElement {
   constructor() {
     super();
     this.className = "mainnav responsive";
     this.id = "mainnav";
     this.innerHTML = html;
+
+    // let styleSheet = document.createElement("style");
+    // styleSheet.type = "text/css";
+    // styleSheet.innerText = css;
+    // document.head.appendChild(styleSheet);
 
     document.getElementById("linavburger").addEventListener("click", navResponse, false);
   }

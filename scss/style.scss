@@ -9,6 +9,7 @@
 
   width: 100%;
   box-shadow: 5px 5px $gray-light;
+  border: 1px solid black;
   padding: 1rem;
 }
 
@@ -17,29 +18,42 @@
     @extend .card;
     color: map.get($swatch, "text");
     background-color: map.get($swatch, "bg");
-    box-shadow: 5px 5px map.get($swatch, "primary");
-    border: 1px solid black;
-  }
+    box-shadow: 5px 5px map.get($swatch, "accent");
 
-  .card-#{$name} strong {
-    color: map.get($swatch, "primary");
+    > a {
+      background-color: map.get($swatch, "bg");
+      color: map.get($swatch, "text");
+    }
+
+    > strong {
+      color: map.get($swatch, "strong");
+    }
   }
 
   .btn-#{$name} {
     color: map.get($swatch, "text");
     background-color: map.get($swatch, "bg");
-    box-shadow: 5px 5px map.get($swatch, "primary");
-    border-color: map.get($swatch, "text");
+    box-shadow: 5px 5px map.get($swatch, "accent");
+
+    > a {
+      background-color: map.get($swatch, "bg");
+      color: map.get($swatch, "text");
+    }
+
+    &:hover, &:hover a {
+      color: map.get($swatch, "bg");
+      background-color: map.get($swatch, "text");
+    }
   }
  
-  .btn-#{$name}:hover {
-    color: map.get($swatch, "bg");
-    background-color: map.get($swatch, "text");
-  }
+  // .btn-#{$name}:hover, .btn-#{$name}:hover a {
+  //   color: map.get($swatch, "bg");
+  //   background-color: map.get($swatch, "text");
+  // }
 
-  .btn-#{$name}:active {
-    box-shadow: none;
-  }
+  // .btn-#{$name}:active {
+  //   box-shadow: none;
+  // }
 }
 
 @each $name, $color in $colors {
@@ -64,4 +78,12 @@
   @extend %img-floats;
   float: left;
   margin-right: 1rem; 
+}
+
+.crazy-jonah {
+  transition: text-shadow 0.2s ease-in-out;
+
+  &:hover {
+    text-shadow: 0.2rem 0.2rem $red, 0.4rem 0.4rem $blue;
+  }
 }

@@ -15,64 +15,88 @@ $colors: (
   "black": $black,
   "green": $green,
   "blue":  $blue,
-  "red": $red
+  "red": $red,
+  "yellow": $yellow
 );
 
 $swatches: (
   default: (
     text: black,
     bg: white,
-    primary: $gray-light
+    accent: $gray-light,
+    strong: $dark
   ),
   default-dark: (
     text: white,
     bg: black,
-    primary: $dark
+    accent: $gray-light,
+    strong: white
   ),
   "green": (
     text: white,
     bg: $green,
-    primary: $gray-light
+    accent: $gray-light,
+    strong: white
   ),
   green-light: (
     text: black,
     bg: white,
-    primary: $green
+    accent: $green,
+    strong: $green
   ),
   green-dark: (
     text: white,
     bg: black,
-    primary: $green
+    accent: $green,
+    strong: $green
   ),
   "blue": (
-    text: black,
+    text: white,
     bg: $blue,
-    primary: $gray-light
+    accent: $gray-light,
+    strong: white
   ),
   blue-light: (
     text: black,
     bg: white,
-    primary: $blue
+    accent: $blue,
+    strong: $blue
   ),
   blue-dark: (
     text: white,
     bg: black,
-    primary: $blue
+    accent: $blue,
+    strong: $blue
+  ),
+  "red": (
+    text: white,
+    bg: $red,
+    accent: $gray-light,
+    strong: white
   ),
   red-light: (
     text: black,
     bg: white,
-    primary: $red
+    accent: $red,
+    strong: $red
   ),
   red-dark: (
     text: white,
     bg: black,
-    primary: $red
+    accent: $red,
+    strong: $red
+  ),
+  yellow-light: (
+    text: black,
+    bg: white,
+    accent: $yellow,
+    strong: $yellow
   ),
   yellow-dark: (
     text: white,
     bg: black,
-    primary: $yellow
+    accent: $yellow,
+    strong: $yellow
   )
 );
 
