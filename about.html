@@ -4,50 +4,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="bootstrap.min.css" rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-  <link rel="stylesheet" href="blog.css">
-  <link rel="stylesheet" href="main.css">
   <title>Jonah Sussman</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <script type="module" src="web components/JNav.js"></script>
   <script type="module" src="web components/JFooter.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
   <j-nav></j-nav>
 
-  <div class="container">
-    <div class="j-card bg-dark text-white">
-      <div class="j-card-body">
-        <h1>About me</h1>
-        <p class="container">I'm Jonah Sussman. I'm a CS and Math double major at The University of Alabama. I love challenging myself and solving hard problems.</p>
-        <h3>Experience</h3>
-        <p class="container">Currently, I'm a part of the Digital Forensics and Control Systems Security Lab, researching detecting malware using machine learning on Android. I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.</p>
-        <div id="fun-fact" style="color: white;"></div>
+  <main>
+    <div class="card-red-dark stack">
+      <img src="assets/profilepic1.jpg" class="img-red img-float-right" style="width: min(33vw, 200px); ">
+      <h1>About me</h1>
+      <p>I'm Jonah Sussman. I'm a CS and Math double major at The University of Alabama. I love challenging myself and solving hard problems.</p>
+      <div class="stack" style="background-color: white; margin: 1rem -1rem -1rem; padding: 1rem;">
+        <h3 style="color: black;">Experience</h3>
+        <p style="color: black;">Currently, I'm a part of the Digital Forensics and Control Systems Security Lab, researching detecting malware using machine learning on Android. I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.</p>
+        <div id="fun-fact" style="color: black;"></div>
       </div>
-
-      <img class="j-card-img" src="assets/profilepic1.jpg" style="width: 325px; height: 325px">
     </div>
 
-    <div class="j-card" id="get-in-touch">
-      <div class="j-card-body">
-        <h1>Want to get in touch?</h1>
-        <p class="container">Great! So do I! You can reach me at any of the following places:</p>
-        <div class="container">
-          <p>
-            <b>EMAIL: </b><a href="mailto:sussmanjonah@gmail.com">sussmanjonah@gmail.com</a><br>
-            <b>GITHUB: </b><a href="https://www.github.com/JonahSussman">JonahSussman</a><br>
-            <b>LINKEDIN: </b><a href="https://www.linkedin.com/in/jonah-sussman-889a9b158/">Jonah Sussman</a>
-          </p>
-        </div>
+    <div class="card-blue-light stack" id="get-in-touch">
+      <h1>Want to get in touch?</h1>
+      <p>Great! So do I! You can reach me at any of the following places:</p>
+      <div class="container">
+        <p>
+          <b>EMAIL: </b><a href="mailto:sussmanjonah@gmail.com">sussmanjonah@gmail.com</a><br>
+          <b>GITHUB: </b><a href="https://www.github.com/JonahSussman">JonahSussman</a><br>
+          <b>LINKEDIN: </b><a href="https://www.linkedin.com/in/jonah-sussman-889a9b158/">Jonah Sussman</a>
+        </p>
       </div>
 
       <!-- <img class="j-card-img" src="assets/profilepic0.jpg" style="width: 325px; height: 325px"> -->
     </div>
-  </div>
+  </main>
 
   <j-footer></j-footer>
 

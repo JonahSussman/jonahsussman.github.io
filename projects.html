@@ -4,57 +4,44 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-
-  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-  <link rel="stylesheet" href="blog.css">
-  <link rel="stylesheet" href="main.css">
   <title>Jonah Sussman</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <script type="module" src="web components/JNav.js"></script>
   <script type="module" src="web components/JFooter.js"></script>
+
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body class="d-flex flex-column min-vh-100">
   <j-nav></j-nav>
 
-  <div class="container">
-    <div class="row mb-2">
-      <div class="col-md">
-        <div class="j-card">
-          <div class="j-card-body">
-            <strong class="d-inline-block mb-2 text-primary">GitHub</strong>
-            <h3 class="mb-0">
-              <a class="text-dark" href="https://www.github.com/JonahSussman/closure-language">SussLang - A closure-based language</a>
-            </h3>
-            <div class="mb-1 text-muted">Dec 20, 2020</div>
-            <p class="card-text mb-auto">A while back I made a closure-based language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product. Check it out here!</p>
-            <!-- <a href="#">Continue reading</a> -->
-          </div>
-          <img class="j-card-img" src="assets/closure-thumb.png">
-        </div>
+  <main>
+    <div class="col-2">
+      <div class="card-blue-light stack">
+        <img class="img-blue img-float-left" src="assets/closure-thumb.png">
+        <strong>GitHub</strong>
+        <h3>
+          <a href="https://www.github.com/JonahSussman/closure-language">SussLang - A closure-based language</a>
+        </h3>
+        <p>Dec 20, 2020</p>
+        <p>A while back I made a closure-based language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product. Check it out here!</p>
       </div>
 
-      <div class="col-md">
-        <div class="j-card">
-          <div class="j-card-body">
-            <strong class="d-inline-block mb-2 text-primary">GitHub</strong>
-            <h3 class="mb-0">
-              <a class="text-dark" href="https://www.github.com/JonahSussman/chocan-redux">ChocAn Redux</a>
-            </h3>
-            <div class="mb-1 text-muted">Dec 20, 2020</div>
-            <p class="card-text mb-auto">Java 15 and SQLite implementation of Chocoholics Anonymous found in Object Oriented and Classical Software Engineering, Appendix A.</p>
-            <!-- <a href="#">Continue reading</a> -->
-          </div>
-          <img class="j-card-img" src="assets/appendix-a-thumb.png">
-        </div>
+      <div class="card-blue-light stack">
+        <img class="img-blue img-float-left" src="assets/appendix-a-thumb.png">
+        <strong>GitHub</strong>
+        <h3>
+          <a href="https://www.github.com/JonahSussman/chocan-redux">ChocAn Redux</a>
+        </h3>
+        <p>Dec 28, 2020</p>
+        <p>Java 15 and SQLite implementation of Chocoholics Anonymous found in Object Oriented and Classical Software Engineering, Appendix A.</p>
       </div>
-    </div>
-  </div>
+  </main>
 
   <j-footer></j-footer>
 
-  <script src="bootstrap.bundle.min.js"></script>
 </body>
 </html>

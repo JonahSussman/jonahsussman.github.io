@@ -1,115 +1,7 @@
-/* Colors */
-/* :root {
-  --color-gray-50:  #F9FAFB;
-  --color-gray-100: #F3F4F6;
-  --color-gray-200: #E5E7EB;
-  --color-gray-300: #D1D5DB;
-  --color-gray-400: #9CA3AF;
-  --color-gray-500: #6B7280;
-  --color-gray-600: #4B5563;
-  --color-gray-700: #374151;
-  --color-gray-800: #1F2937;
-  --color-gray-900: #111827;
+@use "sass:map";
 
-  --color-red-50:  #FEF2F2;
-  --color-red-100: #FEE2E2;
-  --color-red-200: #FECACA;
-  --color-red-300: #FCA5A5;
-  --color-red-400: #F87171;
-  --color-red-500: #EF4444;
-  --color-red-600: #DC2626;
-  --color-red-700: #B91C1C;
-  --color-red-800: #991B1B;
-  --color-red-900: #7F1D1D;
-
-  --color-yellow-50:  #FFFBEB;
-  --color-yellow-100: #FEF3C7;
-  --color-yellow-200: #FDE68A;
-  --color-yellow-300: #FCD34D;
-  --color-yellow-400: #FBBF24;
-  --color-yellow-500: #F59E0B;
-  --color-yellow-600: #D97706;
-  --color-yellow-700: #B45309;
-  --color-yellow-800: #92400E;
-  --color-yellow-900: #78350F;
-
-  --color-green-50:  #ECFDF5;
-  --color-green-100: #D1FAE5;
-  --color-green-200: #A7F3D0;
-  --color-green-300: #6EE7B7;
-  --color-green-400: #34D399;
-  --color-green-500: #10B981;
-  --color-green-600: #059669;
-  --color-green-700: #047857;
-  --color-green-800: #065F46;
-  --color-green-900: #064E3B;
-
-  --color-blue-50:  #EFF6FF;
-  --color-blue-100: #DBEAFE;
-  --color-blue-200: #BFDBFE;
-  --color-blue-300: #93C5FD;
-  --color-blue-400: #60A5FA;
-  --color-blue-500: #3B82F6;
-  --color-blue-600: #2563EB;
-  --color-blue-700: #1D4ED8;
-  --color-blue-800: #1E40AF;
-  --color-blue-900: #1E3A8A;
-
-  --color-indigo-50:  #EEF2FF;
-  --color-indigo-100: #E0E7FF;
-  --color-indigo-200: #C7D2FE;
-  --color-indigo-300: #A5B4FC;
-  --color-indigo-400: #818CF8;
-  --color-indigo-500: #6366F1;
-  --color-indigo-600: #4F46E5;
-  --color-indigo-700: #4338CA;
-  --color-indigo-800: #3730A3;
-  --color-indigo-900: #312E81;
-
-  --color-violet-50:  #F5F3FF;
-  --color-violet-100: #EDE9FE;
-  --color-violet-200: #DDD6FE;
-  --color-violet-300: #C4B5FD;
-  --color-violet-400: #A78BFA;
-  --color-violet-500: #8B5CF6;
-  --color-violet-600: #7C3AED;
-  --color-violet-700: #6D28D9;
-  --color-violet-800: #5B21B6;
-  --color-violet-900: #4C1D95;
-
-  --color-pink-50:  #FDF2F8;
-  --color-pink-100: #FCE7F3;
-  --color-pink-200: #FBCFE8;
-  --color-pink-300: #F9A8D4;
-  --color-pink-400: #F472B6;
-  --color-pink-500: #EC4899;
-  --color-pink-600: #DB2777;
-  --color-pink-700: #BE185D;
-  --color-pink-800: #9D174D;
-  --color-pink-900: #831843;
-} */
-
-:root {
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 4%);
-  --light: hsl(0, 0%, 96%);
-  --dark: hsl(0, 0%, 21%);
-  --gray-light: hsl(0, 0%, 71%);
-  --turquoise: hsl(171, 100%, 41%);
-  --blue: hsl(217, 71%, 53%);
-  --cyan: hsl(204, 86%, 53%);
-  --green: hsl(141, 53%, 53%);
-  --yellow: hsl(48, 100%, 67%);
-  --red: hsl(348, 100%, 61%);
-
-  font-family: Inter, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
-
-  --padding-md: ();
-}
-
-*, ::after, ::before {
-  box-sizing: border-box;
-}
+@import 'colors';
+@import 'base';
 
 .j-flex-row {
   display: flex;
@@ -123,29 +15,6 @@
   --color-html: var(--light);
   --color-content: white;
   --text-primary: var(--black);
-}
-
-html, body {
-  margin: 0px;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  color: var(--text-primary);
-  background-color: var(--color-html);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 500;
-  line-height: 1.2;
-}
-
-h1, h2, h3, h4, h5, h6, p {
-  margin-top: 0;
-  margin-bottom: 0;
-}
-
-p {
-  line-height: 1.5;
 }
 
 nav {
@@ -217,24 +86,9 @@ nav a:not(:first-child):hover {
   }
 }
 
-[class^="j-btn"] {
-  display: inline-block;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--text-primary);
-  border: 1px solid var(--text-primary);
-  box-shadow: 5px 5px var(--dark);
-  text-align: center;
-  text-decoration: none;
-  vertical-align: middle;
-  cursor: pointer;
-  user-select: none;
-  background-color: transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  border-radius: 0;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-}
+// [class^="j-btn"] {
+
+// }
 
 [class^="j-btn"]:hover {
   color: var(--color-html);
@@ -377,4 +231,12 @@ nav a:not(:first-child):hover {
   .j-2-col {
     grid-template-columns: 1fr;
   }
+}
+
+#j-GRADIENT {
+  background: linear-gradient(
+    map.get($tw-blue, 400), 
+    map.get($tw-indigo, 400)
+  );
+
 }

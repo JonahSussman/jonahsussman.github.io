@@ -1,0 +1,6 @@
+
+@mixin stack($left, $right) {
+  > #{$left} + #{$right} {
+    margin-top: 1rem;
+  }
+}

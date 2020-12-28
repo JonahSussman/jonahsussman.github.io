@@ -1,0 +1,562 @@
+.mainnav {
+  background-color: black;
+  color: white;
+  padding: 0.5rem 1rem;
+}
+
+.mainnav h2 {
+  padding: 0.5rem;
+}
+
+.mainnav a {
+  color: white;
+  text-decoration: none;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+.mainnav a:hover:not(#navburger > a) {
+  color: black;
+  background-color: white;
+}
+
+.mainnav ul {
+  list-style-type: none;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.mainnav li {
+  font-size: 1.25rem;
+  padding-left: 1rem;
+}
+
+.mainnav ul > * + * {
+  margin-top: 0.75rem;
+}
+
+.mainnav.responsive li {
+  display: none;
+}
+
+#navburger {
+  display: block;
+  position: absolute;
+  right: 1rem;
+  top: 1.5rem;
+  margin: 0;
+  padding: 0;
+  height: 30px;
+}
+
+@media (min-width: 768px) {
+  .mainnav h2 {
+    float: left;
+  }
+
+  .mainnav li, .mainnav.responsive li {
+    float: right;
+    display: inline;
+  }
+
+  #navburger {
+    display: none;
+  }
+}
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: black;
+  background-color: whitesmoke;
+  font-family: Rubik, Inter, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 100%;
+}
+
+@media (max-width: 768px) {
+  html, body {
+    font-size: 90%;
+  }
+}
+@media (max-width: 500px) {
+  html, body {
+    font-size: 85%;
+  }
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+  line-height: 1.2;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.25rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+h5 {
+  font-size: 1.25rem;
+}
+
+h6 {
+  font-size: 1rem;
+}
+
+p {
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+a {
+  color: black;
+}
+
+hr {
+  border: none;
+  margin: 0;
+  height: 1px;
+  color: black;
+  background-color: black;
+}
+
+.stack > * + * {
+  margin-top: 1rem;
+}
+
+main {
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: min(40px, 4vw);
+}
+main > * + * {
+  margin-top: 1rem;
+}
+
+main:last-child {
+  margin-bottom: 1rem;
+}
+
+button {
+  all: unset;
+  line-height: 1.5;
+  font-weight: bold;
+  color: black;
+  border: 1px solid black;
+  box-shadow: 5px 5px #363636;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+button:hover {
+  background-color: black;
+  color: white;
+}
+button:active {
+  transform: translate(5px, 5px);
+  box-shadow: none;
+}
+
+img {
+  box-shadow: 5px 5px #363636;
+}
+
+footer, j-footer {
+  color: white;
+  background-color: black;
+  margin-top: auto;
+  padding: 2rem 0;
+  text-align: center;
+}
+footer > * + *, j-footer > * + * {
+  margin-top: 1rem;
+}
+footer a, j-footer a {
+  color: white;
+}
+
+.col-2 {
+  display: grid;
+  column-gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+}
+
+.col-2 > :nth-child(n+3) {
+  margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .col-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .col-2 > :nth-child(n+2) {
+    margin-top: 1rem;
+  }
+}
+.card, .card-yellow-dark, .card-red-dark, .card-red-light, .card-blue-dark, .card-blue-light, .card-blue, .card-green-dark, .card-green-light, .card-green, .card-default-dark, .card-default {
+  background-color: white;
+  color: black;
+  width: 100%;
+  box-shadow: 5px 5px #b5b5b5;
+  padding: 1rem;
+}
+
+.card-default {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #b5b5b5;
+  border: 1px solid black;
+}
+
+.card-default strong {
+  color: #b5b5b5;
+}
+
+.btn-default {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #b5b5b5;
+  border-color: black;
+}
+
+.btn-default:hover {
+  color: white;
+  background-color: black;
+}
+
+.btn-default:active {
+  box-shadow: none;
+}
+
+.card-default-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #363636;
+  border: 1px solid black;
+}
+
+.card-default-dark strong {
+  color: #363636;
+}
+
+.btn-default-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #363636;
+  border-color: white;
+}
+
+.btn-default-dark:hover {
+  color: black;
+  background-color: white;
+}
+
+.btn-default-dark:active {
+  box-shadow: none;
+}
+
+.card-green {
+  color: white;
+  background-color: #48c774;
+  box-shadow: 5px 5px #b5b5b5;
+  border: 1px solid black;
+}
+
+.card-green strong {
+  color: #b5b5b5;
+}
+
+.btn-green {
+  color: white;
+  background-color: #48c774;
+  box-shadow: 5px 5px #b5b5b5;
+  border-color: white;
+}
+
+.btn-green:hover {
+  color: #48c774;
+  background-color: white;
+}
+
+.btn-green:active {
+  box-shadow: none;
+}
+
+.card-green-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #48c774;
+  border: 1px solid black;
+}
+
+.card-green-light strong {
+  color: #48c774;
+}
+
+.btn-green-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #48c774;
+  border-color: black;
+}
+
+.btn-green-light:hover {
+  color: white;
+  background-color: black;
+}
+
+.btn-green-light:active {
+  box-shadow: none;
+}
+
+.card-green-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #48c774;
+  border: 1px solid black;
+}
+
+.card-green-dark strong {
+  color: #48c774;
+}
+
+.btn-green-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #48c774;
+  border-color: white;
+}
+
+.btn-green-dark:hover {
+  color: black;
+  background-color: white;
+}
+
+.btn-green-dark:active {
+  box-shadow: none;
+}
+
+.card-blue {
+  color: black;
+  background-color: #3273dc;
+  box-shadow: 5px 5px #b5b5b5;
+  border: 1px solid black;
+}
+
+.card-blue strong {
+  color: #b5b5b5;
+}
+
+.btn-blue {
+  color: black;
+  background-color: #3273dc;
+  box-shadow: 5px 5px #b5b5b5;
+  border-color: black;
+}
+
+.btn-blue:hover {
+  color: #3273dc;
+  background-color: black;
+}
+
+.btn-blue:active {
+  box-shadow: none;
+}
+
+.card-blue-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #3273dc;
+  border: 1px solid black;
+}
+
+.card-blue-light strong {
+  color: #3273dc;
+}
+
+.btn-blue-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #3273dc;
+  border-color: black;
+}
+
+.btn-blue-light:hover {
+  color: white;
+  background-color: black;
+}
+
+.btn-blue-light:active {
+  box-shadow: none;
+}
+
+.card-blue-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #3273dc;
+  border: 1px solid black;
+}
+
+.card-blue-dark strong {
+  color: #3273dc;
+}
+
+.btn-blue-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #3273dc;
+  border-color: white;
+}
+
+.btn-blue-dark:hover {
+  color: black;
+  background-color: white;
+}
+
+.btn-blue-dark:active {
+  box-shadow: none;
+}
+
+.card-red-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #ff3860;
+  border: 1px solid black;
+}
+
+.card-red-light strong {
+  color: #ff3860;
+}
+
+.btn-red-light {
+  color: black;
+  background-color: white;
+  box-shadow: 5px 5px #ff3860;
+  border-color: black;
+}
+
+.btn-red-light:hover {
+  color: white;
+  background-color: black;
+}
+
+.btn-red-light:active {
+  box-shadow: none;
+}
+
+.card-red-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #ff3860;
+  border: 1px solid black;
+}
+
+.card-red-dark strong {
+  color: #ff3860;
+}
+
+.btn-red-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #ff3860;
+  border-color: white;
+}
+
+.btn-red-dark:hover {
+  color: black;
+  background-color: white;
+}
+
+.btn-red-dark:active {
+  box-shadow: none;
+}
+
+.card-yellow-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #ffdd57;
+  border: 1px solid black;
+}
+
+.card-yellow-dark strong {
+  color: #ffdd57;
+}
+
+.btn-yellow-dark {
+  color: white;
+  background-color: black;
+  box-shadow: 5px 5px #ffdd57;
+  border-color: white;
+}
+
+.btn-yellow-dark:hover {
+  color: black;
+  background-color: white;
+}
+
+.btn-yellow-dark:active {
+  box-shadow: none;
+}
+
+.img-black {
+  border: 1px solid black;
+  box-shadow: 5px 5px #0a0a0a;
+}
+
+.img-green {
+  border: 1px solid black;
+  box-shadow: 5px 5px #48c774;
+}
+
+.img-blue {
+  border: 1px solid black;
+  box-shadow: 5px 5px #3273dc;
+}
+
+.img-red {
+  border: 1px solid black;
+  box-shadow: 5px 5px #ff3860;
+}
+
+.img-float-left, .img-float-right {
+  width: min(20vw, 200px);
+  margin-bottom: 1rem;
+}
+
+.img-float-right {
+  float: right;
+  margin-left: 1rem;
+}
+
+.img-float-left {
+  float: left;
+  margin-right: 1rem;
+}

@@ -1,0 +1,67 @@
+@use 'sass:map';
+
+@import 'colors';
+@import 'base';
+
+.card {
+  background-color: white;
+  color: black;
+
+  width: 100%;
+  box-shadow: 5px 5px $gray-light;
+  padding: 1rem;
+}
+
+@each $name, $swatch in $swatches {
+  .card-#{$name} {
+    @extend .card;
+    color: map.get($swatch, "text");
+    background-color: map.get($swatch, "bg");
+    box-shadow: 5px 5px map.get($swatch, "primary");
+    border: 1px solid black;
+  }
+
+  .card-#{$name} strong {
+    color: map.get($swatch, "primary");
+  }
+
+  .btn-#{$name} {
+    color: map.get($swatch, "text");
+    background-color: map.get($swatch, "bg");
+    box-shadow: 5px 5px map.get($swatch, "primary");
+    border-color: map.get($swatch, "text");
+  }
+ 
+  .btn-#{$name}:hover {
+    color: map.get($swatch, "bg");
+    background-color: map.get($swatch, "text");
+  }
+
+  .btn-#{$name}:active {
+    box-shadow: none;
+  }
+}
+
+@each $name, $color in $colors {
+  .img-#{$name} {
+    border: 1px solid black;
+    box-shadow: 5px 5px $color;
+  }
+}
+
+%img-floats {
+  width: min(20vw, 200px); 
+  margin-bottom: 1rem;
+}
+
+.img-float-right {
+  @extend %img-floats;
+  float: right;
+  margin-left: 1rem; 
+}
+
+.img-float-left {
+  @extend %img-floats;
+  float: left;
+  margin-right: 1rem; 
+}
