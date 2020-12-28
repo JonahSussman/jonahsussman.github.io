@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hello Bulma!</title>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/j-themes.css">
+</head>
+
+<body class="j-light">
+  <nav class="j-nav" id="j-nav">
+    <div class="j-nav-holder" id="j-nav-holder">
+      <a href="/">Jonah Sussman</a>
+      <a href="/">Home</a>
+      <a href="/">About</a>
+      <a href="/">Projects</a>
+      <a href="/">Resume</a>
+      <a href="javascript:void(0);" id="j-ham" onclick="myFunction()">
+        <svg viewBox="0 0 100 80" width="30" height="30">
+          <rect width="100" height="20" rx="10"></rect>
+          <rect y="30" width="100" height="20" rx="10"></rect>
+          <rect y="60" width="100" height="20" rx="10"></rect>
+        </svg>
+      </a>
+    </div>
+  </nav>
+
+  <div class="j-container">
+    <div class="j-billboard" style="background-color: black; color:white;">
+      <h1 class="j-billboard-header">Hello! My name is Jonah Sussman.</h1>
+      <img class="j-billboard-image" src="assets/profilepic0.jpg">
+      <p class="j-billboard-body">I'm a research assistant and Computer Science and Mathematics double major at The University of Alabama.</p>
+      <div class="j-flex-row">
+        <a href="assets/Jonah Sussman Resume ONLINE 2020-12-20.pdf" class="j-btn-white" role="button">View Resume</a>
+        <a href="about#get-in-touch" class="j-btn-blue" role="button">Get in Touch</a>
+      </div>
+    </div>
+
+    <div class="j-2-col">
+      <div class="j-col">
+        <div class="j-card">
+          <div class="j-card-body">
+            <strong style="color: var(--blue);">GitHub</strong>
+            <h3 class="mb-0">
+              <a class="text-dark" href="https://www.github.com/JonahSussman/closure-language">SussLang - A closure-based language</a>
+            </h3>
+            <div class="mb-1 text-muted">Dec 20, 2020</div>
+            <p class="card-text mb-auto">A while back I made a closure-based language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product. Check it out here!</p>
+            <!-- <a href="#">Continue reading</a> -->
+          </div>
+          <img class="j-card-img" src="assets/closure-thumb.png">
+        </div>
+      </div>
+      <div class="j-col">
+        <div class="j-card">
+          <div class="j-card-body">
+            <strong class="d-inline-block mb-2 text-primary">GitHub</strong>
+            <h3 class="mb-0">
+              <a class="text-dark" href="https://www.github.com/JonahSussman/closure-language">SussLang - A closure-based language</a>
+            </h3>
+            <div class="mb-1 text-muted">Dec 20, 2020</div>
+            <p class="card-text mb-auto">A while back I made a closure-based language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product. Check it out here!</p>
+            <!-- <a href="#">Continue reading</a> -->
+          </div>
+          <img class="j-card-img" src="assets/closure-thumb.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function myFunction() {
+      var x = document.getElementById("j-nav-holder");
+      if (x.className === "j-nav-holder") {
+        x.className += " responsive";
+      } else {
+        x.className = "j-nav-holder";
+      }
+    }
+    </script>
+</body>
+
+</html>
