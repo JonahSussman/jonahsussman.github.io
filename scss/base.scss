@@ -63,7 +63,7 @@ hr {
 }
 
 .stack {
-  @include stack("*", "*");
+  @include stack("*:not(img)", "*");
 }
 
 main {

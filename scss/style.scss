@@ -86,4 +86,8 @@
   &:hover {
     text-shadow: 0.2rem 0.2rem $red, 0.4rem 0.4rem $blue;
   }
+
+  &:focus {
+    text-shadow: 0.25rem 0.25rem $red, 0.5rem 0.5rem $blue;
+  }
 }
