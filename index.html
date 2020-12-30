@@ -59,15 +59,15 @@
     let h = new Date().getHours();
     let timed_greet = '';
     if (h < 6) {
-      timed_greet = 'Someone\'s up early!';
+      timed_greet = 'Some&shy;one\'s up early!';
     } else if (h < 12) {
-      timed_greet = 'Mornin\'!';
+      timed_greet = 'Morn&shy;in\'!';
     } else if (h < 18) {
-      timed_greet = 'Afternoon!';
+      timed_greet = 'After&shy;noon!';
     } else if (h < 21) {
-      timed_greet = 'Evenin\'!';
+      timed_greet = 'Even&shy;in\'!';
     } else {
-      timed_greet = 'Good evening!';
+      timed_greet = 'Good even&shy;ing!';
     }
 
     let greetings = ['Hey!', 'Hi!', 'Hello!', 'Howdy!', timed_greet];
