@@ -18,29 +18,30 @@
   <j-nav></j-nav>
 
   <main>
-    <div class="card-green-dark stack">
-      <img src="assets/profilepic0.jpg" class="img-float-right" style="width: min(33vw, 200px); ">
+    <div class="card sw-green-dark stack">
+      <img src="assets/profilepic0.jpg" class="sw-default img-float-right" style="width: min(33vw, 200px); ">
       <h1 id="greeting"></h1>
       <p>I'm a research assistant and Computer Science & Mathematics double major at The University of Alabama. I welcome you to my website! Here you can find various things that I've been working on, projects, et cetera. Stay a while!</p>
       <div style="background-color: white; margin-right: -1rem; margin-left: -1rem; margin-bottom: -1rem; padding: 0 1rem 1rem;">
-        <button style="margin-top: 1rem;" class="btn-red-light" onclick="href('assets/Jonah Sussman Resume ONLINE 2020-12-20.pdf')">View Resume</button>
-        <button style="margin-top: 1rem;" class="btn-red-light" onclick="href('/about#get-in-touch')">Get in Touch</button>
+        <button style="margin-top: 1rem;" class="btn sw-red-light" onclick="href('assets/Jonah Sussman Resume ONLINE 2020-12-20.pdf')">View Resume</button>
+        <button style="margin-top: 1rem;" class="btn sw-red-light" onclick="href('/about#get-in-touch')">Get in Touch</button>
       </div>
     </div>
 
     <div class="col-2">
-      <div class="card-blue-light stack">
-        <img class="img-blue img-float-left" src="assets/closure-thumb.png">
+      <!-- <div class="card-blue-light stack"> -->
+      <div class="card sw-blue-light stack">
+        <img class="img-float-left" src="assets/closure-thumb.png">
         <strong>GitHub</strong>
         <h3>
           <a href="https://www.github.com/JonahSussman/closure-language">SussLang - A closure-based language</a>
         </h3>
-        <p>Dec 20, 2020</p>
+        <p class="">Dec 20, 2020</p>
         <p>A while back I made a closure-based language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product. Check it out here!</p>
       </div>
 
-      <div class="card-green-light stack">
-        <img src="assets/profilepic0.jpg" class="img-green img-float-left" >
+      <div class="card sw-green-light stack">
+        <img src="assets/profilepic0.jpg" class="img-float-left" >
         <strong>LinkedIn</strong>
         <h3>
           <a href="https://www.linkedin.com/in/jonah-sussman-889a9b158">Check me out on LinkedIn!</a>
@@ -71,7 +72,7 @@
     }
 
     let greetings = ['Hey!', 'Hi!', 'Hello!', 'Howdy!', timed_greet];
-    let greet = rand_select(greetings) + ' My name is Jonah Sussman.';
+    let greet = rand_select(greetings) + ' My name is <span class="crazy-jonah">Jonah Sussman</span>.';
     // if (window.innerWidth < 350) greet = 'Hi! My name is Jonah Sussman.'
 
     document.getElementById('greeting').innerHTML = greet;

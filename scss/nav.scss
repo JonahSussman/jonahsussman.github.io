@@ -4,7 +4,6 @@
 
 #navbar {
   background-color: black;
-  // background: linear-gradient(45deg, map.get($tw-yellow, 400), map.get($tw-orange, 500));
 }
 
 .nav-flex {
@@ -13,44 +12,32 @@
   max-width: 1320px;
   margin: auto;
   padding: 1rem;
-
-  overflow: hidden;
-
-  a {
-    color: white;
-    text-decoration: none;
-  }
-  
-  ul {
-    margin: 0;
-    padding-left: 2rem;
-    list-style-type: none;
-  }
-
-  li {
-    margin-top: 1rem;
-    font-size: 1.5rem;
-  }
 }
 
-@keyframes goRight {
-  0% { transform: translateX(-2rem);}
-  100% { transform:translateX(0rem);}
+.nav-logo {
+  font-size: 2.25rem;
+  text-decoration: none;
+  font-weight: 500;
+  margin-right: 3.25rem;
+}
+
+@keyframes nav-link-fly {
+  0% { transform: translateX(-2rem); }
+  100% { transform:translateX(0rem); }
 }
 
 #nav-menu {
   display: none;
 
   &.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
 
-      > * {
-      transform-origin: 0 0;
-      animation-name: goRight;
+    > * {
+      animation-name: nav-link-fly;
       animation-duration: .25s;
       animation-timing-function: ease-in-out;
       animation-fill-mode: backwards;
-      animation-iteration-count: 1;
 
       &:nth-child(1) { animation-delay:   0ms; }
       &:nth-child(2) { animation-delay:  75ms; }
@@ -61,14 +48,11 @@
   }
 }
 
-.nav-logo {
-  font-size: 2.25rem;
-  font-weight: 500;
-  margin-right: 3.25rem;
-}
 
 .nav-link {
   font-size: 1.5rem;
+  text-decoration: none;
+  margin: 1rem 0 0 2rem;
 
   &:hover {
     text-decoration: underline;
@@ -76,11 +60,10 @@
 }
 
 #nav-toggle {
-  position: absolute;
   display: block;
+  position: absolute;
   top: 1rem;
   right: 1rem;
-  fill: white;
   cursor: pointer;
   transition: transform .15s ease-in-out;
 
@@ -105,11 +88,9 @@
     flex-direction: row;
     justify-content: flex-end;
     align-content: center;
+  }
 
-    li {
-      margin-top: auto;
-      margin-bottom: auto;
-      margin-left: 1rem;
-    }
+  .nav-link {
+    margin: auto 0 auto 1rem;
   }
 }

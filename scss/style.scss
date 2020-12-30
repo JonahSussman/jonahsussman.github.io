@@ -3,66 +3,6 @@
 @import 'colors';
 @import 'base';
 
-.card {
-  background-color: white;
-  color: black;
-
-  width: 100%;
-  box-shadow: 5px 5px $gray-light;
-  border: 1px solid black;
-  padding: 1rem;
-}
-
-@each $name, $swatch in $swatches {
-  .card-#{$name} {
-    @extend .card;
-    color: map.get($swatch, "text");
-    background-color: map.get($swatch, "bg");
-    box-shadow: 5px 5px map.get($swatch, "accent");
-
-    > a {
-      background-color: map.get($swatch, "bg");
-      color: map.get($swatch, "text");
-    }
-
-    > strong {
-      color: map.get($swatch, "strong");
-    }
-  }
-
-  .btn-#{$name} {
-    color: map.get($swatch, "text");
-    background-color: map.get($swatch, "bg");
-    box-shadow: 5px 5px map.get($swatch, "accent");
-
-    > a {
-      background-color: map.get($swatch, "bg");
-      color: map.get($swatch, "text");
-    }
-
-    &:hover, &:hover a {
-      color: map.get($swatch, "bg");
-      background-color: map.get($swatch, "text");
-    }
-  }
- 
-  // .btn-#{$name}:hover, .btn-#{$name}:hover a {
-  //   color: map.get($swatch, "bg");
-  //   background-color: map.get($swatch, "text");
-  // }
-
-  // .btn-#{$name}:active {
-  //   box-shadow: none;
-  // }
-}
-
-@each $name, $color in $colors {
-  .img-#{$name} {
-    border: 1px solid black;
-    box-shadow: 5px 5px $color;
-  }
-}
-
 %img-floats {
   width: min(20vw, 200px); 
   margin-bottom: 1rem;
@@ -87,7 +27,29 @@
     text-shadow: 0.2rem 0.2rem $red, 0.4rem 0.4rem $blue;
   }
 
-  &:focus {
-    text-shadow: 0.25rem 0.25rem $red, 0.5rem 0.5rem $blue;
-  }
+  // &:focus {
+  //   text-shadow: 0.25rem 0.25rem $red, 0.5rem 0.5rem $blue;
+  // }
 }
+
+.crazy-inherit {
+  transition: text-shadow 0.2s ease-in-out;
+
+  &:hover {
+    text-shadow: 0.2rem 0.2rem var(--color-accent);
+  }
+
+  // &:focus {
+  //   text-shadow: 0.25rem 0.25rem var(--color-accent);
+  // }
+}
+
+// div {
+//   > h1:first-of-type {
+//     transition: text-shadow 0.2s ease-in-out;
+//   }
+
+//   &:hover > h1:first-of-type {
+//     text-shadow: 0.2rem 0.2rem var(--color-accent, $yellow);
+//   }
+// }

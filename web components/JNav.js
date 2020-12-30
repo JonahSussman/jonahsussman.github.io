@@ -12,25 +12,25 @@ function rb(min, max) {
 
 let html = /* html */ `
 <div class="nav-flex">
-  <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem">
+  <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="white">
     <rect y="10"  width="100" height="20" rx="10"></rect>
     <rect y="40" width="100" height="20" rx="10"></rect>
     <rect y="70" width="100" height="20" rx="10"></rect>
   </svg>
   <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
-  <ul id="nav-menu">
-    <li><a class="nav-link" href="/">Home</a></li>
-    <li><a class="nav-link" href="/about">About</a></li>
-    <li><a class="nav-link" href="/projects">Projects</a></li>
-    <li><a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE%202020-12-20.pdf">Resume</a></li>
-  </ul>
+  <div id="nav-menu">
+    <a class="nav-link" href="/">Home</a>
+    <a class="nav-link" href="/about">About</a>
+    <a class="nav-link" href="/projects">Projects</a>
+    <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE%202020-12-20.pdf">Resume</a>
+  </div>
 </div>
 `;
 
 class JNav extends HTMLElement {
   constructor() {
     super();
-    this.className = "";
+    this.className = "sw-default-dark";
     this.id = "navbar";
     this.innerHTML = html;
 

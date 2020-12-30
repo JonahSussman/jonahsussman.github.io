@@ -48,4 +48,4 @@ let a = [
 let i = Math.floor(Math.random() * a.length);
 
 document.getElementById('fun-fact').innerHTML = 
-  '<h3>' + a[i][0] + '</h3><p class="container">' + a[i][1] + '</p>';
+  '<h3>' + a[i][0] + ' <span style="color: grey; font-size: 1rem; cursor: help;" title="Confused? Try refreshing the page!">(?)</span></h3><p class="container">' + a[i][1] + '</p>';

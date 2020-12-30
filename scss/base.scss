@@ -6,30 +6,32 @@
   box-sizing: border-box;
 }
 
+// CSS Variables:
+//   --color-text: Controls the color of the text
+
+// perhaps do invert color too?
+// Limited to cards (div), buttons, imgs, buttons, etc
+@each $name, $swatch in $swatches {
+  .sw-#{$name} {
+    // --color-self: #{map.get($swatch, "self")};
+    --color-text: #{map.get($swatch, "text")};
+    --color-bg: #{map.get($swatch, "bg")};
+    --color-accent:  #{map.get($swatch, "accent")};
+    --color-strong: #{map.get($swatch, "strong")};
+  }
+}
+
 html, body {
   z-index: -1;
   margin: 0px;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  color: black;
-  background-color: $light;
+  color: var(--color-text, black);
+  background-color: var(--color-bg, $light);
   font-family: Rubik, Inter, Roobert, Helvetica Neue, Helvetica, Arial, sans-serif;
   font-size: 100%;
-  hyphens: auto;
 }
-
-// @media (max-width: 768px) {
-//   html, body {
-//     font-size: 90%;
-//   }
-// }
-
-// @media (max-width: 500px) {
-//   html, body {
-//     font-size: 85%;
-//   }
-// }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
@@ -52,15 +54,11 @@ p {
 }
 
 a {
-  color: black;
+  color: var(--color-text, black);
 }
 
-hr {
-  border: none;
-  margin: 0;
-  height: 1px;
-  color: black;
-  background-color: black;
+strong {
+  color: var(--color-strong, black);
 }
 
 .stack {
@@ -69,6 +67,7 @@ hr {
 
 main {
   @include stack("*", "*");
+
   width: 100%;
   max-width: 1320px;
   margin-left: auto;
@@ -76,55 +75,71 @@ main {
   padding: min(40px, 4vw);
 }
 
+div {
+  color: var(--color-text, black);
+  background-color: var(--color-bg, white);
+}
+
 main:last-child {
   margin-bottom: 1rem;
 }
 
-button {
-  all: unset;
-  line-height: 1.5;
-
-  font-weight: bold;
-  color: black;
+%lifted-element {
+  color: var(--color-text, black);
+  background-color: var(--color-bg, white);
   border: 1px solid black;
+  border-radius: 0;
+  box-shadow: 5px 5px var(--color-accent, $gray-light);
+}
 
-  box-shadow: 5px 5px $dark;
+.card {
+  @extend %lifted-element;
+
+  width: 100%;
+  padding: 1rem;
+}
+
+button {
+  @extend %lifted-element;
+
+  font: inherit;
+  cursor: pointer;
+  line-height: 1.5;
+  font-weight: bold;
   text-align: center;
+  outline: none;
   text-decoration: none;
   vertical-align: middle;
-  cursor: pointer;
   user-select: none;
-  background-color: transparent;
   margin-right: 5px;
   margin-bottom: 5px;
   padding: .375rem .75rem;
-  border-radius: 0;
-  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out;
 
   a {
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-    background-color: black;
-    color: white;
+    transition: color .15s ease-in-out;
   }
 
   &:hover {
-    background-color: black;
-    color: white;
+    color: var(--color-bg, black);
+    background-color: var(--color-text, white);
+  }
+
+  &:hover a {
+    color: var(--color-bg, black);
   }
 
   &:active {
     transform: translate(5px, 5px);
     box-shadow: none;
   }
-  
 }
 
 img {
-  border: 1px solid black;
-  box-shadow: 5px 5px $gray-light;
+  @extend %lifted-element;
 }
 
-footer {
+footer, j-footer {
   @include stack("*", "*");
   color: white;
   background-color: black;
@@ -136,10 +151,6 @@ footer {
   a {
     color: white;
   }
-}
-
-j-footer {
-  @extend footer;
 }
 
 %col {
