@@ -22,7 +22,7 @@ let html = /* html */ `
     <a class="nav-link" href="/">Home</a>
     <a class="nav-link" href="/about">About</a>
     <a class="nav-link" href="/projects">Projects</a>
-    <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE%202020-12-20.pdf">Resume</a>
+    <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE%202021-02-18.pdf">Resume</a>
   </div>
 </div>
 `;
