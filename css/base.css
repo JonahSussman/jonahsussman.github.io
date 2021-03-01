@@ -333,6 +333,7 @@ footer a, j-footer a {
 .col-3, .col-2 {
   display: grid;
   column-gap: 1rem;
+  background-color: var(--color-bg, whitesmoke);
 }
 
 .col-2 {
