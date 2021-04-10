@@ -1,13 +1,13 @@
 function navResponse() {
-  let m = document.getElementById("nav-menu");
-  m.className = m.className === "" ? "active" : "";
+    let m = document.getElementById("nav-menu");
+    m.className = m.className === "" ? "active" : "";
 
-  let btn = document.getElementById("nav-toggle");
-  btn.setAttribute("class", btn.getAttribute("class") === "" ? "active" : "");
+    let btn = document.getElementById("nav-toggle");
+    btn.setAttribute("class", btn.getAttribute("class") === "" ? "active" : "");
 }
 
 function rb(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) + min);
+    return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
 let html = /* html */ `
@@ -22,20 +22,20 @@ let html = /* html */ `
     <a class="nav-link" href="/">Home</a>
     <a class="nav-link" href="/about">About</a>
     <a class="nav-link" href="/projects">Projects</a>
-    <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE%202021-02-18.pdf">Resume</a>
+    <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE%202021-04-09.pdf">Resume</a>
   </div>
 </div>
 `;
 
 class JNav extends HTMLElement {
-  constructor() {
-    super();
-    this.className = "sw-default-dark";
-    this.id = "navbar";
-    this.innerHTML = html;
+    constructor() {
+        super();
+        this.className = "sw-default-dark";
+        this.id = "navbar";
+        this.innerHTML = html;
 
-    document.getElementById("nav-toggle").addEventListener("click", navResponse, false);
-  }
+        document.getElementById("nav-toggle").addEventListener("click", navResponse, false);
+    }
 }
 
 customElements.define('j-nav', JNav);
