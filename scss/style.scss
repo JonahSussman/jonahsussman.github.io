@@ -3,6 +3,11 @@
 @import 'colors';
 @import 'base';
 
+.center-icon {
+  font-size: 1.75rem;
+  vertical-align: middle;
+}
+
 %img-floats {
   width: min(20vw, 200px); 
   margin-bottom: 1rem;

@@ -1,5 +1,5 @@
 let html = /* html */ `
-  <p>${new Date().getFullYear()} | Made with 💖 by Jonah Sussman</p>
+  <p>2020 - ${new Date().getFullYear()} | Made with 💖 by Jonah Sussman</p>
   <p><a href="#">Back to top</a></p>
 `;
 
