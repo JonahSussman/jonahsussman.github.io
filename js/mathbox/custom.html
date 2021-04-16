@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>MathBox - Empty</title>
+  <script src="mathbox-bundle.min.js"></script>
+  <link rel="stylesheet" href="mathbox.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+</head>
+<body>
+  <script type="application/glsl" id="color-shader">
+    vec4 getColorSample(vec4 xyzw);
+    vec4 getTextSample(vec4 xyzw);
+  
+    vec4 resample(vec4 xyzw) {
+      vec4 rgba = getColorSample(xyzw);
+      float i   = floor(rgba.r * 255.0 + .5);
+      return getTextSample(vec4(i, 0, 0, 0));
+    }
+  </script>
+
+  <script>
+    let mathbox = mathBox({
+      plugins: ['core', 'controls', 'cursor', 'mathbox'],
+      controls: {
+        klass: THREE.OrbitControls,
+        // klass: THREE.TrackballControls,
+      },
+    });
+
+    if (mathbox.fallback) throw "WebGL not supported";
+    
+    let latex = MathBox.DOM.createClass({
+      render: function (el) {
+        this.props.innerHTML = katex.renderToString(this.children);
+        return el('span', this.props);
+      }
+    });
+
+    let three = mathbox.three;
+    three.renderer.setClearColor(new THREE.Color(0xFFFFF0), 1.0);
+
+    time = 0;
+
+    three.on('update', function () {
+      // clock = three.Time.clock
+      // time = clock / 4
+
+      // t = Math.max(clock - 1, 0) / 12
+      // t = t < .5 ? t * t : t - .25
+
+      // o = .5 - .5 * Math.cos(Math.min(1, t) * π)
+
+      // c = Math.cos(t);
+      // s = Math.sin(t);
+
+      // view.set('quaternion', [0, -s, 0, c]);
+      // surface.set('opacity', 1 - o * .25);
+
+      // f = 1 + o;
+      // view.set('range', [[-3 * f, 3 * f], [0, 6], [-3 * f, 3 * f]]);
+      // view.set('scale', [2*f, 2, 2*f]);
+    });
+
+    let camera = mathbox.camera({
+      proxy: true,
+      position: [0, 3, 3],
+    });
+
+    let view = mathbox.cartesian({
+      range: [[-5, 5], [-5, 5], [-5, 5]],
+      scale: [2, 2, 2],
+    });
+
+    view
+      .axis({
+        axis: 1,
+        width: 5
+      })
+      .axis({
+        axis: 2,
+        width: 5
+      })
+      .axis({
+        axis: 3,
+        width: 5
+      })
+      .grid({
+        axes: [1, 3],
+        width: 2,
+      })
+
+    for (let index = -1; index <= 1; index++) {
+      lines = {
+        lineX: true,
+        lineY: true,
+        shaded: true,
+        width: 5,
+        opacity: 0.2,
+        // color: 0x0000ff
+      };
+
+      view.area({
+        id: 'area'+index,
+        rangeY: [0, 5],
+        rangeX: [-5, 5],
+        width: 25,
+        height: 25,
+        axes: [1, 3],
+        expr: function (emit, x, y, i, j) {
+          let imag = Math.atan2(y, x) + 2*Math.PI*index;
+          emit(x, imag, y);
+        },
+        channels: 3,
+      }).surface(lines).area({
+        id: 'color'+index,
+        rangeY: [0, 5],
+        rangeX: [-5, 5],
+        width: 25,
+        height: 25,
+        axes: [1, 3],
+        expr: function (emit, x, y, i, j) {
+          let real = Math.log(Math.abs(x*x + y*y)) / Math.log(100);
+          if (real > 1) real = 1;
+          if (real < 0) real = 0;
+          // if (real > 1) console.log(real)
+          emit(real, 1 - real, (2 - real) % 2, 1);
+        },
+        channels: 4,
+      })
+      view.point({
+        points: '#area'+index,
+        colors: '#color'+index,
+        size: 20,
+        color: 0xffffff,
+        // zIndex: -100s
+      })
+
+      view.area({
+        id: 'areaa'+index,
+        rangeY: [-5, -0.001],
+        rangeX: [-5, 5],
+        width: 25,
+        height: 25,
+        axes: [1, 3],
+        expr: function (emit, x, y, i, j) {
+          let imag = Math.atan2(y, x) + 2*Math.PI*index;
+          emit(x, imag, y);
+        },
+        channels: 3,
+      }).surface(lines).area({
+        id: 'colorr'+index,
+        rangeY: [0, 5],
+        rangeX: [-5, 5],
+        width: 25,
+        height: 25,
+        axes: [1, 3],
+        expr: function (emit, x, y, i, j) {
+          let real = Math.log(Math.abs(x*x + y*y)) / Math.log(100);
+          if (real > 1) real = 1;
+          if (real < 0) real = 0;
+          // if (real > 1) console.log(real)
+          emit(real, 1 - real, (2 - real) % 2, 1);
+        },
+        channels: 4,
+      })
+      view.point({
+        points: '#areaa'+index,
+        colors: '#colorr'+index,
+        size: 20,
+        color: 0xffffff,
+        // zIndex: -100s
+      })
+  }
+
+    view.array({
+      data: [[5, 0, 0], [0, 5, 0], [0, 0, 5]],
+      channels: 3
+    })
+    .point({
+      color: 0x000000
+    })
+    .html({
+      width:  8,
+      // height: 1,
+      expr: function (emit, el, i, j, k, l, t) {
+        let a = ['x', 'bi', 'yi'];
+        emit(el(latex, {}, a[i]));
+      },
+    })
+    .dom({
+      snap: false,
+      offset: [0, 32],
+      depth: 0,
+      zoom: 1,
+      outline: 2,
+      size: 20,
+    });
+
+  </script>
+</body>
+</html>

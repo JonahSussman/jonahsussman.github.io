@@ -11,7 +11,7 @@ let a = [
     ['Blood Type', 'Red'],
     ['Pronunciation of Gif', '<code>/dʒɪf/</code>'],
     ['Interpupillary Distance', '68 mm'],
-    
+
     // Physics
     ['Preferred System of Units', 'Lorentz–Heaviside'],
     ['Preferred Unit of Mass', 'The Slug'],
@@ -22,7 +22,7 @@ let a = [
     ['Thoughts on the Anomalous Magnetic Dipole Moment', 'g\'s roughly 2; it\'s close enough in my book'],
     ['Thoughts on Magnetic Monopoles', 'They exist, but they\'re only rendered when we\'re not looking'],
     ['Status', 'Yet to reach max q'],
-    
+
     // Programming
     ['Favorite ASCII character', '<code>0x07 \'BEL\'</code>'],
     ['Favorite C Keyword', '<code>for</code>'],
@@ -39,7 +39,7 @@ let a = [
     ['Thoughts on P vs NP Conjecture', 'Quantum computers will save us'],
     ['Light or Dark Theme?', 'Light theme'],
     ['Favorite Data Structure', 'The Treap'],
-    
+
     // Math
     ['Favorite Integral', '<code>e^(-x^2)</code>'],
     ['Favorite Group', 'The Monster Group'],
@@ -49,7 +49,7 @@ let a = [
     ['Mathematical Philosophy', 'Embodied mind'],
     ['Favorite theorem prover', 'z3'],
     ['Support of Inter-universal Teichmüller Theory', 'Tentative'],
-    
+
     // Gaming
     ['Favorite Pokémon', 'Ten Question Marks'],
     ['Favorite NES Game', 'Kirby\'s Adventure'],
@@ -76,9 +76,9 @@ let a = [
     ['Favorite DOOM music', 'Rip & Tear'],
     ['Favorite Music Symbol', '<span class="center-icon">𝇑</span> - The Gregorian F Clef'],
     ['Favorite Tuning System', 'A = 432Hz'],
-    ['Favorite DCI Show','Metamorph - The Blue Devils 2017'],
+    ['Favorite DCI Show', 'Metamorph - The Blue Devils 2017'],
     ['Sharps or Flats?', 'Flats'],
-    ['Favorite Chord Progression', '<code>𝄁 E - G♯⁷ - 𝄀 E/C♯ D♯/C D/B D/E 𝄀 A - G♯m - 𝄀 F♯m B E - 𝄂</code>'],
+    ['Favorite Chord Progression', '<code>𝄁 E - G♯7 - 𝄀 E/C♯ D♯/C D/B D/E 𝄀 A - G♯m - 𝄀 F♯m B E - 𝄂</code>'],
     ['Favorite Jazz Lick', '<code>D E F G E C D</code>'],
 
     // Other / Favorites
@@ -121,13 +121,13 @@ function fun_fact() {
 
     if (count <= 0) {
         index = (index + 1) % a.length;
-        
-        let title   = a[index][0];
+
+        let title = a[index][0];
         let content = a[index][1];
 
         count = Math.max(Math.ceil((title.length + content.length) / 20), 6);
 
-        $('fun-fact-title').innerHTML   = title + ' <span style="color: var(--color-accent); font-size: 1rem;" id="fun-fact-counter"></span>';
+        $('fun-fact-title').innerHTML = title + ' <span style="color: var(--color-accent); font-size: 1rem;" id="fun-fact-counter"></span>';
         $('fun-fact-content').innerHTML = content;
     }
 
