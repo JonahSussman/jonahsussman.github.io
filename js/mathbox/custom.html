@@ -44,25 +44,7 @@
 
     time = 0;
 
-    three.on('update', function () {
-      // clock = three.Time.clock
-      // time = clock / 4
-
-      // t = Math.max(clock - 1, 0) / 12
-      // t = t < .5 ? t * t : t - .25
-
-      // o = .5 - .5 * Math.cos(Math.min(1, t) * π)
-
-      // c = Math.cos(t);
-      // s = Math.sin(t);
-
-      // view.set('quaternion', [0, -s, 0, c]);
-      // surface.set('opacity', 1 - o * .25);
-
-      // f = 1 + o;
-      // view.set('range', [[-3 * f, 3 * f], [0, 6], [-3 * f, 3 * f]]);
-      // view.set('scale', [2*f, 2, 2*f]);
-    });
+    three.on('update', function () { });
 
     let camera = mathbox.camera({
       proxy: true,
@@ -152,7 +134,7 @@
         channels: 3,
       }).surface(lines).area({
         id: 'colorr'+index,
-        rangeY: [0, 5],
+        rangeY: [-5, 0],
         rangeX: [-5, 5],
         width: 25,
         height: 25,
