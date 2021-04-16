@@ -5,8 +5,8 @@
   <title>The Complex Log</title>
   <script src="mathbox-bundle.min.js"></script>
   <link rel="stylesheet" href="mathbox.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js"></script>
+  <link rel="stylesheet" href="katex.min.css">
+  <script src="katex.min.js"></script>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
 </head>
 <body>
@@ -172,6 +172,54 @@
       outline: 2,
       size: 20,
     });
+
+    view
+    .array({
+      expr: function(emit, i, time, delta) {
+        emit(5*Math.sin(time * 0.685), 0, 5*Math.cos(time*0.238))
+      }
+    })
+    .point({
+      size: 30,
+      color: 0xffffff
+    })
+
+    view
+    .array({
+      width: 3,
+      expr: function(emit, i, time, delta) {
+        log_imag(i - 1, true)(emit, 5*Math.sin(time * 0.685), 5*Math.cos(time*0.238), 0, 0);
+      }
+    })
+    .point({
+      size: 30,
+      color: 0xffffff
+    })
+    .line({
+      width: 5
+    })
+    .html({
+      width:  8,
+      // height: 1,
+      expr: function (emit, el, i, j, k, l, t) {
+        let a = 5*Math.sin(t*0.685);
+        let b = 5*Math.cos(t*0.238);
+        let x = a*a + b*b;
+        let x_str = (Math.round(x * 100) / 100).toFixed(2);
+        let y = (Math.atan2(b, a) + 2*Math.PI*(i-1));
+        let y_str = (Math.round(y * 100) / 100).toFixed(2);
+        emit(el(latex, {}, x_str + ' + ' + y_str + 'i'));
+      },
+    })
+    .dom({
+      snap: false,
+      offset: [0, 32],
+      depth: 0,
+      zoom: 1,
+      outline: 2,
+      size: 20,
+    });
+
 
   </script>
 </body>
