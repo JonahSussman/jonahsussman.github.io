@@ -81,7 +81,6 @@
         shaded: true,
         width: 5,
         opacity: 0.2,
-        // color: 0x0000ff
       };
 
       view.area({
@@ -112,12 +111,12 @@
         },
         channels: 4,
       })
+
       view.point({
         points: '#area'+index,
         colors: '#color'+index,
         size: 20,
         color: 0xffffff,
-        // zIndex: -100s
       })
 
       view.area({
@@ -134,7 +133,7 @@
         channels: 3,
       }).surface(lines).area({
         id: 'colorr'+index,
-        rangeY: [-5, 0],
+        rangeY: [-5, -0.001],
         rangeX: [-5, 5],
         width: 25,
         height: 25,
@@ -153,7 +152,6 @@
         colors: '#colorr'+index,
         size: 20,
         color: 0xffffff,
-        // zIndex: -100s
       })
   }
 
