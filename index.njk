@@ -1,0 +1,51 @@
+---
+layout: layouts/home.njk
+<!-- eleventyNavigation:
+  key: Home
+  order: 1 -->
+---
+<article>
+<img src="/img/profilepic0.jpg" style="float: right; margin-left: 1rem; margin-bottom: 1rem; width: min(33vw, 200px); ">
+
+<h1 id="greeting" style="margin-top: 0;">After­noon! My name is <span class="crazy-jonah">Jonah Sussman</span>.</h1>
+
+<p>I'm a research assistant and Computer Science & Mathematics double major at The University of Alabama. I welcome you to my website! Here you can find various things that I've been working on, projects, et cetera. Stay a while!</p>
+
+</article>
+
+<article>
+{% set maxPosts = collections.posts.length | min(3) %}
+<h1>Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+
+{% set postslist = collections.posts | head(-3) %}
+{% set postslistCounter = collections.posts | length %}
+{% include "postslist.njk" %}
+
+</article>
+<!-- <p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p> -->
+
+<script>
+  function rand_select(a) {
+    return a[Math.floor(Math.random() * a.length)];
+  }
+
+  let h = new Date().getHours();
+  let timed_greet = '';
+  if (h < 6) {
+    timed_greet = 'Some&shy;one\'s up early!';
+  } else if (h < 12) {
+    timed_greet = 'Morn&shy;in\'!';
+  } else if (h < 18) {
+    timed_greet = 'After&shy;noon!';
+  } else if (h < 21) {
+    timed_greet = 'Even&shy;in\'!';
+  } else {
+    timed_greet = 'Good even&shy;ing!';
+  }
+
+  let greetings = ['Ahoy!', 'Hey!', 'Hi!', 'Hello!', 'Howdy!', timed_greet];
+  let greet = rand_select(greetings) + ' My name is <span class="crazy-jonah">Jonah Sussman</span>.';
+  // if (window.innerWidth < 350) greet = 'Hi! My name is Jonah Sussman.'
+
+  document.getElementById('greeting').innerHTML = greet;
+</script>

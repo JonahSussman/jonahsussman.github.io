@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>Jonah Sussman</title>
+	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
+	
+	<link href="https://jonahsussman.net/feed/feed.xml" rel="self"/>
+	<link href="https://jonahsussman.net/"/>
+	<updated>2021-06-17T00:00:00Z</updated>
+	<id>https://example.com/</id>
+	<author>
+		<name>Your Name Here</name>
+		<email>youremailaddress@example.com</email>
+	</author>
+	
+	<entry>
+		<title>Computation is a Real Science</title>
+		<link href="https://jonahsussman.net/posts/2021-06-17-computation/"/>
+		<updated>2021-06-17T00:00:00Z</updated>
+		<id>https://jonahsussman.net/posts/2021-06-17-computation/</id>
+		<content type="html">&lt;blockquote&gt;
+&lt;p&gt;One cannot truly know Computer Science without first reading the holy bible of algorithms - that is Cormen, Leiserson, Rivest and Stein. CLRS.&lt;br /&gt;
+&lt;cite&gt;Someone, 2021&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Anyhoo, this is a story all about how my life got flipped, turned upside down. I&#39;d like to take a minute, so just sit right there, and tell you how I became the prince of a town called Bel Air.&lt;/p&gt;
+&lt;h2 id=&quot;let&#39;s-get-this-show-on-the-road&quot;&gt;Let&#39;s get this show on the road &lt;a class=&quot;direct-link&quot; href=&quot;https://jonahsussman.net/posts/2021-06-17-computation/#let&#39;s-get-this-show-on-the-road&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
+</content>
+	</entry>
+</feed>

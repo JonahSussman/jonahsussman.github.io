@@ -1,0 +1,20 @@
+{
+  "version": "https://jsonfeed.org/version/1.1",
+  "title": "Jonah Sussman",
+  "language": "en",
+  "home_page_url": "https://jonahsussman.net/",
+  "feed_url": "https://example.com/feed/feed.json",
+  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "author": {
+    "name": "Your Name Here",
+    "url": "https://example.com/about-me/"
+  },
+  "items": [{
+      "id": "https://jonahsussman.net/posts/2021-06-17-computation/",
+      "url": "https://jonahsussman.net/posts/2021-06-17-computation/",
+      "title": "Computation is a Real Science",
+      "content_html": "<blockquote>\n<p>One cannot truly know Computer Science without first reading the holy bible of algorithms - that is Cormen, Leiserson, Rivest and Stein. CLRS.<br />\n<cite>Someone, 2021</cite></p>\n</blockquote>\n<p>Anyhoo, this is a story all about how my life got flipped, turned upside down. I'd like to take a minute, so just sit right there, and tell you how I became the prince of a town called Bel Air.</p>\n<h2 id=\"let's-get-this-show-on-the-road\">Let's get this show on the road <a class=\"direct-link\" href=\"https://jonahsussman.net/posts/2021-06-17-computation/#let's-get-this-show-on-the-road\">#</a></h2>\n",
+      "date_published": "2021-06-17T00:00:00Z"
+    }
+  ]
+}
