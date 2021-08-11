@@ -2,8 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jonahsussman.net/posts/2021-06-17-computation/</loc>
-    <lastmod>2021-06-17</lastmod>
+    <loc>https://jonahsussman.net/posts/2021-08-productivity/</loc>
+    <lastmod>2021-08-11</lastmod>
   </url>
   
   <url>
@@ -27,22 +27,17 @@
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/projects/</loc>
-    <lastmod>2021-08-11</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jonahsussman.net/tags/</loc>
     <lastmod>2021-08-11</lastmod>
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/tags/educational/</loc>
+    <loc>https://jonahsussman.net/tags/musings/</loc>
     <lastmod>2021-08-11</lastmod>
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/tags/computer-science/</loc>
+    <loc>https://jonahsussman.net/projects/</loc>
     <lastmod>2021-08-11</lastmod>
   </url>
 </urlset>

@@ -1,17 +1,31 @@
 [
   {
-    "thumb": "/assets/appendix-a-thumb.png",
-    "title": "ChocAn Redux",
-    "date": "28 Dec 2020",
-    "link": "https://www.github.com/JonahSussman/chocan-redux",
-    "description": "Java 15 and SQLite implementation of Chocoholics Anonymous found in Object Oriented and Classical Software Engineering, Appendix A."
+    "thumb": "/assets/sw-renderer-thumb.png",
+    "title": "Software Renderer",
+    "date": "22 Apr 2021",
+    "link": "https://github.com/JonahSussman/software-renderer",
+    "description": "A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten. "
   },
   {
     "thumb": "/assets/closure-thumb.png",
-    "title": "SussLang - A closure-based language",
-    "date": "20 Dec 2020",
+    "title": "SussLang",
+    "date": "28 Dec 2020",
     "link": "https://www.github.com/JonahSussman/closure-language",
-    "description": "A while back I made a closure-based language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product. Check it out here!"
+    "description": "A while back I made a closure-based programming language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product."
+  },
+  {
+    "thumb": "/assets/aeditor-thumb.png",
+    "title": "Aeditor",
+    "date": "11 Apr 2020",
+    "link": "https://www.github.com/JonahSussman/aeditor",
+    "description": "A tool to isolate words in human speech using AI. Written in C++17 and Python 3. Fundamentally, I used this tool to help with one of my more esoteric projects: alphebetizing videos."
+  },
+  {
+    "thumb": "/assets/appendix-a-thumb.png",
+    "title": "ChocAn Redux",
+    "date": "20 Dec 2020",
+    "link": "https://www.github.com/JonahSussman/chocan-redux",
+    "description": "Java 15 and SQLite implementation of Chocoholics Anonymous found in Object Oriented and Classical Software Engineering, Appendix A."
   },
   {
     "thumb": "/assets/3b1b-paper-thumb.png",

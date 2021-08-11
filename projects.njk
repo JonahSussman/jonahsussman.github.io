@@ -14,13 +14,12 @@ eleventyNavigation:
 <p>Here are some projects of various ilk that I've created over the years.</p>
 
 <ol class="postlist">
-
 {% for project in projects %}
 <!-- <article> -->
   <img src="{{ project.thumb }}" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
   <li class="postlist-item" style="counter-increment: start-from 1;">
     <a href="{{ project.link }}" class="postlist-link">{{ project.title }}</a>
-    <time class="postlist-date" datetime="{{ post.date | htmlDateString }}">28 Dec 2020</time>
+    <time class="postlist-date">{{ project.date }}</time>
   </li>
   <p style="margin-left: 1rem;"><i>{{ project.description }}</i></p>
   <br>
