@@ -62,6 +62,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("img");
   eleventyConfig.addPassthroughCopy("css");
   eleventyConfig.addPassthroughCopy("assets");
+  eleventyConfig.addPassthroughCopy("favicon.ico");
 
   eleventyConfig.addPassthroughCopy("projects/software-renderer.js");
   eleventyConfig.addPassthroughCopy("projects/software-renderer.wasm");
