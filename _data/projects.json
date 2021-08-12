@@ -3,8 +3,8 @@
     "thumb": "/assets/sw-renderer-thumb.png",
     "title": "Software Renderer",
     "date": "22 Apr 2021",
-    "link": "https://github.com/JonahSussman/software-renderer",
-    "description": "A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten. "
+    "link": "https://www.jonahsussman.net/projects/software-renderer",
+    "description": "👆 Click here to see a live online demo! A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten. "
   },
   {
     "thumb": "/assets/closure-thumb.png",
