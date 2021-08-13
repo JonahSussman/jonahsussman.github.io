@@ -211,8 +211,8 @@ footer {
 blockquote {
   display: block;
   margin: 1rem 0;
-  padding: 0rem 1rem;
-  padding-top: 1rem;
+  padding: 1rem;
+  /* padding-top: 1rem; */
   border-top: 1px solid var(--blue);
   border-bottom: 1px solid var(--blue);
   background-color: var(--blue-bg);
@@ -225,7 +225,7 @@ cite::before {
 }
 
 cite {
-  margin: 1rem 0;
+  margin-top: 1rem;
   display: block;
   text-align: right;
 }
