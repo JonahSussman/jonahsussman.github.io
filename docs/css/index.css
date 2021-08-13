@@ -35,7 +35,9 @@ h3 { font-size: 1.75rem; }
 h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
 h6 { font-size: 1rem; }
-h1, h2, h3, h4, h5, h6 { margin-top: 0; }
+h1, h2, h3, h4, h5, h6 { 
+  /* margin-top: 0; margin-bottom: 1rem;  */
+}
 hr { 
   border: unset;
   border-bottom: 1px solid var(--blue);
@@ -79,7 +81,10 @@ article {
   padding: min(40px, 4vw);
   background-color: white;
   margin-bottom: 1rem;
-  border: 1px solid var(--blue);
+  /* border: 1px solid var(--blue); */
+  outline: solid;
+  outline-color: var(--blue);
+  outline-width: 1px;
 }
 
 article, img {
@@ -216,7 +221,7 @@ blockquote {
   border-top: 1px solid var(--blue);
   border-bottom: 1px solid var(--blue);
   background-color: var(--blue-bg);
-  font-style: italic;
+  /* font-style: italic; */
   font-weight: 500;
 }
 
@@ -228,6 +233,7 @@ cite {
   margin-top: 1rem;
   display: block;
   text-align: right;
+  font-style: italic;
 }
 
 time {
