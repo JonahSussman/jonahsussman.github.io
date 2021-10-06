@@ -18,9 +18,9 @@ I'm Jonah Sussman. I'm a CS and Math double major at The University of Alabama. 
 
 ### Experience
 
-Currently, I'm a summer intern at [FiServ](https://www.fiserv.com/en.html), working to remediate security vulnerabilities in the Financial Risk Management Solutions division. I'm also part of the [Digital Forensics and Control Systems Security Lab](http://dcsl.cs.ua.edu/), researching how to get data off of Tuscaloosa's traffic system in a secure, sensible manner (part of the overall [Alabama Transportation Institute Strategic Plan](https://www.atistrategicplan.com/)). My previous research project dealt with detecting malware using Machine Learning on Android.
+Currently, I'm a research assistant the [Digital Forensics and Control Systems Security Lab](http://dcsl.cs.ua.edu/), researching how to get data off of Tuscaloosa's traffic system in a secure, sensible manner (part of the overall [Alabama Transportation Institute Strategic Plan](https://www.atistrategicplan.com/)). My previous research project dealt with detecting malware using Machine Learning on Android.
 
-I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.
+This past summer, I was an intern at [FiServ](https://www.fiserv.com/en.html), working to remediate security vulnerabilities in the Financial Risk Management Solutions division. I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.
 
 <div id="fun-fact">
   <h3 id="fun-fact-title"><span style="color: var(--blue); font-size: 1rem;" id="fun-fact-counter">0</span></h3>
