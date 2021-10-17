@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 	<title>Jonah Sussman</title>
-	<subtitle>I am writing about my experiences as a naval navel-gazer.</subtitle>
+	<subtitle></subtitle>
 	
 	<link href="https://jonahsussman.net/feed/feed.xml" rel="self"/>
 	<link href="https://jonahsussman.net/"/>

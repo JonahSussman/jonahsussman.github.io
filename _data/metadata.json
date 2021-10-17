@@ -2,9 +2,9 @@
   "title": "Jonah Sussman",
   "url": "https://jonahsussman.net/",
   "language": "en",
-  "description": "I am writing about my experiences as a naval navel-gazer.",
+  "description": "",
   "feed": {
-    "subtitle": "I am writing about my experiences as a naval navel-gazer.",
+    "subtitle": "",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
     "id": "https://example.com/"

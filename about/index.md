@@ -9,7 +9,7 @@ eleventyNavigation:
 <link rel="stylesheet" href="{{ '/css/green.css' | url }}">
 
 <article>
-<img src="/img/profilepic1.jpg" style="float: right; margin-left: 1rem; margin-bottom: 1rem; width: min(33vw, 200px); ">
+<img src="/assets/profilepic1.jpg" style="float: right; margin-left: 1rem; margin-bottom: 1rem; width: min(33vw, 200px); ">
 
 <h1 style="margin-top: 0;">About Me</h1>
 

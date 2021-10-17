@@ -30,7 +30,7 @@ p:last-child {
   margin-bottom: 0;
 }
 h1 { font-size: 2.5rem; }
-h2 { font-size: 2.25rem; }
+h2 { font-size: 2rem; }
 h3 { font-size: 1.75rem; }
 h4 { font-size: 1.5rem; }
 h5 { font-size: 1.25rem; }
@@ -55,10 +55,10 @@ p,
   line-height: 1.5;
 }
 a[href] {
-  color: var(--link);
+  /* color: var(--link); */
 }
 a[href]:visited {
-  color: var(--navy);
+  /* color: var(--navy); */
 }
 main {
   width: 100%;
@@ -111,6 +111,7 @@ article, img {
   text-decoration: none;
   font-weight: bold;
   margin-right: 3.25rem;
+  color: var(--darkgray);
 }
 
 @keyframes nav-link-fly {
@@ -154,6 +155,7 @@ article, img {
   font-size: 1.5rem;
   text-decoration: none;
   margin: 1rem 0 0 2rem;
+  color: var(--darkgray);
 }
 .nav-link:hover {
   text-decoration: underline;
@@ -358,13 +360,13 @@ code {
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  counter-increment: start-from -1;
+  /* counter-increment: start-from -1; */
   line-height: 1.8;
 }
 .postlist-item:before {
   display: inline-block;
   pointer-events: none;
-  content: "" counter(start-from, decimal-leading-zero) ". ";
+  /* content: "" counter(start-from, decimal-leading-zero) ". "; */
   line-height: 100%;
   text-align: right;
 }
