@@ -104,7 +104,7 @@ let a = [
     ['Favorite Mario Kart Bike', 'Mach Bike'],
     ['Favorite Chess Opening', 'King\'s Knight Opening'],
     ['Favorite Chess Defense', 'Caro–Kann'],
-    ['Favorite Games By Year', '<code>1400</code> - Chess <sup>Citation needed</sup><br><code>2012</code> - Fez<br><code>2018</code> - The Curse of the Obra Dinn<br><code>2020</code> - Half Life: Alyx'],
+    ['Favorite Games By Year', '<code>1400</code> - Chess <sup>Citation needed</sup><br><code>2012</code> - Fez<br><code>2018</code> - The Curse of the Obra Dinn<br><code>2019</code> - Baba is You<br><code>2020</code> - Half Life: Alyx'],
     ['Quickest Chess Loss', '<code>1. e4 e5 2. Bc4 Nc6 3. Qf3 Nf6 4. g4 d6 5. g5 Nd7 6. Qxf7#</code>'],
 
     // Music
@@ -126,6 +126,7 @@ let a = [
     // Other / Favorites
     ['Favorite Humorist', 'Douglas Adams'],
     ['Favorite Netflix Show', 'BoJack Horseman'],
+    ['Favorite Amazon Prime Show', 'Invincible'],
     ['Favorite Powerade Flavor', 'Grape'],
     ['Favorite Vowel Sound', '/ə/ (as in "rhythm")'],
     ['Favorite Soda', 'Coke Zero Sugar Caffeine Free'],
