@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Jonah Sussman">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Jonah Sussman">
-  
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <script src="https://unpkg.com/petite-vue"></script>
   </head>
   <body>
@@ -43,69 +46,63 @@
 
 <p>Here are some projects of various ilk that I've created over the years.</p>
 
-<ol class="postlist">
+<ul class="thumb-list">
 
-<!-- <article> -->
-  <img src="/assets/sw-renderer-thumb.png" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
-  <li class="postlist-item" style="counter-increment: start-from 1;">
-    <a href="https://www.jonahsussman.net/projects/software-renderer" class="postlist-link">Software Renderer</a>
-    <time class="postlist-date">22 Apr 2021</time>
+  <li onclick="location.href='https://www.jonahsussman.net/projects/software-renderer';">
+    <img class="g-left" src="/assets/sw-renderer-thumb.png">
+    <div class="g-right">
+      <a href="https://www.jonahsussman.net/projects/software-renderer">Software Renderer</a>
+      <time datetime="Invalid DateTime"> — 22 Apr 2021</time>
+      <p><i>👆 Click here to see a live online demo! A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten. </i></p>
+    </div>
   </li>
-  <p style="margin-left: 1rem;"><i>👆 Click here to see a live online demo! A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten. </i></p>
-  <br>
-  <!-- </article> -->
 
-<!-- <article> -->
-  <img src="/assets/closure-thumb.png" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
-  <li class="postlist-item" style="counter-increment: start-from 1;">
-    <a href="https://www.github.com/JonahSussman/closure-language" class="postlist-link">SussLang</a>
-    <time class="postlist-date">28 Dec 2020</time>
+  <li onclick="location.href='https://www.github.com/JonahSussman/closure-language';">
+    <img class="g-left" src="/assets/closure-thumb.png">
+    <div class="g-right">
+      <a href="https://www.github.com/JonahSussman/closure-language">SussLang</a>
+      <time datetime="Invalid DateTime"> — 28 Dec 2020</time>
+      <p><i>A while back I made a closure-based programming language, dubbed SussLang, in Python 3. While there are some things I would change about it, I&#39;m still proud of the final product.</i></p>
+    </div>
   </li>
-  <p style="margin-left: 1rem;"><i>A while back I made a closure-based programming language, dubbed SussLang, in Python 3. While there are some things I would change about it, I&#39;m still proud of the final product.</i></p>
-  <br>
-  <!-- </article> -->
 
-<!-- <article> -->
-  <img src="/assets/aeditor-thumb.png" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
-  <li class="postlist-item" style="counter-increment: start-from 1;">
-    <a href="https://www.github.com/JonahSussman/aeditor" class="postlist-link">Aeditor</a>
-    <time class="postlist-date">11 Apr 2020</time>
+  <li onclick="location.href='https://www.github.com/JonahSussman/aeditor';">
+    <img class="g-left" src="/assets/aeditor-thumb.png">
+    <div class="g-right">
+      <a href="https://www.github.com/JonahSussman/aeditor">Aeditor</a>
+      <time datetime="Invalid DateTime"> — 11 Apr 2020</time>
+      <p><i>A tool to isolate words in human speech using AI. Written in C++17 and Python 3. Fundamentally, I used this tool to help with one of my more esoteric projects: alphebetizing videos.</i></p>
+    </div>
   </li>
-  <p style="margin-left: 1rem;"><i>A tool to isolate words in human speech using AI. Written in C++17 and Python 3. Fundamentally, I used this tool to help with one of my more esoteric projects: alphebetizing videos.</i></p>
-  <br>
-  <!-- </article> -->
 
-<!-- <article> -->
-  <img src="/assets/appendix-a-thumb.png" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
-  <li class="postlist-item" style="counter-increment: start-from 1;">
-    <a href="https://www.github.com/JonahSussman/chocan-redux" class="postlist-link">ChocAn Redux</a>
-    <time class="postlist-date">20 Dec 2020</time>
+  <li onclick="location.href='https://www.github.com/JonahSussman/chocan-redux';">
+    <img class="g-left" src="/assets/appendix-a-thumb.png">
+    <div class="g-right">
+      <a href="https://www.github.com/JonahSussman/chocan-redux">ChocAn Redux</a>
+      <time datetime="Invalid DateTime"> — 20 Dec 2020</time>
+      <p><i>Java 15 and SQLite implementation of Chocoholics Anonymous found in Object Oriented and Classical Software Engineering, Appendix A.</i></p>
+    </div>
   </li>
-  <p style="margin-left: 1rem;"><i>Java 15 and SQLite implementation of Chocoholics Anonymous found in Object Oriented and Classical Software Engineering, Appendix A.</i></p>
-  <br>
-  <!-- </article> -->
 
-<!-- <article> -->
-  <img src="/assets/3b1b-paper-thumb.png" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
-  <li class="postlist-item" style="counter-increment: start-from 1;">
-    <a href="https://jonahsussman.net/assets/3b1b-paper.pdf" class="postlist-link">Sums of Random Numbers and its Hidden Geometric Connections</a>
-    <time class="postlist-date">9 May 2020</time>
+  <li onclick="location.href='https://jonahsussman.net/assets/3b1b-paper.pdf';">
+    <img class="g-left" src="/assets/3b1b-paper-thumb.png">
+    <div class="g-right">
+      <a href="https://jonahsussman.net/assets/3b1b-paper.pdf">Sums of Random Numbers and its Hidden Geometric Connections</a>
+      <time datetime="Invalid DateTime"> — 9 May 2020</time>
+      <p><i>During the summer I found a video by 3Blue1Brown and Numberphile that inspired me to flex my multi-dimensional calculus and probability skills. The result was this fun, semi-formal paper!</i></p>
+    </div>
   </li>
-  <p style="margin-left: 1rem;"><i>During the summer I found a video by 3Blue1Brown and Numberphile that inspired me to flex my multi-dimensional calculus and probability skills. The result was this fun, semi-formal paper!</i></p>
-  <br>
-  <!-- </article> -->
 
-<!-- <article> -->
-  <img src="/assets/238-paper-thumb.png" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
-  <li class="postlist-item" style="counter-increment: start-from 1;">
-    <a href="https://jonahsussman.net/assets/238-paper.pdf" class="postlist-link">Mixing with Variable Rates</a>
-    <time class="postlist-date">13 Mar 2020</time>
+  <li onclick="location.href='https://jonahsussman.net/assets/238-paper.pdf';">
+    <img class="g-left" src="/assets/238-paper-thumb.png">
+    <div class="g-right">
+      <a href="https://jonahsussman.net/assets/238-paper.pdf">Mixing with Variable Rates</a>
+      <time datetime="Invalid DateTime"> — 13 Mar 2020</time>
+      <p><i>For my Differential Equations I class, we were required to create a paper discussing a mixing problem. I may have gone a bit overboard in discussing and solving it, but I&#39;m proud of the thoroughness in the final result.</i></p>
+    </div>
   </li>
-  <p style="margin-left: 1rem;"><i>For my Differential Equations I class, we were required to create a paper discussing a mixing problem. I may have gone a bit overboard in discussing and solving it, but I&#39;m proud of the thoroughness in the final result.</i></p>
-  <br>
-  <!-- </article> -->
 
-</ol>
+</ul>
 
 </article>
 

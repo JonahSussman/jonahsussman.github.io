@@ -23,7 +23,7 @@ Then I went off to college.
 
 I know that it's a cliché at this point to say that college is a big shift in your life. Usually, it really is. You're in a new environment with a bunch of people that you've never met before. You're not going to school, you're taking classes you chose. You're not getting taught by teachers, but by professors. Oh yeah, I almost forgot to mention the most important one! 
 
-You're not finishing your first semester there, you're going back home due to the plague.
+You're not finishing your first year there, you're going back home due to the plague.
 
 The initial news of COVID-19 was a big shift for everybody. What I realized, however, was that newly off to college mixed with a dash of a global pandemic, folded in with my non-existent productivity system was, you guessed it, a recipe for disaster.
 
@@ -40,9 +40,9 @@ I came to realize a couple of things:
   3. This system needed to be as frictionless as possible in order to keep me centered through times of stress
 
 
-Unfortunately for me, there's a deluge of different productivity apps these days. OneNote, Notion, TiddlyWiki, Zim, CherryTree, org-mode, etc... And it certainly doesn't help that ["the frontier between 'note taking' and 'personal project management’, or 'todo list' is blurry as they're usually done with same tools"](https://news.ycombinator.com/item?id=27537255). On top of that, there are so many different productivity systems out there that take advantage of these tools. GTD, PARA, Bullet Journal, etc...
+Unfortunately for me, there's a deluge of different productivity apps these days. OneNote, Notion, TiddlyWiki, Zim, CherryTree, org-mode, etc... And it certainly doesn't help that ["the frontier between 'note taking' and 'personal project management’, or 'todo list' is blurry as they're usually done with (the) same tools"](https://news.ycombinator.com/item?id=27537255). On top of that, there are so many different productivity systems out there that take advantage of these tools. GTD, PARA, Bullet Journal, etc...
 
-I literally tried them all. Every time something didn't feel quite right, I would jump ship and change systems. Some systems used tagging, but I felt like some things needed more structure. Other times I locked my stuff into a hierarchical structure and missed the freeform nature tags. I wanted *all* of the features in my system. I thought that the freedom that this would allow me, allow me to be the most productive version of myself.
+I literally tried them all. Every time something didn't feel quite right, I would jump ship and change systems. Some systems used tagging, but I felt like some things needed more structure. Other times I locked my stuff into a hierarchical structure and missed the freeform nature tags. I wanted *all* of the features in my system. I thought that the freedom that this would allow me, would allow me to be the most productive version of myself.
 
 However, this is a well-known problem, that no matter how hard a system tries, after it gets large enough [everything becomes miscellaneous](https://en.wikipedia.org/wiki/Everything_Is_Miscellaneous). Once I realized this, I had an epiphany. If all the systems are garbage in their own way, I might as well have a simple one (though maybe not as simple as a [single text file](https://jeffhuang.com/productivity_text_file/)).
 

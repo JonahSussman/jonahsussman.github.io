@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Jonah Sussman">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Jonah Sussman">
-  
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <script src="https://unpkg.com/petite-vue"></script>
   </head>
   <body>
@@ -32,32 +35,37 @@
       </div>
     </div>
 
-    <main class="tmpl-home">
-      
-<article>
+    <main>
+      <article>
 
 <h1>Posts</h1>
 
 
-<!-- <ol reversed class="postlist" style="counter-reset: start-from 2"> -->
-<ul class="postlist">
+<ul class="post-list">
 
-  <li class="postlist-item">
-    <a href="/posts/2021-08-productivity/" class="postlist-link">The Perfect Productivity System Doesn&#39;t Exist</a>
-    <time class="postlist-date" datetime="2021-08-11">— 11 Aug 2021</time>
+  <li onclick="location.href='/posts/2021-11-communication/';">
+    <a href="/posts/2021-11-communication/">Linux, LTT and Communication</a>
+    <time> — 10 Nov 2021</time>
     
-      
-      <a href="/tags/musings/" class="post-tag">musings</a>
     
+    <a href="/tags/musings/" class="post-tag">musings</a>
+    
+    <p style="margin-top:0;margin-left:1rem;"><i>People, especially developers, often forget the receiving end.</i></p>
   </li>
-  <p style="margin-left: 1rem;"><i>A musing on my trials to create a frictionless productivity system that works.</i></p>
-  <!-- <p>Dans ses écrits, un sage Italien; Dit que le mieux est l&#39;ennemi du bien. (In his writings, a wise Italian; says that the best is the enemy of the good) Voltaire, 1772 I&#39;ve thought a lot about...</p> -->
+
+  <li onclick="location.href='/posts/2021-08-productivity/';">
+    <a href="/posts/2021-08-productivity/">The Perfect Productivity System Doesn&#39;t Exist</a>
+    <time> — 11 Aug 2021</time>
+    
+    
+    <a href="/tags/musings/" class="post-tag">musings</a>
+    
+    <p style="margin-top:0;margin-left:1rem;"><i>A musing on my trials to create a frictionless productivity system that works.</i></p>
+  </li>
 
 </ul>
 
-
 </article>
-
 
     </main>
 

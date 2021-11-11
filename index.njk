@@ -1,13 +1,13 @@
 ---
-layout: layouts/home.njk
+layout: layouts/base.njk
 <!-- eleventyNavigation:
   key: Home
   order: 1 -->
 ---
 <article>
-<img src="/assets/profilepic0.jpg" style="float: right; margin-left: 1rem; margin-bottom: 1rem; width: min(33vw, 175px); ">
+<img src="/assets/profilepic0.jpg" style="float:right;margin-left: 1rem;width: min(33vw, 175px); ">
+<h1 class="post-title" id="greeting">After­noon! My name is <span class="crazy-jonah">Jonah Sussman</span>.</h1>
 
-<h1 id="greeting" style="margin-top: 0;">After­noon! My name is <span class="crazy-jonah">Jonah Sussman</span>.</h1>
 
 <p>I'm a research assistant and Computer Science & Mathematics double major at The University of Alabama. I welcome you to my website! Here you can find various things that I've been working on, projects, et cetera. Stay a while!</p>
 
@@ -22,7 +22,6 @@ layout: layouts/home.njk
 {% include "postslist.njk" %}
 
 </article>
-<!-- <p>More posts can be found in <a href="{{ '/posts/' | url }}">the archive</a>.</p> -->
 
 <script>
   function rand_select(a) {

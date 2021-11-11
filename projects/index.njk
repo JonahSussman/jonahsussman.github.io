@@ -13,19 +13,18 @@ eleventyNavigation:
 
 <p>Here are some projects of various ilk that I've created over the years.</p>
 
-<ol class="postlist">
+<ul class="thumb-list">
 {% for project in projects %}
-<!-- <article> -->
-  <img src="{{ project.thumb }}" style="float: left; margin-right: 1rem; margin-bottom: 1rem; width: min(33vw, 100px); ">
-  <li class="postlist-item" style="counter-increment: start-from 1;">
-    <a href="{{ project.link }}" class="postlist-link">{{ project.title }}</a>
-    <time class="postlist-date">{{ project.date }}</time>
+  <li onclick="location.href='{{ project.link }}';">
+    <img class="g-left" src="{{ project.thumb }}">
+    <div class="g-right">
+      <a href="{{ project.link }}">{{ project.title }}</a>
+      <time datetime="{{ post.date | htmlDateString }}"> — {{ project.date }}</time>
+      <p><i>{{ project.description }}</i></p>
+    </div>
   </li>
-  <p style="margin-left: 1rem;"><i>{{ project.description }}</i></p>
-  <br>
-  <!-- </article> -->
 {% endfor %}
-</ol>
+</ul>
 
 </article>
 

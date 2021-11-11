@@ -7,42 +7,47 @@
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/posts/</loc>
-    <lastmod>2021-10-06</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/page-list/</loc>
-    <lastmod>2021-10-06</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/projects/</loc>
-    <lastmod>2021-10-06</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jonahsussman.net/projects/software-renderer/</loc>
     <lastmod>2021-10-06</lastmod>
   </url>
   
   <url>
+    <loc>https://jonahsussman.net/about/</loc>
+    <lastmod>2021-10-19</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/posts/2021-11-communication/</loc>
+    <lastmod>2021-11-10</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/page-list/</loc>
+    <lastmod>2021-11-10</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jonahsussman.net/tags/</loc>
-    <lastmod>2021-10-06</lastmod>
+    <lastmod>2021-11-10</lastmod>
   </url>
   
   <url>
     <loc>https://jonahsussman.net/tags/musings/</loc>
-    <lastmod>2021-10-06</lastmod>
+    <lastmod>2021-11-11</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/posts/</loc>
+    <lastmod>2021-11-11</lastmod>
   </url>
   
   <url>
     <loc>https://jonahsussman.net/</loc>
-    <lastmod>2021-10-17</lastmod>
+    <lastmod>2021-11-11</lastmod>
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/about/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <loc>https://jonahsussman.net/projects/</loc>
+    <lastmod>2021-11-11</lastmod>
   </url>
 </urlset>

@@ -5,12 +5,41 @@
 	
 	<link href="https://jonahsussman.net/feed/feed.xml" rel="self"/>
 	<link href="https://jonahsussman.net/"/>
-	<updated>2021-08-11T00:00:00Z</updated>
+	<updated>2021-11-10T00:00:00Z</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Your Name Here</name>
 		<email>youremailaddress@example.com</email>
 	</author>
+	
+	<entry>
+		<title>Linux, LTT and Communication</title>
+		<link href="https://jonahsussman.net/posts/2021-11-communication/"/>
+		<updated>2021-11-10T00:00:00Z</updated>
+		<id>https://jonahsussman.net/posts/2021-11-communication/</id>
+		<content type="html">&lt;blockquote&gt;
+&lt;p&gt;In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.&lt;br /&gt;
+&lt;cite&gt;David &amp;quot;The Father of Advertizing&amp;quot; Ogilvy, 19xx&lt;/cite&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;I love the idea of free - &lt;a href=&quot;https://en.wikipedia.org/wiki/Gratis_versus_libre&quot;&gt;as in freedom, not as in beer&lt;/a&gt; - and open source software. The democratization of software brings so much good to the world that it&#39;s almost hard to quantify. It enables individual developers to peer into large applications and learn how they function. It enables large corporations to throw their weight onto other projects. It enables the average end user to utilize software that follows open, common standards.&lt;/p&gt;
+&lt;p&gt;As a direct consequence, I love Linux. Linux&#39;s impact on the world of technology is vast, in due part because anyone can modify it. It&#39;s been made to run on &lt;a href=&quot;https://www.android.com/&quot;&gt;phones&lt;/a&gt;, &lt;a href=&quot;https://www.ibm.com/it-infrastructure/z/os/linux&quot;&gt;mainframes&lt;/a&gt; and &lt;a href=&quot;https://www.samsung.com/us/explore/family-hub-refrigerator/overview/&quot;&gt;refrigerators&lt;/a&gt;. You can even force it, albeit kicking and screaming, to run on &lt;a href=&quot;https://hackaday.com/2012/03/28/building-the-worst-linux-pc-ever/&quot;&gt;an 8-bit microcontroller&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;So it might surprise you to learn that I use Windows.&lt;/p&gt;
+&lt;iframe style=&quot;display:block;margin-left:auto;margin-right:auto;&quot; width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0506yDSgU7M&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Most people won&#39;t give it a second thought, they have too much to do.&lt;/p&gt;
+&lt;p&gt;Just the simple fact that I had to ask was bad enough.&lt;/p&gt;
+&lt;p&gt;Jai programming language isn&#39;t for &amp;quot;bad&amp;quot; programmers.&lt;/p&gt;
+&lt;p&gt;Almost all of my projects are native applications. I love the control and level of optimization that coding closer to the metal gives me. However, it often presents a problem if I want to showcase my body of work.&lt;/p&gt;
+&lt;p&gt;The last thing you want to tell someone who&#39;s checking out your work is &amp;quot;Hey, I totally did this thing. But first you have to download this foreign .exe file from the Internet. I &lt;em&gt;super duper pinky swear promise&lt;/em&gt; that this application isn&#39;t malware.&amp;quot; And by the time you&#39;re done saying that, they&#39;ve already moved on to the next Big Thing™.&lt;/p&gt;
+&lt;p&gt;So for the longest time, screenshots and detailed explanations were all that I was able to give people.&lt;/p&gt;
+&lt;p&gt;So the big thing is advertizing. How to advertize your stuff.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&amp;quot;On the average, five times as many people read the headline as read the body copy. When you have written your headline, you have spent eighty cents out of your dollar.&amp;quot;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;It doesn&#39;t matter if you have the best idea in the world.&lt;/p&gt;
+&lt;p&gt;The stuff you&#39;re talking about is impregnable.&lt;/p&gt;
+&lt;p&gt;There are developers, and then there are designers. This way of looking at the world certainly doesn&#39;t help.&lt;/p&gt;
+</content>
+	</entry>
 	
 	<entry>
 		<title>The Perfect Productivity System Doesn&#39;t Exist</title>
@@ -28,7 +57,7 @@
 &lt;p&gt;Unfortunately, this broken system worked. And it worked well enough for long enough that I got by.&lt;/p&gt;
 &lt;p&gt;Then I went off to college.&lt;/p&gt;
 &lt;p&gt;I know that it&#39;s a cliché at this point to say that college is a big shift in your life. Usually, it really is. You&#39;re in a new environment with a bunch of people that you&#39;ve never met before. You&#39;re not going to school, you&#39;re taking classes you chose. You&#39;re not getting taught by teachers, but by professors. Oh yeah, I almost forgot to mention the most important one!&lt;/p&gt;
-&lt;p&gt;You&#39;re not finishing your first semester there, you&#39;re going back home due to the plague.&lt;/p&gt;
+&lt;p&gt;You&#39;re not finishing your first year there, you&#39;re going back home due to the plague.&lt;/p&gt;
 &lt;p&gt;The initial news of COVID-19 was a big shift for everybody. What I realized, however, was that newly off to college mixed with a dash of a global pandemic, folded in with my non-existent productivity system was, you guessed it, a recipe for disaster.&lt;/p&gt;
 &lt;h2 id=&quot;friction&quot;&gt;Friction &lt;a class=&quot;direct-link&quot; href=&quot;https://jonahsussman.net/posts/2021-08-productivity/#friction&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=k2Wcu6aGyz8&quot;&gt;Willpower is for losers.&lt;/a&gt; Or rather, our environment has a profound effect on us. As much as we would like to think that we are machines or disembodied consciousnesses that are unaffected by where they are, we are not. We physically exist in an environment, and that environment can present certain &amp;quot;frictions&amp;quot; to achieving certain goals.&lt;/p&gt;
@@ -39,8 +68,8 @@
 &lt;li&gt;I needed to find or create a robust system that could handle whatever I threw at it&lt;/li&gt;
 &lt;li&gt;This system needed to be as frictionless as possible in order to keep me centered through times of stress&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Unfortunately for me, there&#39;s a deluge of different productivity apps these days. OneNote, Notion, TiddlyWiki, Zim, CherryTree, org-mode, etc... And it certainly doesn&#39;t help that &lt;a href=&quot;https://news.ycombinator.com/item?id=27537255&quot;&gt;&amp;quot;the frontier between &#39;note taking&#39; and &#39;personal project management’, or &#39;todo list&#39; is blurry as they&#39;re usually done with same tools&amp;quot;&lt;/a&gt;. On top of that, there are so many different productivity systems out there that take advantage of these tools. GTD, PARA, Bullet Journal, etc...&lt;/p&gt;
-&lt;p&gt;I literally tried them all. Every time something didn&#39;t feel quite right, I would jump ship and change systems. Some systems used tagging, but I felt like some things needed more structure. Other times I locked my stuff into a hierarchical structure and missed the freeform nature tags. I wanted &lt;em&gt;all&lt;/em&gt; of the features in my system. I thought that the freedom that this would allow me, allow me to be the most productive version of myself.&lt;/p&gt;
+&lt;p&gt;Unfortunately for me, there&#39;s a deluge of different productivity apps these days. OneNote, Notion, TiddlyWiki, Zim, CherryTree, org-mode, etc... And it certainly doesn&#39;t help that &lt;a href=&quot;https://news.ycombinator.com/item?id=27537255&quot;&gt;&amp;quot;the frontier between &#39;note taking&#39; and &#39;personal project management’, or &#39;todo list&#39; is blurry as they&#39;re usually done with (the) same tools&amp;quot;&lt;/a&gt;. On top of that, there are so many different productivity systems out there that take advantage of these tools. GTD, PARA, Bullet Journal, etc...&lt;/p&gt;
+&lt;p&gt;I literally tried them all. Every time something didn&#39;t feel quite right, I would jump ship and change systems. Some systems used tagging, but I felt like some things needed more structure. Other times I locked my stuff into a hierarchical structure and missed the freeform nature tags. I wanted &lt;em&gt;all&lt;/em&gt; of the features in my system. I thought that the freedom that this would allow me, would allow me to be the most productive version of myself.&lt;/p&gt;
 &lt;p&gt;However, this is a well-known problem, that no matter how hard a system tries, after it gets large enough &lt;a href=&quot;https://en.wikipedia.org/wiki/Everything_Is_Miscellaneous&quot;&gt;everything becomes miscellaneous&lt;/a&gt;. Once I realized this, I had an epiphany. If all the systems are garbage in their own way, I might as well have a simple one (though maybe not as simple as a &lt;a href=&quot;https://jeffhuang.com/productivity_text_file/&quot;&gt;single text file&lt;/a&gt;).&lt;/p&gt;
 &lt;p&gt;And so what follows is what I&#39;ve come up with&lt;/p&gt;
 &lt;h2 id=&quot;my-system&quot;&gt;My system &lt;a class=&quot;direct-link&quot; href=&quot;https://jonahsussman.net/posts/2021-08-productivity/#my-system&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
