@@ -12,23 +12,13 @@
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/about/</loc>
-    <lastmod>2021-10-19</lastmod>
+    <loc>https://jonahsussman.net/tags/project/</loc>
+    <lastmod>2021-11-11</lastmod>
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/posts/2021-11-communication/</loc>
-    <lastmod>2021-11-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/page-list/</loc>
-    <lastmod>2021-11-10</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/tags/</loc>
-    <lastmod>2021-11-10</lastmod>
+    <loc>https://jonahsussman.net/tags/xv6-gpu/</loc>
+    <lastmod>2021-11-11</lastmod>
   </url>
   
   <url>
@@ -42,12 +32,32 @@
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/</loc>
+    <loc>https://jonahsussman.net/page-list/</loc>
     <lastmod>2021-11-11</lastmod>
   </url>
   
   <url>
     <loc>https://jonahsussman.net/projects/</loc>
     <lastmod>2021-11-11</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/tags/</loc>
+    <lastmod>2021-11-11</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/posts/2021-11-gpu/</loc>
+    <lastmod>2021-11-12</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/about/</loc>
+    <lastmod>2021-11-12</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/</loc>
+    <lastmod>2021-11-12</lastmod>
   </url>
 </urlset>

@@ -5,7 +5,7 @@
 	
 	<link href="https://jonahsussman.net/feed/feed.xml" rel="self"/>
 	<link href="https://jonahsussman.net/"/>
-	<updated>2021-11-10T00:00:00Z</updated>
+	<updated>2021-11-12T00:00:00Z</updated>
 	<id>https://example.com/</id>
 	<author>
 		<name>Your Name Here</name>
@@ -13,31 +13,16 @@
 	</author>
 	
 	<entry>
-		<title>Linux, LTT and Communication</title>
-		<link href="https://jonahsussman.net/posts/2021-11-communication/"/>
-		<updated>2021-11-10T00:00:00Z</updated>
-		<id>https://jonahsussman.net/posts/2021-11-communication/</id>
+		<title>Running an Operating System on the GPU</title>
+		<link href="https://jonahsussman.net/posts/2021-11-gpu/"/>
+		<updated>2021-11-12T00:00:00Z</updated>
+		<id>https://jonahsussman.net/posts/2021-11-gpu/</id>
 		<content type="html">&lt;blockquote&gt;
-&lt;p&gt;In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.&lt;br /&gt;
-&lt;cite&gt;David &amp;quot;The Father of Advertizing&amp;quot; Ogilvy, 19xx&lt;/cite&gt;&lt;/p&gt;
+&lt;p&gt;Science isn&#39;t about WHY. It&#39;s about WHY NOT. Why is so much of our science dangerous? Why not marry safe science if you love it so much?!&lt;br /&gt;
+&lt;cite&gt;Cave Johnson, 1958&lt;/cite&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;I love the idea of free - &lt;a href=&quot;https://en.wikipedia.org/wiki/Gratis_versus_libre&quot;&gt;as in freedom, not as in beer&lt;/a&gt; - and open source software. The democratization of software brings so much good to the world that it&#39;s almost hard to quantify. It enables individual developers to peer into large applications and learn how they function. It enables large corporations to throw their weight onto other projects. It enables the average end user to utilize software that follows open, common standards.&lt;/p&gt;
-&lt;p&gt;As a direct consequence, I love Linux. Linux&#39;s impact on the world of technology is vast, in due part because anyone can modify it. It&#39;s been made to run on &lt;a href=&quot;https://www.android.com/&quot;&gt;phones&lt;/a&gt;, &lt;a href=&quot;https://www.ibm.com/it-infrastructure/z/os/linux&quot;&gt;mainframes&lt;/a&gt; and &lt;a href=&quot;https://www.samsung.com/us/explore/family-hub-refrigerator/overview/&quot;&gt;refrigerators&lt;/a&gt;. You can even force it, albeit kicking and screaming, to run on &lt;a href=&quot;https://hackaday.com/2012/03/28/building-the-worst-linux-pc-ever/&quot;&gt;an 8-bit microcontroller&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;So it might surprise you to learn that I use Windows.&lt;/p&gt;
-&lt;iframe style=&quot;display:block;margin-left:auto;margin-right:auto;&quot; width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/0506yDSgU7M&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;Most people won&#39;t give it a second thought, they have too much to do.&lt;/p&gt;
-&lt;p&gt;Just the simple fact that I had to ask was bad enough.&lt;/p&gt;
-&lt;p&gt;Jai programming language isn&#39;t for &amp;quot;bad&amp;quot; programmers.&lt;/p&gt;
-&lt;p&gt;Almost all of my projects are native applications. I love the control and level of optimization that coding closer to the metal gives me. However, it often presents a problem if I want to showcase my body of work.&lt;/p&gt;
-&lt;p&gt;The last thing you want to tell someone who&#39;s checking out your work is &amp;quot;Hey, I totally did this thing. But first you have to download this foreign .exe file from the Internet. I &lt;em&gt;super duper pinky swear promise&lt;/em&gt; that this application isn&#39;t malware.&amp;quot; And by the time you&#39;re done saying that, they&#39;ve already moved on to the next Big Thing™.&lt;/p&gt;
-&lt;p&gt;So for the longest time, screenshots and detailed explanations were all that I was able to give people.&lt;/p&gt;
-&lt;p&gt;So the big thing is advertizing. How to advertize your stuff.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&amp;quot;On the average, five times as many people read the headline as read the body copy. When you have written your headline, you have spent eighty cents out of your dollar.&amp;quot;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;It doesn&#39;t matter if you have the best idea in the world.&lt;/p&gt;
-&lt;p&gt;The stuff you&#39;re talking about is impregnable.&lt;/p&gt;
-&lt;p&gt;There are developers, and then there are designers. This way of looking at the world certainly doesn&#39;t help.&lt;/p&gt;
+&lt;p&gt;&lt;span style=&quot;text-align:center;&quot;&gt;⚠️ This article is under construction! ⚠️&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Something big is coming..... Stay tuned to this URL!&lt;/p&gt;
 </content>
 	</entry>
 	
