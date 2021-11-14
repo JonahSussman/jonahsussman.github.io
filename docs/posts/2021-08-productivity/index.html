@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Perfect Productivity System Doesn&#39;t Exist</title>
     <meta name="description" content="A musing on my trials to create a frictionless productivity system that works.">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/prism-base16-monokai.dark.css">
+
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Jonah Sussman">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Jonah Sussman">
 
@@ -15,37 +16,52 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <script src="https://unpkg.com/petite-vue"></script>
   </head>
-  <body>
-    <div id="navbar">
-      <div class="nav-flex">
-        <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
-          <rect y="10" width="100" height="20" rx="10"></rect>
-          <rect y="40" width="100" height="20" rx="10"></rect>
-          <rect y="70" width="100" height="20" rx="10"></rect>
-        </svg>
+  <body class=" theme-blue ">
+    <div class="site-wrapper">
 
-        <a class="crazy-jonah nav-logo" href="/">Jonah Sussman</h1>
-
-        <div id="nav-menu">
-          <a class="nav-link nav-item" href="/posts/">Posts</a>
-          <a class="nav-link nav-item" href="/about/">About</a>
-          <a class="nav-link nav-item" href="/projects/">Projects</a>
-        <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+      <header id="navbar" class="site-header">
+        <div class="nav-flex">
+          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
+            <rect y="10" width="100" height="20" rx="10"></rect>
+            <rect y="40" width="100" height="20" rx="10"></rect>
+            <rect y="70" width="100" height="20" rx="10"></rect>
+          </svg>
+          <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
+          <div id="nav-menu">
+            <a class="nav-link" href="/posts/">Posts</a>
+            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/projects/">Projects</a>
+            <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+          </div>
         </div>
-      </div>
-    </div>
+      </header>
+      
+    <nav class="site-breadcrumb">
+      <!-- <div class="breadcrumb-flex">
+        <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
+      </div> -->
+    </nav>
 
-    <main class="tmpl-post">
-      <article>
+      <!-- Begin base insert -->
+      <main class="site-main  layout-dual ">
+        
+<div class="site-aside">
+  <div class="card sticky-toc">
+    <h3 class="card-title">Table of Contents</h3>
+    <nav class="toc" >
+        <ol><li><a href="#friction">Friction</a></li><li><a href="#my-system">My system</a></li><li><a href="#finishing-up">Finishing up</a></li></ol>
+      </nav>
+  </div>
+</div>
+
+<div class="site-content">
+<article class="card">
   <h1 class="post-title">The Perfect Productivity System Doesn&#39;t Exist</h1>
   <p class="post-description">A musing on my trials to create a frictionless productivity system that works.</p>
   
   <time datetime="2021-08-11">11 Aug 2021</time><a href="/tags/musings/" class="post-tag">musings</a>
   
-  <!-- <h3>Table of Contents</h3>
-  <nav class="toc" >
-        <ol><li><a href="#friction">Friction</a></li><li><a href="#my-system">My system</a></li><li><a href="#finishing-up">Finishing up</a></li></ol>
-      </nav> -->
+
 
   <blockquote>
 <p>Dans ses écrits, un sage Italien; Dit que le mieux est l'ennemi du bien.<br>
@@ -83,19 +99,17 @@
 <p>With this ridiculously simple system, I'm finding that I'm forgetting to do things less. I feel like I have control of what I'm doing, and feeling better about the things that I'm not doing. In fact, it's so simple and so helpful that I'm wondering why I didn't start this years ago.</p>
 
 </article>
-<article style>
-  <ul style="margin-bottom: 0;"><li>Next: <a href="/posts/2021-11-gpu/">Running an Operating System on the GPU</a></li>
-  </ul>
-</article>
+</div>
 
-    </main>
+      </main>
 
-    <footer>
-      <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
-      <p><a href="#">Back to top</a></p>
-    </footer>
+      <!-- End base insert -->
 
-    <!-- Current page: /posts/2021-08-productivity/ -->
+      <footer class="site-footer">
+        <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
+        <p><a href="#navbar">Back to top</a></p>
+      </footer>
+    </div>
   </body>
 
   <script>

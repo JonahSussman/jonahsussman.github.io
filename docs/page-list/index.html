@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonah Sussman</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/prism-base16-monokai.dark.css">
+
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Jonah Sussman">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Jonah Sussman">
 
@@ -15,28 +16,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <script src="https://unpkg.com/petite-vue"></script>
   </head>
-  <body>
-    <div id="navbar">
-      <div class="nav-flex">
-        <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
-          <rect y="10" width="100" height="20" rx="10"></rect>
-          <rect y="40" width="100" height="20" rx="10"></rect>
-          <rect y="70" width="100" height="20" rx="10"></rect>
-        </svg>
+  <body class=" theme-blue ">
+    <div class="site-wrapper">
 
-        <a class="crazy-jonah nav-logo" href="/">Jonah Sussman</h1>
-
-        <div id="nav-menu">
-          <a class="nav-link nav-item" href="/posts/">Posts</a>
-          <a class="nav-link nav-item" href="/about/">About</a>
-          <a class="nav-link nav-item" href="/projects/">Projects</a>
-        <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+      <header id="navbar" class="site-header">
+        <div class="nav-flex">
+          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
+            <rect y="10" width="100" height="20" rx="10"></rect>
+            <rect y="40" width="100" height="20" rx="10"></rect>
+            <rect y="70" width="100" height="20" rx="10"></rect>
+          </svg>
+          <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
+          <div id="nav-menu">
+            <a class="nav-link" href="/posts/">Posts</a>
+            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/projects/">Projects</a>
+            <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+          </div>
         </div>
-      </div>
-    </div>
+      </header>
+      
+    <nav class="site-breadcrumb">
+      <!-- <div class="breadcrumb-flex">
+        <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
+      </div> -->
+    </nav>
 
-    <main>
-      <article>
+      <!-- Begin base insert -->
+      <main class="site-main  layout-single ">
+        <article>
 <table>
   <thead>
     <tr>
@@ -50,57 +58,46 @@
     <td>The Perfect Productivity System Doesn&#39;t Exist</td>
   </tr>
   <tr>
-    <td><a href="/projects/software-renderer/"><code>/projects/software-renderer/</code></a></td>
-    <td>software-renderer</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/project/"><code>/tags/project/</code></a></td>
-    <td>Tagged “project”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/xv6-gpu/"><code>/tags/xv6-gpu/</code></a></td>
-    <td>Tagged “xv6-gpu”</td>
-  </tr>
-  <tr>
-    <td><a href="/tags/musings/"><code>/tags/musings/</code></a></td>
-    <td>Tagged “musings”</td>
+    <td><a href="/projects/"><code>/projects/</code></a></td>
+    <td>Projects</td>
   </tr>
   <tr>
     <td><a href="/posts/"><code>/posts/</code></a></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href="/projects/"><code>/projects/</code></a></td>
-    <td>Projects</td>
+    <td><a href="/"><code>/</code></a></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td><a href="/tags/musings/"><code>/tags/musings/</code></a></td>
+    <td>Tagged “musings”</td>
   </tr>
   <tr>
     <td><a href="/tags/"><code>/tags/</code></a></td>
     <td></td>
   </tr>
   <tr>
-    <td><a href="/posts/2021-11-gpu/"><code>/posts/2021-11-gpu/</code></a></td>
-    <td>Running an Operating System on the GPU</td>
-  </tr>
-  <tr>
     <td><a href="/about/"><code>/about/</code></a></td>
     <td>About Me</td>
   </tr>
   <tr>
-    <td><a href="/"><code>/</code></a></td>
-    <td></td>
+    <td><a href="/projects/software-renderer/"><code>/projects/software-renderer/</code></a></td>
+    <td>software-renderer</td>
   </tr>
   </tbody>
 </table>
 </article>
 
-    </main>
+      </main>
 
-    <footer>
-      <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
-      <p><a href="#">Back to top</a></p>
-    </footer>
+      <!-- End base insert -->
 
-    <!-- Current page: /page-list/ -->
+      <footer class="site-footer">
+        <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
+        <p><a href="#navbar">Back to top</a></p>
+      </footer>
+    </div>
   </body>
 
   <script>

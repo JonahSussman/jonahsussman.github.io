@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>software-renderer</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/prism-base16-monokai.dark.css">
+
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Jonah Sussman">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Jonah Sussman">
 
@@ -15,32 +16,35 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <script src="https://unpkg.com/petite-vue"></script>
   </head>
-  <body>
-    <div id="navbar">
-      <div class="nav-flex">
-        <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
-          <rect y="10" width="100" height="20" rx="10"></rect>
-          <rect y="40" width="100" height="20" rx="10"></rect>
-          <rect y="70" width="100" height="20" rx="10"></rect>
-        </svg>
+  <body class=" theme-orange ">
+    <div class="site-wrapper">
 
-        <a class="crazy-jonah nav-logo" href="/">Jonah Sussman</h1>
-
-        <div id="nav-menu">
-          <a class="nav-link nav-item" href="/posts/">Posts</a>
-          <a class="nav-link nav-item" href="/about/">About</a>
-          <a class="nav-link nav-item" href="/projects/">Projects</a>
-        <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+      <header id="navbar" class="site-header">
+        <div class="nav-flex">
+          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
+            <rect y="10" width="100" height="20" rx="10"></rect>
+            <rect y="40" width="100" height="20" rx="10"></rect>
+            <rect y="70" width="100" height="20" rx="10"></rect>
+          </svg>
+          <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
+          <div id="nav-menu">
+            <a class="nav-link" href="/posts/">Posts</a>
+            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/projects/">Projects</a>
+            <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+          </div>
         </div>
-      </div>
-    </div>
-
-    <main class="tmpl-about">
+      </header>
       
-<link rel="stylesheet" href="/css/orange.css">
+    <nav class="site-breadcrumb">
+      <!-- <div class="breadcrumb-flex">
+        <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
+      </div> -->
+    </nav>
 
-<link rel="stylesheet" href="/css/orange.css">
-<style>
+      <!-- Begin base insert -->
+      <main class="site-main  layout-single ">
+        <style>
   .emscripten { padding-right: 0; margin: 1rem auto; display: block; }
   textarea.emscripten { font-family: monospace; width: 80%; }
   div.emscripten { text-align: center; }
@@ -81,35 +85,62 @@
   }
 
 </style>
-<article style="display: flex; flex-direction: column;">
-  <h1>software-renderer</h1>
-  
-  <a style="margin-left: auto; margin-right: auto;" href="https://www.github.com/JonahSussman/software-renderer">👉 Check out the code here! 👈</a>
-  
-  <p style="margin-left: auto; margin-right: auto;"><mark><b>Note: this page will only look and work properly if you have a keyboard</b></mark></p>
 
-  <div>
-  <figure style="overflow:visible;" id="spinner"><div class="spinner"></div><center style="margin-top:0.5em"><strong>emscripten</strong></center></figure>
-  <div class="emscripten" id="status">Downloading...</div>
-  <div class="emscripten">
-    <progress value="0" max="100" id="progress" hidden=1></progress>  
-  </div>
-  <!-- <div class="emscripten_border"> -->
-  <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+<div class="site-content">
+  <div class="card">
+    <h1 class="card-title">software-renderer</h1>
+    
+    <a style="margin-left: auto; margin-right: auto;" href="https://www.github.com/JonahSussman/software-renderer">👉 Check out the code here! 👈</a>
+    
+    <p style="margin-left: auto; margin-right: auto;"><mark><b>Note: this page will only work properly if you are using a chromium-based browser on PC</b></mark></p>
+
+    <div>
+    <figure style="overflow:visible;" id="spinner"><div class="spinner"></div><center style="margin-top:0.5em"><strong>emscripten</strong></center></figure>
+    <div class="emscripten" id="status">Downloading...</div>
+    <div class="emscripten">
+      <progress value="0" max="100" id="progress" hidden=1></progress>  
+    </div>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
   </div>
 
-<pre class="language-md"><code class="language-md"><span class="token title important"><span class="token punctuation">#</span> CONTROLS</span><br>  <span class="token title important"><span class="token punctuation">##</span> MOVEMENT</span><br>    <span class="token list punctuation">-</span> W: forward<br>    <span class="token list punctuation">-</span> A: left<br>    <span class="token list punctuation">-</span> S: back<br>    <span class="token list punctuation">-</span> D: right<br>    <span class="token list punctuation">-</span> Q: down<br>    <span class="token list punctuation">-</span> E or SPACE: up<br>  <span class="token title important"><span class="token punctuation">##</span> LOOK</span><br>    <span class="token list punctuation">-</span> I: up<br>    <span class="token list punctuation">-</span> J: left<br>    <span class="token list punctuation">-</span> K: down<br>    <span class="token list punctuation">-</span> L: right<br>    <span class="token list punctuation">-</span> U: counter-clockwise<br>    <span class="token list punctuation">-</span> O: clockwise</code></pre>
-  <!-- </div>
-  <hr/>
-  <div class="emscripten">
-    <input type="checkbox" id="resize">Resize canvas
-    <input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer
-    &nbsp;&nbsp;&nbsp;
-    <input type="button" value="Fullscreen" onclick="Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)">
+  <pre class="language-md"><code class="language-md"><span class="token title important"><span class="token punctuation">#</span> CONTROLS</span><br>    <span class="token title important"><span class="token punctuation">##</span> MOVEMENT</span><br>      <span class="token list punctuation">-</span> W: forward<br>      <span class="token list punctuation">-</span> A: left<br>      <span class="token list punctuation">-</span> S: back<br>      <span class="token list punctuation">-</span> D: right<br>      <span class="token list punctuation">-</span> Q: down<br>      <span class="token list punctuation">-</span> E or SPACE: up<br>    <span class="token title important"><span class="token punctuation">##</span> LOOK</span><br>      <span class="token list punctuation">-</span> I: up<br>      <span class="token list punctuation">-</span> J: left<br>      <span class="token list punctuation">-</span> K: down<br>      <span class="token list punctuation">-</span> L: right<br>      <span class="token list punctuation">-</span> U: counter-clockwise<br>      <span class="token list punctuation">-</span> O: clockwise</code></pre>
   </div>
-  <hr/> 
-  <textarea class="emscripten" id="output" rows="8"></textarea> -->
-</article>
+
+  <!-- <div class="card">
+  <img src="/assets/profilepic0.jpg" style="float:right;margin-left: 1rem;width: min(33vw, 175px); ">
+  <h1 class="card-title" id="greeting">After­noon! My name is <span class="crazy-jonah">Jonah Sussman</span>.</h1>
+  
+  
+  <p>I'm a research assistant and Computer Science & Mathematics double major at The University of Alabama. I welcome you to my website! Here you can find various things that I've been working on, projects, et cetera. Stay a while!</p>
+  
+  </div>
+  
+  <div class="card">
+  
+  <h1 class="card-title">Latest Post</h1>
+  
+  
+  
+  <ul class="post-list">
+
+  <li onclick="location.href='/posts/2021-08-productivity/';">
+    <a href="/posts/2021-08-productivity/">The Perfect Productivity System Doesn&#39;t Exist</a>
+    <time> — 11 Aug 2021</time>
+    
+    
+    <a href="/tags/musings/" class="post-tag">musings</a>
+    
+    <p style="margin-top:0;margin-left:1rem;"><i>A musing on my trials to create a frictionless productivity system that works.</i></p>
+  </li>
+
+</ul>
+  
+  </div> -->
+</div>
+
+<!-- <div class="site-content">
+
+</div> -->
 
 <script type='text/javascript'>
   var statusElement = document.getElementById('status');
@@ -189,15 +220,15 @@
 </script>
 <script async type="text/javascript" src="../software-renderer.js"></script>
 <!-- <script async type="text/javascript" src="software-renderer.js"></script> -->
+      </main>
 
-    </main>
+      <!-- End base insert -->
 
-    <footer>
-      <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
-      <p><a href="#">Back to top</a></p>
-    </footer>
-
-    <!-- Current page: /projects/software-renderer/ -->
+      <footer class="site-footer">
+        <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
+        <p><a href="#navbar">Back to top</a></p>
+      </footer>
+    </div>
   </body>
 
   <script>

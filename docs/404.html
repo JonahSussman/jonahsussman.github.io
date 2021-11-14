@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jonah Sussman</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/prism-base16-monokai.dark.css">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/prism-base16-monokai.dark.css">
+
     <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Jonah Sussman">
     <link rel="alternate" href="/feed/feed.json" type="application/json" title="Jonah Sussman">
 
@@ -15,41 +16,62 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <script src="https://unpkg.com/petite-vue"></script>
   </head>
-  <body>
-    <div id="navbar">
-      <div class="nav-flex">
-        <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
-          <rect y="10" width="100" height="20" rx="10"></rect>
-          <rect y="40" width="100" height="20" rx="10"></rect>
-          <rect y="70" width="100" height="20" rx="10"></rect>
-        </svg>
+  <body class=" theme-blue ">
+    <div class="site-wrapper">
 
-        <a class="crazy-jonah nav-logo" href="/">Jonah Sussman</h1>
-
-        <div id="nav-menu">
-          <a class="nav-link nav-item" href="/posts/">Posts</a>
-          <a class="nav-link nav-item" href="/about/">About</a>
-          <a class="nav-link nav-item" href="/projects/">Projects</a>
-        <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+      <header id="navbar" class="site-header">
+        <div class="nav-flex">
+          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
+            <rect y="10" width="100" height="20" rx="10"></rect>
+            <rect y="40" width="100" height="20" rx="10"></rect>
+            <rect y="70" width="100" height="20" rx="10"></rect>
+          </svg>
+          <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
+          <div id="nav-menu">
+            <a class="nav-link" href="/posts/">Posts</a>
+            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/projects/">Projects</a>
+            <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+          </div>
         </div>
-      </div>
+      </header>
+      
+    <nav class="site-breadcrumb">
+      <!-- <div class="breadcrumb-flex">
+        <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
+      </div> -->
+    </nav>
+
+      <!-- Begin base insert -->
+      <main class="site-main  layout-single ">
+        <div class="site-content">
+  <div class="card">
+    <h1 class="card-title">That's a 404!</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem;">
+      <img src="/assets/404/geometrischer-1.jpg" style="max-width: 100%;">
+      <img src="/assets/404/geometrischer-2.jpg" style="max-width: 100%;">
+      <img src="/assets/404/geometrischer-3.jpg" style="max-width: 100%;">
+      <img src="/assets/404/geometrischer-4.jpg" style="max-width: 100%;">
     </div>
 
-    <main class="tmpl-single">
-      
-<article>
-  <h1 id="content-not-found.">Content not found. <a class="direct-link" href="#content-not-found.">#</a></h1>
-<p>Go <a href="/">home</a>.</p>
+    <p>The content you requested could not be found on the server.</p>
+    <p>Go <a href="/">home</a>.</p>
 
-</article>
-    </main>
+    <p class="post-description">Images from <a href="https://publicdomainreview.org/collection/solid-objects">Herzog August Bibliothek in Wolfenbüttel</a>.</p>
+  </div>
+</div>
 
-    <footer>
-      <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
-      <p><a href="#">Back to top</a></p>
-    </footer>
 
-    <!-- Current page: /404.html -->
+
+      </main>
+
+      <!-- End base insert -->
+
+      <footer class="site-footer">
+        <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
+        <p><a href="#navbar">Back to top</a></p>
+      </footer>
+    </div>
   </body>
 
   <script>

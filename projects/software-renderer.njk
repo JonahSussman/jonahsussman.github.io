@@ -1,9 +1,9 @@
 ---
-layout: layouts/about.njk
+layout: layouts/base.njk
 title: software-renderer
-templateClass: tmpl-about
+
+theme: theme-orange
 ---
-<link rel="stylesheet" href="{{ '/css/orange.css' | url }}">
 <style>
   .emscripten { padding-right: 0; margin: 1rem auto; display: block; }
   textarea.emscripten { font-family: monospace; width: 80%; }
@@ -45,51 +45,66 @@ templateClass: tmpl-about
   }
 
 </style>
-<article style="display: flex; flex-direction: column;">
-  <h1>software-renderer</h1>
-  
-  <a style="margin-left: auto; margin-right: auto;" href="https://www.github.com/JonahSussman/software-renderer">👉 Check out the code here! 👈</a>
-  
-  <p style="margin-left: auto; margin-right: auto;"><mark><b>Note: this page will only look and work properly if you have a keyboard</b></mark></p>
 
-  <div>
-  <figure style="overflow:visible;" id="spinner"><div class="spinner"></div><center style="margin-top:0.5em"><strong>emscripten</strong></center></figure>
-  <div class="emscripten" id="status">Downloading...</div>
-  <div class="emscripten">
-    <progress value="0" max="100" id="progress" hidden=1></progress>  
-  </div>
-  <!-- <div class="emscripten_border"> -->
-  <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
+<div class="site-content">
+  <div class="card">
+    <h1 class="card-title">software-renderer</h1>
+    
+    <a style="margin-left: auto; margin-right: auto;" href="https://www.github.com/JonahSussman/software-renderer">👉 Check out the code here! 👈</a>
+    
+    <p style="margin-left: auto; margin-right: auto;"><mark><b>Note: this page will only work properly if you are using a chromium-based browser on PC</b></mark></p>
+
+    <div>
+    <figure style="overflow:visible;" id="spinner"><div class="spinner"></div><center style="margin-top:0.5em"><strong>emscripten</strong></center></figure>
+    <div class="emscripten" id="status">Downloading...</div>
+    <div class="emscripten">
+      <progress value="0" max="100" id="progress" hidden=1></progress>  
+    </div>
+    <canvas class="emscripten" id="canvas" oncontextmenu="event.preventDefault()" tabindex=-1></canvas>
   </div>
 
-{% highlight "md" %}
-# CONTROLS
-  ## MOVEMENT
-    - W: forward
-    - A: left
-    - S: back
-    - D: right
-    - Q: down
-    - E or SPACE: up
-  ## LOOK
-    - I: up
-    - J: left
-    - K: down
-    - L: right
-    - U: counter-clockwise
-    - O: clockwise
-{% endhighlight %}
-  <!-- </div>
-  <hr/>
-  <div class="emscripten">
-    <input type="checkbox" id="resize">Resize canvas
-    <input type="checkbox" id="pointerLock" checked>Lock/hide mouse pointer
-    &nbsp;&nbsp;&nbsp;
-    <input type="button" value="Fullscreen" onclick="Module.requestFullscreen(document.getElementById('pointerLock').checked, document.getElementById('resize').checked)">
+  {% highlight "md" %}
+  # CONTROLS
+    ## MOVEMENT
+      - W: forward
+      - A: left
+      - S: back
+      - D: right
+      - Q: down
+      - E or SPACE: up
+    ## LOOK
+      - I: up
+      - J: left
+      - K: down
+      - L: right
+      - U: counter-clockwise
+      - O: clockwise
+  {% endhighlight %}
   </div>
-  <hr/> 
-  <textarea class="emscripten" id="output" rows="8"></textarea> -->
-</article>
+
+  <!-- <div class="card">
+  <img src="/assets/profilepic0.jpg" style="float:right;margin-left: 1rem;width: min(33vw, 175px); ">
+  <h1 class="card-title" id="greeting">After­noon! My name is <span class="crazy-jonah">Jonah Sussman</span>.</h1>
+  
+  
+  <p>I'm a research assistant and Computer Science & Mathematics double major at The University of Alabama. I welcome you to my website! Here you can find various things that I've been working on, projects, et cetera. Stay a while!</p>
+  
+  </div>
+  
+  <div class="card">
+  {% set maxPosts = collections.posts.length | min(3) %}
+  <h1 class="card-title">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
+  
+  {% set postslist = collections.posts | head(-3) %}
+  {% set postslistCounter = collections.posts | length %}
+  {% include "postslist.njk" %}
+  
+  </div> -->
+</div>
+
+<!-- <div class="site-content">
+
+</div> -->
 
 <script type='text/javascript'>
   var statusElement = document.getElementById('status');

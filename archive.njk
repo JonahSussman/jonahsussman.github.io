@@ -5,11 +5,13 @@ eleventyNavigation:
   key: Posts
   order: 1
 ---
-<article>
+<div class="site-content">
+<div class="card">
 
-<h1>Posts</h1>
+<h1 class="card-title">Posts</h1>
 
 {% set postslist = collections.posts %}
 {% include "postslist.njk" %}
 
-</article>
+</div>
+</div>

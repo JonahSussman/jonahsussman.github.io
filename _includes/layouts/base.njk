@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
-    <link rel="stylesheet" href="{{ '/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/css/prism-base16-monokai.dark.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/prism-base16-monokai.dark.css' | url }}">
+
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
     <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
 
@@ -15,36 +16,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     <script src="https://unpkg.com/petite-vue"></script>
   </head>
-  <body>
-    <div id="navbar">
-      <div class="nav-flex">
-        <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
-          <rect y="10" width="100" height="20" rx="10"></rect>
-          <rect y="40" width="100" height="20" rx="10"></rect>
-          <rect y="70" width="100" height="20" rx="10"></rect>
-        </svg>
+  <body class="{% if theme %} {{ theme }} {% else %} theme-blue {% endif %}">
+    <div class="site-wrapper">
 
-        <a class="crazy-jonah nav-logo" href="{{ '/' | url }}">{{ metadata.title }}</h1>
-
-        <div id="nav-menu">
-        {%- for entry in collections.all | eleventyNavigation %}
-          <a class="nav-link nav-item{% if entry.url == page.url %} nav-item-active{% endif %}" href="{{ entry.url | url }}">{{ entry.title }}</a>
-        {%- endfor %}
-        <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+      <header id="navbar" class="site-header">
+        <div class="nav-flex">
+          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
+            <rect y="10" width="100" height="20" rx="10"></rect>
+            <rect y="40" width="100" height="20" rx="10"></rect>
+            <rect y="70" width="100" height="20" rx="10"></rect>
+          </svg>
+          <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
+          <div id="nav-menu">
+            <a class="nav-link{% if '/posts/' == page.url %} active{% endif %}" href="/posts/">Posts</a>
+            <a class="nav-link{% if '/about/' == page.url %} active{% endif %}" href="/about/">About</a>
+            <a class="nav-link{% if '/projects/' == page.url %} active{% endif %}" href="/projects/">Projects</a>
+            <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+          </div>
         </div>
-      </div>
+      </header>
+      
+    <nav class="site-breadcrumb">
+      <!-- <div class="breadcrumb-flex">
+        <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
+      </div> -->
+    </nav>
+
+      <!-- Begin base insert -->
+      <main class="site-main {% if contentLayout %} {{ contentLayout }} {% else %} layout-single {% endif %}">
+        {{ content | safe }}
+      </main>
+
+      <!-- End base insert -->
+
+      <footer class="site-footer">
+        <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
+        <p><a href="#navbar">Back to top</a></p>
+      </footer>
     </div>
-
-    <main{% if templateClass %} class="{{ templateClass }}"{% endif %}>
-      {{ content | safe }}
-    </main>
-
-    <footer>
-      <p>2020 - {{ helpers.currentYear() }} | Made with 💖 by Jonah Sussman</p>
-      <p><a href="#">Back to top</a></p>
-    </footer>
-
-    <!-- Current page: {{ page.url | url }} -->
   </body>
 
   <script>
