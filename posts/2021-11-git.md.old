@@ -22,7 +22,7 @@ As with most topics that you have no idea about, they always seem impregnable. H
 
 The short answer? *You can't.*
 
-At least not without devoting a significant amount of time to these megaprojects. But, looking at it from this angle is unproductive at best and defeatist at worst. These projects have had *years upon years* of *hundreds of people* committing changes to them. Instead, we should focus on smaller, more manageable projects first, like DOOM which has a meager [39k lines of code](https://www.reddit.com/r/Doom/comments/g7wbxr/number_of_lines_of_code_in_classic_doom/). And what you'll find is that the early versions of these behemoth-sized projects were often tiny. The first version of the Linux kernel was only [10,239 lines of code](https://www.linuxfoundation.org/blog/anniversary-of-first-linux-kernel-release-a-look-at-collaborative-value/)!
+At least not without devoting a significant amount of time to these megaprojects. But, looking at it from this angle is unproductive at best and defeatist at worst. These projects have had *years upon years* of *hundreds of people* committing changes to them. Instead, we should focus on smaller, more manageable projects first, like DOOM which in comparison has a meager [39k lines of code](https://www.reddit.com/r/Doom/comments/g7wbxr/number_of_lines_of_code_in_classic_doom/). And what you'll find is that the early versions of these behemoth-sized projects were often tiny. The first version of the Linux kernel was only [10,239 lines of code](https://www.linuxfoundation.org/blog/anniversary-of-first-linux-kernel-release-a-look-at-collaborative-value/)!
 
 And so, by examining the early versions of these projects, the versions that a single person can hope to analyze in a weekend, I hope to shine a light on my dark areas of knowledge.
 
@@ -30,7 +30,7 @@ And so, by examining the early versions of these projects, the versions that a s
 
 I'm going to assume that most of you know what git is. If not, you can read about it [here](https://git-scm.com/). 
 
-For those of you that don't, here's a quick explanation: In a nutshell, git is a program designed to make the act of large amounts of people working on a single project as smooth as possible. 
+For those of you that don't, here's a quick explanation: In a nutshell, git is a program designed to make the act of large amounts of people working on a single project run as smoothly as possible. 
 
 Imagine a situation where you've saved a file named `report`. You then email this file to your colleague for approval. Great! The only problem is that they have some minor corrections and named it `report_UPDATED`. You don't quite agree with some of these changes and send it back named `report_UPDATED_v2`. Then you get back `report_UPDATED_v3`, `report_UPDATE_v3_JONAH`, `report_UPDATED_v3_JONAH_FINAL`, `report_UPDATED_v3_JONAH_FINAL_for_real`, etc... 
 
@@ -42,7 +42,7 @@ Linus Torvalds (of Linux fame) created Git in [about ten days or so](https://www
 
 Now I bet a lot of you developers out there didn't know that the first version of git's source code is readily accessible. Look! [Here it is!](https://github.com/git/git/tree/e83c5163316f89bfbde7d9ab23ca2e25604af290). I'm sure I intuitively knew that it was, but I just never bothered to look...
 
-Git, like most things dealing with GNU or Linux, is programmed in plain old C. Compiling the source code with `make` (be sure to update `LIBS` to include `LIBS=-lz -lcrypto`), I realized that there was no actual `git` ELF file. Instead, there are multiple different individual programs. That leads us to our first nugget of knowledge about the structure of git: **Git is actually composed of multiple different subprograms**. 
+Git, like most things dealing with GNU or Linux, is programmed in plain old C. Compiling the source code with `make` (be sure to update `LIBS` to include `-lz -lcrypto`), I realized that there was no actual compiled `git` executable to run. Instead, there were multiple different individual programs. That leads us to our first nugget of knowledge about the structure of git: **Git is actually composed of multiple different subprograms**. 
 
 The `git` program simply parses the arguments you give to it and [pipes it along to the specified subprogram](https://github.com/git/git/blob/master/common-main.c). [This rings true even today](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables). You can type `git --exec-path` to find the directory where these subprograms are stored. Using `ls | wc -l`, I counted 159 individual programs for the modern version of git!
 

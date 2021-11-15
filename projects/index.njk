@@ -18,7 +18,7 @@ theme: theme-orange
 <ul class="thumb-list">
 {% for project in projects %}
   <li onclick="location.href='{{ project.link }}';">
-    <img class="g-left" src="{{ project.thumb }}">
+    <img style="max-width: unset;" class="g-left" src="{{ project.thumb }}">
     <div class="g-right">
       <a href="{{ project.link | url }}">{{ project.title }}</a>
       <time datetime="{{ post.date | htmlDateString }}"> — {{ project.date }}</time>
