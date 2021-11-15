@@ -12,7 +12,13 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
   eleventyConfig.addPlugin(pluginNavigation);
-  eleventyConfig.addPlugin(pluginTOC);
+  eleventyConfig.addPlugin(pluginTOC, {
+    tags: ['h1', 'h2', 'h3', 'h4'], // which heading tags are selected headings must each have an ID attribute
+    wrapper: 'div',           // element to put around the root `ol`/`ul`
+    wrapperClass: 'card sticky-toc',      // class for the element around the root `ol`/`ul`
+    ul: true,                // if to use `ul` instead of `ol`
+    flat: false,              // if subheadings should appear as child of parent or as a sibling
+  });
 
   // https://www.11ty.dev/docs/data-deep-merge/
   eleventyConfig.setDataDeepMerge(true);

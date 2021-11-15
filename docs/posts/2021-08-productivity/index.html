@@ -45,24 +45,23 @@
       <!-- Begin base insert -->
       <main class="site-main  layout-dual ">
         
+
+
+
 <div class="site-aside">
-  <div class="card sticky-toc">
-    <h3 class="card-title">Table of Contents</h3>
-    <nav class="toc" >
-        <ol><li><a href="#friction">Friction</a></li><li><a href="#my-system">My system</a></li><li><a href="#finishing-up">Finishing up</a></li></ol>
-      </nav>
-  </div>
+  <div class="card sticky-toc" >
+        <ul><li><a href="#post-title">The Perfect Productivity System Doesn't Exist</a><ul><li><a href="#friction">Friction</a></li><li><a href="#my-system">My system</a></li><li><a href="#finishing-up">Finishing up</a></li></ul></li></ul>
+      </div>
 </div>
+
 
 <div class="site-content">
 <article class="card">
-  <h1 class="post-title">The Perfect Productivity System Doesn&#39;t Exist</h1>
+  <h1 id="post-title" class="post-title">The Perfect Productivity System Doesn&#39;t Exist</h1>
   <p class="post-description">A musing on my trials to create a frictionless productivity system that works.</p>
   
   <time datetime="2021-08-11">11 Aug 2021</time><a href="/tags/musings/" class="post-tag">musings</a>
   
-
-
   <blockquote>
 <p>Dans ses écrits, un sage Italien; Dit que le mieux est l'ennemi du bien.<br>
 (In his writings, a wise Italian; says that the best is the enemy of the good)<br>
@@ -101,6 +100,45 @@
 </article>
 </div>
 
+<script>
+function highlightNav(heading) {
+  let pathname = location.pathname;
+  document.querySelectorAll(".sticky-toc a").forEach((item) => {
+    item.classList.remove("active");
+    if (item.href.endsWith('#'+heading)) {
+      item.classList.add("active");
+    }
+  });
+}
+
+highlightNav('post-title');
+
+let currentHeading = "";
+window.onscroll = function () {
+  let h = document.querySelectorAll("h1,h2,h3,h4,h5,h6");
+  let elementArr = [];
+
+  h.forEach(item => {
+    if (item.id !== "") {
+      elementArr[item.id] = item.getBoundingClientRect().top;
+    }
+  });
+  elementArr.sort();
+  for (let key in elementArr) {
+    if (!elementArr.hasOwnProperty(key)) {
+      continue;
+    }
+    if (elementArr[key] > 0 && elementArr[key] < 300) {
+      if (currentHeading !== key) {
+        highlightNav(key);
+        currentHeading = key;
+      }
+      break;
+    }
+  }
+}
+
+</script>
       </main>
 
       <!-- End base insert -->

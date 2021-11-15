@@ -20,7 +20,7 @@ theme: theme-orange
   <li onclick="location.href='{{ project.link }}';">
     <img class="g-left" src="{{ project.thumb }}">
     <div class="g-right">
-      <a href="{{ project.link }}">{{ project.title }}</a>
+      <a href="{{ project.link | url }}">{{ project.title }}</a>
       <time datetime="{{ post.date | htmlDateString }}"> — {{ project.date }}</time>
       <p><i>{{ project.description }}</i></p>
     </div>

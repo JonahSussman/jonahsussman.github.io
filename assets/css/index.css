@@ -11,6 +11,14 @@ h1 { font-size: 2rem; }
 
 img {
   border-radius: var(--radius);
+  max-width: 100%;
+}
+
+img + br + em { /* Convert to shortcode or what have you */
+  font-style: italic;
+  display: block;
+  font-size: 0.8rem;
+  text-align: center;
 }
 
 /* Themes */
@@ -184,6 +192,7 @@ code {
   background-color: var(--white);
   padding: var(--dyn-pad);
   border-radius: var(--radius);
+  border-top: 0.2rem solid var(--primary);
   outline: 1px solid var(--primary);
   position: relative;
   overflow: auto;
@@ -201,9 +210,28 @@ section > :last-child  { margin-bottom: 0 !important; }
 .sticky-toc {
   position: sticky;
   top: 1rem;
+  padding-left: 0;
   --dyn-pad: var(--dyn-pad-s);
 }
+.sticky-toc ul {
+  padding-left: var(--dyn-pad-s);
+  list-style-type:none;
+}
+.sticky-toc a {
+  color: var(--black);
+  text-decoration: none;
+}
+.sticky-toc a.active {
+  color: var(--link-unvisited);
+  font-weight: bold;
+}
+.sticky-toc a:hover {
+  text-decoration: underline;
+}
 
+/* .sticky-toc > ul > li {
+  marker: none;
+} */
 /* Site footer and header */
 
 .nav-flex {

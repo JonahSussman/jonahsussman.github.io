@@ -1,0 +1,53 @@
+---
+title: Taking a look at the first release of Git
+description: Examining one of the most influential tools of the last 20 years
+date: 2021-11-15
+tags:
+  - programming
+  - code-review
+layout: layouts/post.njk
+---
+
+There comes a time in every software engineer's life where they have to take a step back and appreciate the mountain of human effort that has been put into this field we call "Computer Science." Gathering its roots from [a hole in the bottom of mathematics](https://www.youtube.com/watch?v=HeQX2HjkcNo) and the [cryptanalysis of the enigma machine](https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma) to the development of the first [UNIX operating systems](https://en.wikipedia.org/wiki/Unix) and the [home computer explosion](https://en.wikipedia.org/wiki/Timeline_of_computing), there has certainly been countless millions of man-hours put into this field. 
+
+![Interieur van de Bodleian Library te Oxford]({{ '/assets/posts/2021-11-git/library.jpg' | url }})
+*This massive library is but a small part of all human knowledge.
+Found via [Museo](https://museo.app/?q=library). Art is at the [Rijks Museum](https://www.rijksmuseum.nl/en/collection/RP-P-2015-26-2027).*
+
+I, like most developers nowadays, started somewhere in the middle of all this complexity. I "decided" that I was going to be a game developer (almost assuredly egged on by the absolute runaway success of Minecraft) and learned the basics of Java. Then, over the next decade, I spent time filling in the gaps of my knowledge. I explored downward to transistors, electrical engineering, and CPU design. I explored upward to algorithmic efficiency, software engineering, and user experience. Every foray into the forest of knowledge elucidated a tiny fraction more as to why developers design programs the way they do.
+
+And yet, even with all this effort, the area surrounding this middle part from where I started still eluded me. That is programming languages, operating systems, and common tools that I used every day. While the former two are being remedied by my time in university (roll tide!), the inner workings of the latter are still an enigma. 
+
+As with most topics that you have no idea about, they always seem impregnable. How am I, a lowly individual, supposed to wade through the nearly [28 million lines of code in the Linux kernel](https://www.linux.com/news/linux-in-2020-27-8-million-lines-of-code-in-the-kernel-1-3-million-in-systemd/), or the [21 million lines of code in Firefox](https://hacks.mozilla.org/2020/04/code-quality-tools-at-mozilla/)?
+
+The short answer? *You can't.*
+
+At least not without devoting a significant amount of time to these megaprojects. But, looking at it from this angle is unproductive at best and defeatist at worst. These projects have had *years upon years* of *hundreds of people* committing changes to them. Instead, we should focus on smaller, more manageable projects first, like DOOM which has a meager [39k lines of code](https://www.reddit.com/r/Doom/comments/g7wbxr/number_of_lines_of_code_in_classic_doom/). And what you'll find is that the early versions of these behemoth-sized projects were often tiny. The first version of the Linux kernel was only [10,239 lines of code](https://www.linuxfoundation.org/blog/anniversary-of-first-linux-kernel-release-a-look-at-collaborative-value/)!
+
+And so, by examining the early versions of these projects, the versions that a single person can hope to analyze in a weekend, I hope to shine a light on my dark areas of knowledge.
+
+## What is git?
+
+I'm going to assume that most of you know what git is. If not, you can read about it [here](https://git-scm.com/). 
+
+For those of you that don't, here's a quick explanation: In a nutshell, git is a program designed to make the act of large amounts of people working on a single project as smooth as possible. 
+
+Imagine a situation where you've saved a file named `report`. You then email this file to your colleague for approval. Great! The only problem is that they have some minor corrections and named it `report_UPDATED`. You don't quite agree with some of these changes and send it back named `report_UPDATED_v2`. Then you get back `report_UPDATED_v3`, `report_UPDATE_v3_JONAH`, `report_UPDATED_v3_JONAH_FINAL`, `report_UPDATED_v3_JONAH_FINAL_for_real`, etc... 
+
+Git helps you avoid all of that. Git controls versions; it's a *version control software* (VCS for short).
+
+Linus Torvalds (of Linux fame) created Git in [about ten days or so](https://www.linuxfoundation.org/blog/10-years-of-git-an-interview-with-git-creator-linus-torvalds/#:~:text=So%20I%27d%20like%20to,of%20mad%20dash%20of%20coding.) in 2005 after discussions between the Linux kernel community and BitKeeper (the VCS they were using) [broke down](https://git-scm.com/book/en/v2/Getting-Started-A-Short-History-of-Git). To say that Linus is a good developer is an understatement.
+
+## Git's source code
+
+Now I bet a lot of you developers out there didn't know that the first version of git's source code is readily accessible. Look! [Here it is!](https://github.com/git/git/tree/e83c5163316f89bfbde7d9ab23ca2e25604af290). I'm sure I intuitively knew that it was, but I just never bothered to look...
+
+Git, like most things dealing with GNU or Linux, is programmed in plain old C. Compiling the source code with `make` (be sure to update `LIBS` to include `LIBS=-lz -lcrypto`), I realized that there was no actual `git` ELF file. Instead, there are multiple different individual programs. That leads us to our first nugget of knowledge about the structure of git: **Git is actually composed of multiple different subprograms**. 
+
+The `git` program simply parses the arguments you give to it and [pipes it along to the specified subprogram](https://github.com/git/git/blob/master/common-main.c). [This rings true even today](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables). You can type `git --exec-path` to find the directory where these subprograms are stored. Using `ls | wc -l`, I counted 159 individual programs for the modern version of git!
+
+## Conclusion
+
+In conclusion, the first version of git has numerous unique features (rephrase)
+
+- Git is composed of multiple different subprograms

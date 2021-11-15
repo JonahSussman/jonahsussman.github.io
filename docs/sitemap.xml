@@ -12,11 +12,6 @@
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/projects/</loc>
-    <lastmod>2021-11-14</lastmod>
-  </url>
-  
-  <url>
     <loc>https://jonahsussman.net/posts/</loc>
     <lastmod>2021-11-14</lastmod>
   </url>
@@ -37,12 +32,17 @@
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/about/</loc>
+    <loc>https://jonahsussman.net/projects/software-renderer/</loc>
     <lastmod>2021-11-14</lastmod>
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/projects/software-renderer/</loc>
-    <lastmod>2021-11-14</lastmod>
+    <loc>https://jonahsussman.net/projects/</loc>
+    <lastmod>2021-11-15</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/about/</loc>
+    <lastmod>2021-11-15</lastmod>
   </url>
 </urlset>
