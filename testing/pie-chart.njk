@@ -1,0 +1,112 @@
+---
+layout: layouts/single-card.njk
+title: pie-chart
+
+theme: theme-red
+petiteVue: true
+---
+
+<template id="pie-chart-template">
+<div class="pie-chart" v-bind:style="cssVars()">
+  <svg viewBox="0 0 400 210">
+    <text x="200" y="20" v-text="title"></text>
+      <g v-for="datum in accumulate(data)" :key="datum.id">       
+        <path
+          class="sector"
+          stroke-width="2"
+          stroke-linejoin="round"
+          :fill="datum.color"
+          :style="`--move-x: ${5 * unitCircleX(datum.mid)}px; --move-y: ${5 * unitCircleY(datum.mid)}px;`"
+          @click="datum.id !== undefined && $emit('click', datum.id)"
+          :d="`
+            M ${getCart(datum.start)}
+            A 50,50 0 ${datum.end - datum.start > 50 ? '1,1' : '0,1'} ${getCart(datum.end)}
+            L 200,120
+            Z
+          `"/>
+
+        <line
+          class="data-line"
+          stoke-width="2"
+          />
+
+        <text
+          class="data-label"
+          :x="getX(datum.mid, 80)"
+          :y="getY(datum.mid, 80)"
+          :text-anchor="datum.mid < 50 || datum.mid > 97 ? 'start' : 'end'"
+          v-text="datum.label + ' ' + Math.round(datum.value) + '%'"
+        >
+      </text>
+      </g>
+  </svg>
+</div>
+</template>
+
+<script type="module">
+function PieChart(props) {
+  const RADIUS = 50
+  const CENTER = { x: 200, y: 120 }
+  return {
+    $template: "#pie-chart-template",
+    title: props.title,
+    data: props.data,
+    cssVars() { return "font-size: " + this.a + "px;"; },
+
+    accumulate(data) {
+      let total = 0
+      data.forEach(d => {
+        d.start = total
+        total += d.value
+        d.end = total
+        d.mid = (d.start + d.end) / 2
+      })
+      if (Math.round(total) < 100) {
+        data.push({
+          value: 100 - total,
+          start: total,
+          mid: (total + 100) / 2,
+          end: 100,
+          label: 'Other',
+          color: 'white',
+        })
+      }
+      // console.log('here!')
+      return data
+    },
+    getCart(percent, radius = RADIUS) {
+      const rad = percent * 3.6 * Math.PI / 180
+      const x = CENTER.x + radius * Math.sin(rad)
+      const y = CENTER.y - radius * Math.cos(rad)
+      return x + ',' + y
+    },
+    getX(percent, radius = RADIUS) {
+      const rad = percent * 3.6 * Math.PI / 180
+      return CENTER.x + radius * Math.sin(rad)
+    },
+    getY(percent, radius = RADIUS) {
+      const rad = percent * 3.6 * Math.PI / 180
+      return CENTER.y - radius * Math.cos(rad)
+    },
+    unitCircleX(percent) {
+      const rad = percent * 3.6 * Math.PI / 180
+      return Math.sin(rad)
+    },
+    unitCircleY(percent) {
+      const rad = percent * 3.6 * Math.PI / 180
+      return -Math.cos(rad)
+    },
+  }
+}
+
+PetiteVue.createApp({ PieChart }).mount()
+</script>
+
+<div v-scope="PieChart({ 
+  title: 'Test Pie Chart',
+  data: [
+    { id: 1, value: 10, color: 'blue', label: 'Blue amount' },
+    { id: 2, value: 45, color: 'green', label: 'Green amount' },
+    { id: 3, value: 30, color: 'red', label: 'Red amount' }
+  ]
+ })"></div>

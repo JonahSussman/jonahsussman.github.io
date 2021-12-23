@@ -14,14 +14,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
-    <script src="https://unpkg.com/petite-vue"></script>
+    
   </head>
   <body class=" theme-green ">
     <div class="site-wrapper">
 
       <header id="navbar" class="site-header">
         <div class="nav-flex">
-          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="black">
+          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="var(--black)">
             <rect y="10" width="100" height="20" rx="10"></rect>
             <rect y="40" width="100" height="20" rx="10"></rect>
             <rect y="70" width="100" height="20" rx="10"></rect>
@@ -105,8 +105,8 @@ let a = [
   ['Status', 'Yet to reach max q'],
 
   // Programming
-  ['Favorite ASCII character', '<code>0x07 \'BEL\'</code>'],
-  ['Favorite C Keyword', '<code>for</code>'],
+  ['Favorite ASCII character', '<code class="language-c"><span class="token number">0x07</span> \'BEL\'</code>'],
+  ['Favorite C Keyword', '<code class="language-c token keyword">for</code>'],
   ['Favorite Combinator', '<code>λf.(λx.f (x x)) (λx.f (x x))</code>'],
   ['Favorite Console Font', 'Iosevka SS03'],
   ['Favorite Encryption Algorithm', 'Rijndael'],

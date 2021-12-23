@@ -1,20 +1,26 @@
 ---
-title: Taking a look at the first release of Git
+title: The Simplicity of Git Version 1
 description: Examining one of the most influential tools of the last 20 years
-date: 2021-11-15
+date: 2021-12-14
 tags:
   - programming
   - code-review
 layout: layouts/post.njk
+petiteVue: true
+deferInitVue: true
 ---
 
 There comes a time in every software engineer's life where they have to take a step back and appreciate the mountain of human effort that has been put into this field we call "Computer Science." Gathering its roots from [a hole in the bottom of mathematics](https://www.youtube.com/watch?v=HeQX2HjkcNo) and the [cryptanalysis of the enigma machine](https://en.wikipedia.org/wiki/Cryptanalysis_of_the_Enigma) to the development of the first [UNIX operating systems](https://en.wikipedia.org/wiki/Unix) and the [home computer explosion](https://en.wikipedia.org/wiki/Timeline_of_computing), there has certainly been countless millions of man-hours put into this field. 
 
-![Interieur van de Bodleian Library te Oxford]({{ '/assets/posts/2021-11-git/library.jpg' | url }})
-*This massive library is but a small part of all human knowledge.
-Found via [Museo](https://museo.app/?q=library). Art is at the [Rijks Museum](https://www.rijksmuseum.nl/en/collection/RP-P-2015-26-2027).*
+<figure>
+<img src="{{ '/assets/posts/2021-11-git/library.jpg' | url }}">
+<figcaption>
+These famous Oxford libraries are but a small part of all human knowledge.<br>
+Found via <a href="https://museo.app/?q=library">Museo</a> and the <a href="https://www.rijksmuseum.nl/en/collection/RP-P-2015-26-2027">Rijks Museum</a>.
+</figcaption>
+</figure>
 
-I, like most developers nowadays, started somewhere in the middle of all this complexity. I "decided" that I was going to be a game developer (almost assuredly egged on by the absolute runaway success of Minecraft) and learned the basics of Java. Then, over the next decade, I spent time filling in the gaps of my knowledge. I explored downward to transistors, electrical engineering, and CPU design. I explored upward to algorithmic efficiency, software engineering, and user experience. Every foray into the forest of knowledge elucidated a tiny fraction more as to why developers design programs the way they do.
+I, like most developers nowadays, started somewhere in the middle of all this complexity. I "decided" that I was going to be the best game developer who ever lived (almost assuredly egged on by the absolute runaway success of Minecraft) and learned the basics of Java. Then, over the next decade, I spent time filling in the gaps of my knowledge. I explored downward to transistors, electrical engineering, and CPU design. I explored upward to algorithmic efficiency, software engineering, and user experience. Every foray into the forest of knowledge elucidated a tiny fraction more as to why developers design programs the way they do.
 
 And yet, even with all this effort, the area surrounding this middle part from where I started still eluded me. That is programming languages, operating systems, and common tools that I used every day. While the former two are being remedied by my time in university (roll tide!), the inner workings of the latter are still an enigma. 
 
@@ -46,8 +52,93 @@ Git, like most things dealing with GNU or Linux, is programmed in plain old C. C
 
 The `git` program simply parses the arguments you give to it and [pipes it along to the specified subprogram](https://github.com/git/git/blob/master/common-main.c). [This rings true even today](https://git-scm.com/book/en/v2/Git-Internals-Environment-Variables). You can type `git --exec-path` to find the directory where these subprograms are stored. Using `ls | wc -l`, I counted 159 individual programs for the modern version of git!
 
+The first version of git is paltry by comparison. Using the command `cloc`, we can gain a better understanding about where all the complexity lies:
+
+<figure>
+<img src="{{ '/assets/posts/2021-11-git/loc-stats.jpg' | url }}">
+<figcaption>I secretly just wanted an excuse to put a pie chart in here</figcaption>
+</figure>
+
+Just 9 files and 809 lines of code gets you the basic functionality of git. Incredible.
+
+## The functionality of git
+
+Each of these subprograms serves a purpose. Instead of analyzing some code segments in a vacuum, I feel it would be most productive to go through the functionality of each of these programs and then talk about whatever the hell they are doing then bring up some code snippets that show the they are doing as we are talking about it along with some interesting factoids. In this way we can build up an understanding of what the fuck git is doing.
+
+Git is really a filesystem.
+
+## [REMOVE ME] Notes
+
+### General
+- diff is shown using GNU diff, reminiscent of the UNIX philosophy
+- SHA1 hashes are 160 bits (20 bytes) long.
+- filenames must be local 
+- changesets don't exist really, they are computed https://stackoverflow.com/questions/38648491/what-is-a-changeset-in-git/38648993
+
+### Procedure
+- git init -> init-db
+- git add -> update-cache `<file>`
+- git commit -> git write-tree, git commit-tree -> write-tree commit-tree
+
+### Idiosyncrasies
+- `usage()` always prepends `"read-tree: "` to the message
+- Every function defined in `cache.h` is implemented in `read-cache.c`. It would be more idiomatic to name the C file as just `cache.c`. Although, `update-cache.c` also exists so...
+- git commit-tree [-p parent] can have multiple parents. Thus we have a merge.
+
+
 ## Conclusion
 
 In conclusion, the first version of git has numerous unique features (rephrase)
 
 - Git is composed of multiple different subprograms
+
+<!--
+<details style="border-radius: var(--radius); padding-top: 0.5rem; border-top: 0.2rem solid #272822; outline: 1px solid #272822;">
+<summary style="cursor: pointer; padding-left: 1rem; padding-bottom: 0.5rem;"><code style="font-size: 14px;">read-tree.c</code></summary>
+
+```c
+#include "cache.h"
+
+static int unpack(unsigned char *sha1) {
+  void *buffer;
+  unsigned long size;
+  char type[20];
+
+  buffer = read_sha1_file(sha1, type, &size);
+  if (!buffer)
+    usage("unable to read sha1 file");
+  if (strcmp(type, "tree"))
+    usage("expected a 'tree' node");
+  while (size) {
+    int len = strlen(buffer)+1;
+    unsigned char *sha1 = buffer + len;
+    char *path = strchr(buffer, ' ')+1;
+    unsigned int mode;
+    if (size < len + 20 || sscanf(buffer, "%o", &mode) != 1)
+      usage("corrupt 'tree' file");
+    buffer = sha1 + 20;
+    size -= len + 20;
+    printf("%o %s (%s)\n", mode, path, sha1_to_hex(sha1));
+  }
+  return 0;
+}
+
+int main(int argc, char **argv) {
+  int fd;
+  unsigned char sha1[20];
+
+  if (argc != 2) 
+    usage("read-tree <key>");
+  if (get_sha1_hex(argv[1], sha1) < 0)
+    usage("read-tree <key>");
+  sha1_file_directory = getenv(DB_ENVIRONMENT);
+  if (!sha1_file_directory)
+    sha1_file_directory = DEFAULT_DB_ENVIRONMENT;
+  if (unpack(sha1) < 0)
+    usage("unpack failed");
+  return 0;
+}
+```
+
+</details>
+-->

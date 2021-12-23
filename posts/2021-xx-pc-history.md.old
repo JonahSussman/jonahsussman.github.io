@@ -1,0 +1,36 @@
+---
+title: Why do your PC be like that?
+description: It do be like that doe.
+date: 2021-11-15
+tags:
+  - musings
+layout: layouts/post.njk
+---
+
+I have a certain affinity for retro computing. It is most likely due to the fact that I watched a lot of retro gaming YouTube channels like the Angry Video Game Nerd <sup>(content warning: swear words abound)</sup>, Lazy Game Reviews, and The 8-Bit Guy. I was even inspired by the likes of bisqwit, lftkryo and the UzeBox project to create chiptunes and participate in the demoscene a bit.
+
+Nowadays there are a lot of layers between you and the hardware. The days where you can initiate real mode and just output directly to the video memoery are long gone.
+
+How did we get here?
+
+(specific focus on gpu)
+
+Mention briefly CP/M. DO AN ARTICLE ON CP/M.
+
+c64 apple II to IBM PC. 1970s
+
+start from IBM PC. EGA CGA VGA. 1980s
+
+1990s
+
+What's next?
+
+What about PCI? PCIe? 
+
+What exactly are device drivers?
+
+> 640K software is all the memory anybody would ever need on a computer.
+> <cite>Bill Gates, 1981[^bill]</cite>
+
+[^bill]: There is actually considerable debate as to whether Gates said this or not. [Here's](https://www.wired.com/1997/01/did-gates-really-say-640k-is-enough-for-anyone/) a Wired article from ***January 16 1997*** talking about it.
+

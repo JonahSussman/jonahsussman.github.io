@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+---
+
+<div class="site-content">
+  
+<div class="card">
+<h1 class="card-title">{% if title %}{{ title }}{% else %}No Title{% endif %}</h1>
+
+{{ content | safe }}
+
+</div> 
+</div>

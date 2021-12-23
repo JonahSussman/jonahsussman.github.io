@@ -1,0 +1,82 @@
+---
+title: Linux, LTT and Communication
+description: People, especially developers, often forget the receiving end.
+date: 2021-11-10
+tags:
+  - musings
+layout: layouts/post.njk
+---
+
+> In the modern world of business, it is useless to be a creative, original thinker unless you can also sell what you create.
+> <cite>David "The Father of Advertizing" Ogilvy</cite>
+
+I had the unique position growing up where my father worked in marketing research. Whenever we would watch television together during commercial breaks he would often probe me about what I was seeing. Who is this ad for?  What is being advertised? Why are they showing things this way as opposed to that way?
+
+If you stop and think about it, brands are *really* weird. Why is it that logos are on everything? That there are brand advertisements on the sides of cereal boxes? That 
+
+The marketing industry
+
+
+I Think that most people in the software world don't realize the importance of the user experience. Case and point...
+
+## The Linus Fiasco
+
+I watched an episode of Linus Tech Tips the other day. I've attached the video below if you want to watch it:
+
+<iframe style="display:block;margin-left:auto;margin-right:auto; max-width: 100%;" width="560" height="315" src="https://www.youtube.com/embed/0506yDSgU7M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Linus Tech Tips, for those of you that don't know, is a prominent tech YouTuber that creates really interesting videos about technology. He's very passionate about the space, and as a result, very popular. So imagine the Linux community's surprise when Linus and Luke (employee of LTT) said they would be doing a daily-driver Linux challenge! Oh joyous of joyful days for the Linux community! The amount of exposure this could bring to Desktop Linux is immense.
+
+The challenge consists of using nothing but Linux as their operating system for a whole month. Things have gone fairly well for Luke using Linux Mint. Linus on the other hand...
+
+
+While attempting to install [Steam](https://store.steampowered.com/), a relatively simple piece of software to install on competing operating systems, Linus manages to brick his entire installation of Pop!_OS by uninstalling the desktop environment.
+
+Now Linus is not stupid or technically inept. In fact, he is most likely far above average in terms of aptitude. I'm almost certain that if you were to put a new Linux user in his shoes, 9 times out of 10 they would have done the exact same thing.
+
+<!-- From a Windows perspective, installing software and its dependencies is relatively easy. You navigate to the software's website, click download, and presto! You either get a .exe file to run, or a .msi file that will install the program on your computer. Under the hood, all of the dependencies and libraries that the program uses is usually bundled together with the program. 
+
+Linux takes a different approach. Instead of navigating to a company's website to download a program, all the software is instead stored in a central repository, much like an app store. -->
+
+
+I recently had a friend come to me with a project...
+Just the simple fact that I had to ask...
+Most users, and in fact life won't give it a second thought...
+
+
+
+---
+
+
+<!-- I love the idea of free - [as in freedom, not as in beer](https://en.wikipedia.org/wiki/Gratis_versus_libre) - and open source software. The democratization of software brings so much good to the world that it's almost hard to quantify. It enables individual developers to peer into large applications and learn how they function. It enables large corporations to throw their weight onto other projects. It enables the average end user to utilize software that follows open, common standards. -->
+
+As a direct consequence, I love Linux. Linux's impact on the world of technology is vast, in due part because anyone can modify it. It's been made to run on [phones](https://www.android.com/), [mainframes](https://www.ibm.com/it-infrastructure/z/os/linux) and [refrigerators](https://www.samsung.com/us/explore/family-hub-refrigerator/overview/). You can even force it, albeit kicking and screaming, to run on [an 8-bit microcontroller](https://hackaday.com/2012/03/28/building-the-worst-linux-pc-ever/).
+
+Linux, as a whole, has a 
+
+
+
+So it might surprise you to learn that I use Windows.
+
+
+Most people won't give it a second thought, they have too much to do.
+
+Just the simple fact that I had to ask was bad enough.
+
+Jai programming language isn't for "bad" programmers. 
+
+Almost all of my projects are native applications. I love the control and level of optimization that coding closer to the metal gives me. However, it often presents a problem if I want to showcase my body of work.
+
+The last thing you want to tell someone who's checking out your work is "Hey, I totally did this thing. But first you have to download this foreign .exe file from the Internet. I *super duper pinky swear promise* that this application isn't malware." And by the time you're done saying that, they've already moved on to the next Big Thing™.
+
+So for the longest time, screenshots and detailed explanations were all that I was able to give people.
+
+So the big thing is advertizing. How to advertize your stuff.
+
+> "On the average, five times as many people read the headline as read the body copy. When you have written your headline, you have spent eighty cents out of your dollar."
+
+It doesn't matter if you have the best idea in the world.
+
+The stuff you're talking about is impregnable.
+
+There are developers, and then there are designers. This way of looking at the world certainly doesn't help.

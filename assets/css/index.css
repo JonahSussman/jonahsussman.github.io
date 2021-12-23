@@ -2,6 +2,10 @@
   box-sizing: border-box;
 }
 
+[v-cloak] {
+  display: none;
+}
+
 html, body {
   line-height: 1.5;
   margin: 0;
@@ -14,7 +18,20 @@ img {
   max-width: 100%;
 }
 
-img + br + em { /* Convert to shortcode or what have you */
+figure {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-left: var(--dyn-pad-s);
+  margin-right: var(--dyn-pad-s);
+}
+
+figure > img {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+figcaption { /* Convert to shortcode or what have you */
   font-style: italic;
   display: block;
   font-size: 0.8rem;
@@ -28,14 +45,29 @@ img + br + em { /* Convert to shortcode or what have you */
   --dyn-pad-s: min(20px, 2vw);
   --dyn-pad: var(--dyn-pad-m);
   --radius: 0.2rem;
+
+  --blue: hsl(214, 98%, 77%);
+  --green: hsl(141, 53%, 77%);
+  --red: hsl(348, 98%, 77%);
+
+  --orange: hsl(35, 98%, 77%);
+  --orange-link: hsl(25, 98%, 47%);
 }
 
-.theme-blue, .theme-orange, .theme-green {
+.theme-blue, .theme-red, .theme-green {
   --white: #fff;
   --lightgray: #e0e0e0;
   --gray: #c0c0c0;
   --darkgray: #333;
   --black: #000;
+}
+
+.theme-blue-dark, .theme-red-dark, .theme-green-dark {
+  --white: #000;
+  --lightgray: #333;
+  --gray: #c0c0c0;
+  --darkgray: #e0e0e0;
+  --black: #fff;
 }
 
 .theme-blue {
@@ -50,7 +82,7 @@ img + br + em { /* Convert to shortcode or what have you */
   --link-visited: hsl(271, 98%, 20%);   /* h+57, same sl */
 }
 
-.theme-orange {
+.theme-red {
   --light-primary: hsl(348, 98%, 95%);
   --primary: hsl(348, 98%, 77%);
   --dark-primary: hsl(348, 98%, 20%);
@@ -101,7 +133,8 @@ blockquote {
   /* padding-top: 1rem; */
   /* border-top: 1px solid var(--blue);
   border-bottom: 1px solid var(--blue); */
-  border-left: 3px solid var(--primary);
+  /* border-left: 3px solid var(--primary); */
+  border-left: 0.2rem solid var(--primary);
   border-radius: var(--radius);
   background-color: var(--light-primary);
   /* font-style: italic; */
@@ -112,7 +145,7 @@ blockquote > p {
 }
 
 cite::before {
-  content: "— ";
+  /* content: "—"; */
 }
 
 cite {
@@ -120,6 +153,14 @@ cite {
   display: block;
   text-align: right;
   font-style: italic;
+}
+
+.footnotes {
+  font-size: 0.8rem;
+}
+.footnotes-sep {
+  border: none;
+  border-top: 1px solid var(--black);
 }
 
 time {
@@ -130,6 +171,7 @@ time {
 code {
   font-family: Consolas, monospace;
   line-height: 1.5;
+  font-size: 14px;
 }
 
 
@@ -358,7 +400,7 @@ section > :last-child  { margin-bottom: 0 !important; }
   padding: 0.1rem 0.3rem; /* 1px 4px /11 */
   margin: .5rem 0 .5rem .5rem;
   color: var(--darkgray);
-  background-color: white;
+  background-color: var(--white);
   border: 1px solid var(--gray);
   border-radius: var(--radius); 
   text-decoration: none;

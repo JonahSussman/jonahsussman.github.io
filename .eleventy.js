@@ -5,12 +5,22 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItFootnote = require("markdown-it-footnote");
 const pluginTOC = require('eleventy-plugin-toc')
 
 module.exports = function(eleventyConfig) {
+  eleventyConfig.addPairedShortcode("raw_copy", function(content) { 
+    return content;
+  });
+
+
   // Add plugins
   eleventyConfig.addPlugin(pluginRss);
-  eleventyConfig.addPlugin(pluginSyntaxHighlight);
+  eleventyConfig.addPlugin(pluginSyntaxHighlight, {
+    // init: function({ Prism }) {
+    //   Prism.languages.myCustomLanguage = /* */;
+    // },
+  });
   eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ['h1', 'h2', 'h3', 'h4'], // which heading tags are selected headings must each have an ID attribute
@@ -27,7 +37,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
   eleventyConfig.addFilter("readableDate", dateObj => {
-    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("dd LLL yyyy");
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat("yyyy LLL dd");
   });
 
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
@@ -84,7 +94,7 @@ module.exports = function(eleventyConfig) {
     permalink: true,
     permalinkClass: "direct-link",
     permalinkSymbol: "#"
-  });
+  }).use(markdownItFootnote);
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   // Override Browsersync defaults (used only with --serve)

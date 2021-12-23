@@ -1,0 +1,22 @@
+---
+title: Linux, LTT and Communication
+description: People, especially developers, often forget the receiving end.
+date: 2021-12-17
+tags:
+  - musings
+layout: layouts/post.njk
+---
+
+
+
+The Unix philosophy is often summarized like this:
+
+> Write programs that do one thing and do it well.
+> Write programs to work together.
+> Write programs to handle text streams, because that is a universal interface.
+> <cite>Peter H. Salus</cite>
+
+reading code is harder than writing
+
+toki pona
+
