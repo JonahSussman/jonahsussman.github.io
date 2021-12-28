@@ -52,15 +52,21 @@ figcaption { /* Convert to shortcode or what have you */
 
   --orange: hsl(35, 98%, 77%);
   --orange-link: hsl(25, 98%, 47%);
-}
 
-.theme-blue, .theme-red, .theme-green {
   --white: #fff;
   --lightgray: #e0e0e0;
   --gray: #c0c0c0;
   --darkgray: #333;
   --black: #000;
 }
+/* 
+.theme-white, .theme-blue, .theme-red, .theme-green {
+  --white: #fff;
+  --lightgray: #e0e0e0;
+  --gray: #c0c0c0;
+  --darkgray: #333;
+  --black: #000;
+} */
 
 .theme-blue-dark, .theme-red-dark, .theme-green-dark {
   --white: #000;
@@ -68,6 +74,19 @@ figcaption { /* Convert to shortcode or what have you */
   --gray: #c0c0c0;
   --darkgray: #e0e0e0;
   --black: #fff;
+}
+
+.theme-white {
+  /* --light-primary: hsl(214, 0%, 95%); */
+  --light-primary: #f6f6f6;
+  --primary: hsl(214, 0%, 77%);
+  --dark-primary: hsl(214, 0%, 20%);
+  --light-secondary: hsl(348, 0%, 95%);
+  --secondary: hsl(348, 0%, 77%);
+  --dark-secondary: hsl(348, 0%, 20%);
+
+  --link-unvisited: hsl(214, 98%, 47%); /* same hs, change l */
+  --link-visited: hsl(271, 98%, 20%);   /* h+57, same sl */
 }
 
 .theme-blue {

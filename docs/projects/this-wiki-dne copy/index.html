@@ -1,11 +1,52 @@
----
-layout: layouts/base.njk
-title: this-wiki-dne
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>this-wiki-dne</title>
+    <meta name="description" content="">
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/prism-base16-monokai.dark.css">
 
-theme: theme-blue
----
-<!-- petiteVue: true -->
+    <link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="Jonah Sussman">
+    <link rel="alternate" href="/feed/feed.json" type="application/json" title="Jonah Sussman">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
+    
+    <script src="https://unpkg.com/petite-vue" ></script>
+    
+  </head>
+  <body class=" theme-blue ">
+    <div class="site-wrapper">
+
+      <header id="navbar" class="site-header">
+        <div class="nav-flex">
+          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="var(--black)">
+            <rect y="10" width="100" height="20" rx="10"></rect>
+            <rect y="40" width="100" height="20" rx="10"></rect>
+            <rect y="70" width="100" height="20" rx="10"></rect>
+          </svg>
+          <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
+          <div id="nav-menu">
+            <a class="nav-link" href="/posts/">Posts</a>
+            <a class="nav-link" href="/about/">About</a>
+            <a class="nav-link" href="/projects/">Projects</a>
+            <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
+          </div>
+        </div>
+      </header>
+      
+    <nav class="site-breadcrumb">
+      <!-- <div class="breadcrumb-flex">
+        <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
+      </div> -->
+    </nav>
+
+      <!-- Begin base insert -->
+      <main class="site-main  layout-single ">
+        
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 ::selection {
@@ -212,12 +253,15 @@ theme: theme-blue
     -webkit-transform: scaleY(1.0);
   }
 }
+
+
+/* .layout-single {
+  max-width: calc(10em + 80ch) !important;
+  grid-template-columns: calc(minmax(0, 80ch) + 10em) !important;
+} */
 </style>
 
-<script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
 <script>
-let socket = io('https://api.jonahsussman.net/this-wiki-dne', {transports: ['websocket']});
-
 function wikinav(title, regen=false) {
   let wiki_main = document.getElementById('wiki-main');
   wiki_main.innerHTML = `
@@ -230,33 +274,14 @@ function wikinav(title, regen=false) {
         <div class="rect4"></div>
         <div class="rect5"></div>
       </div>
-      <p style="text-align: center;">Please allow up to 30 seconds for text generation.</p>
-      <pre id="loader-text"></pre>`
+      <p style="text-align: center;">Please allow up to 30 seconds for text generation.</p>`
 
-  let query = {title: title, regen: regen}
-  console.log(query);
-  socket.emit('query', query);
+  let xmlHttp = new XMLHttpRequest();
+  let theURL = "http://159.223.176.97:80/this-wiki-dne?title="+title+"&regen="+regen.toString();
+  xmlHttp.open( "GET", theURL , false ); // false for synchronous request
+  xmlHttp.send( null );
 
-  // let xmlHttp = new XMLHttpRequest();
-  // let theURL = "http://159.223.176.97:80/this-wiki-dne?title="+title+"&regen="+regen.toString();
-  // xmlHttp.open( "GET", theURL , false ); // false for synchronous request
-  // xmlHttp.send( null );
-}
-
-socket.on('query-response', resp => {
-  console.log(resp)
-  let wiki_main = document.getElementById('wiki-main');
-  // if (resp.status == 'ERROR' || resp.data.status == 'ERROR') {
-  //   wiki_main.innerHTML = `<pre>There was an error (${resp}). Please reload the page</pre>`;
-  //   return;
-  // } 
-  if (resp.status != 'OK' && resp.status != 'RESULT') {
-    let loader_text = document.getElementById('loader-text');
-    loader_text.innerHTML = `<pre>${JSON.stringify(resp)  }</pre>`;
-    return;
-  }
-
-  let q0 = resp.data;
+  let q0 = xmlHttp.responseText;
   let q1 = q0.replace(/\[\[ /g, '\[\[').replace(/ \]\]/g, '\]\]').replace(/ \| /g, '\|').replace(/\.([^.]*)$/, '.');
   let obj = {};
   q1.replace(/== (.*) == *(.*)/g, (str, title, wikitext) => {
@@ -280,7 +305,7 @@ socket.on('query-response', resp => {
   });
   
   wiki_main.innerHTML = obj.html;
-})
+}
 
 function wikirandom() {
   let xmlHttp = new XMLHttpRequest();
@@ -297,12 +322,12 @@ function wikihome() {
 }
 
 </script>
-
 <div class="site-content">
 
 <div class="wiki-container">
   <div class="wiki-panel">
     <a onclick="wikihome()" class="wiki-logo"></a>
+
     <nav class="wiki-menu">
       <div class="wiki-menu-content">
         <ul class="wiki-menu-list">
@@ -314,11 +339,12 @@ function wikihome() {
         </ul>
       </div>
     </nav>
+
     <nav class="wiki-menu">
       <h3 class="wiki-menu-label">Print/export</h3>
       <div class="wiki-menu-content">
         <ul class="wiki-menu-list">
-          <li class="wiki-menu-item"><a>Save a screenshot</a></li>
+          <li class="wiki-menu-item"><a href="https://en.wikipedia.org/wiki/Main_Page"><span>Save a screenshot</span></a></li>
         </ul>
       </div>
     </nav>
@@ -364,3 +390,25 @@ function wikihome() {
 </div>
   
 </div>
+      </main>
+
+      <!-- End base insert -->
+
+      <footer class="site-footer">
+        <p>2020 - 2021 | Made with 💖 by Jonah Sussman</p>
+        <p><a href="#navbar">Back to top</a></p>
+      </footer>
+    </div>
+  </body>
+
+  <script>
+    function navResponse() {
+      let m = document.getElementById("nav-menu");
+      m.className = m.className === "" ? "active" : "";
+
+      let btn = document.getElementById("nav-toggle");
+      btn.setAttribute("class", btn.getAttribute("class") === "" ? "active" : "");
+    }
+    document.getElementById("nav-toggle").addEventListener("click", navResponse, false);
+  </script>
+</html>
