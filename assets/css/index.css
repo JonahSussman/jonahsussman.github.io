@@ -26,7 +26,7 @@ figure {
   margin-right: var(--dyn-pad-s);
 }
 
-figure > img {
+figure > img, figure > video {
   margin-left: auto;
   margin-right: auto;
 }
@@ -52,6 +52,8 @@ figcaption { /* Convert to shortcode or what have you */
 
   --orange: hsl(35, 98%, 77%);
   --orange-link: hsl(25, 98%, 47%);
+
+  --purple: hsl(256, 98%, 77%);
 
   --white: #fff;
   --lightgray: #e0e0e0;

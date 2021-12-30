@@ -1,0 +1,34 @@
+---
+title: This Wikipedia Article Doesn't Exist
+description: How I made Tensorpedia (adventures in machine learning and server architecture)
+date: 2021-12-30
+tags:
+  - project
+layout: layouts/post.njk
+---
+
+<figure>
+<video width="256" height="256" autoplay loop>
+  <source src="{{ '/assets/posts/2021-12-this-wiki-dne/explode-256.webm' | url }}" type="video/webm">
+  Your browser does not support the video tag. Imagine there was a video here
+</video> 
+<figcaption>
+Artist's interpretation of the WikiMedia foundation when they find out what I've been doing with their data
+</figcaption>
+</figure>
+
+<aside>
+I wrote this article as a post-mortem of sorts about my <a href="{{ '/projects/this-wiki-dne/' | url }}">Tensorpedia</a> project. If you haven't seen it yet, go check it out! <small>Otherwise this article won't make much sense...</small>
+</aside>
+
+Heavily link inspired link by link other link AI projects...
+
+## Idea 1: LSTM and send it over
+
+## Idea 2: Create an entire API server
+
+Well, that escalated quickly...
+
+Have you ever wondered how an AI would interpret the world? How it would see the universe? How it would parse knowledge? How it would dream? The latest project I've created answers... none of the previous questions, but I think it's interesting nonetheless.
+
+Meet Tensorpedia.

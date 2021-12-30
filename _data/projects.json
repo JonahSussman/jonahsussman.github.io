@@ -1,10 +1,17 @@
 [
   {
+    "thumb": "/assets/wiki-project-thumb.png",
+    "title": "Tensorpedia (this-wiki-dne)",
+    "date": "29 Dec 2021",
+    "link": "/projects/this-wiki-dne/",
+    "description": "See how a machine learning algorithm generates Wikipedia articles based on nothing but the title. Built with Node and aitextgen."
+  },
+  {
     "thumb": "/assets/sw-renderer-thumb.jpg",
     "title": "Software Renderer",
     "date": "22 Apr 2021",
     "link": "/projects/software-renderer/",
-    "description": "👆 Click here to see a live online demo! A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten. "
+    "description": "👆 Click here to see a live online demo! A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten."
   },
   {
     "thumb": "/assets/closure-thumb.png",

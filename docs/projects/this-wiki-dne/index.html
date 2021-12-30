@@ -225,32 +225,31 @@
 }
 
 .spinner > div {
-  background-color: #333;
+  background-color: var(--rect1, #333);
   height: 100%;
   width: 6px;
   display: inline-block;
   
-  -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
   animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
 
 .spinner .rect2 {
-  -webkit-animation-delay: -1.1s;
+  background-color: var(--rect2, #333);
   animation-delay: -1.1s;
 }
 
 .spinner .rect3 {
-  -webkit-animation-delay: -1.0s;
+  background-color: var(--rect3, #333);
   animation-delay: -1.0s;
 }
 
 .spinner .rect4 {
-  -webkit-animation-delay: -0.9s;
+  background-color: var(--rect4, #333);
   animation-delay: -0.9s;
 }
 
 .spinner .rect5 {
-  -webkit-animation-delay: -0.8s;
+  background-color: var(--rect5, #333);
   animation-delay: -0.8s;
 }
 
@@ -295,11 +294,11 @@ window.onload = () => {
 
 const wiki_homepage = {
   title: 'Welcome to Tensorpedia!',
-  content: `
-    <p>Welcome to <b>Tensorpedia</b>! Tensorpedia is an auto-generated Wikipedia clone utilizing <a href="https://github.com/minimaxir/aitextgen">aitextgen</a> and <a href="https://openai.com/blog/better-language-models/">GPT-2</a>. In other words, none of these articles exist!</p>
+  content: /* html */ `
+    <p>Welcome to <b>Tensorpedia</b>! Tensorpedia is a program that synthesizes Wikipedia articles based on nothing but its title, utilizing <a href="https://github.com/minimaxir/aitextgen">aitextgen</a> and <a href="https://openai.com/blog/better-language-models/">GPT-2</a>. In other words, <i>none of these articles exist!</i></p>
     <p>This website takes a given title and generates a viable-looking Wikipedia-like article about it, using Wikipedia's 10,000 <a href="https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/4">"vital articles"</a> as a dataset. If you want to learn more about how I created this project, check out <a>my article here</a>.</p>
-    <p>You can navigate to different pages within Tensorpedia in a few ways. The first and easiest way is to click on a link within the page. This will make a request to the server to either generate a new page, or show a previously generated cached version. You can also use the search box in the upper right-hand part of the page. Finally, you can generate a random page by clicking the random page link on the left (or in the footer if you're on mobile).</p>
-    <p>Here are some links to get you started:</p>
+    <p>Feel free to click on any links you see within a page, search using the search bar, or go to a random page by clicking "random page" in the sidebar or footer!</p>
+    <p>Here are some interesting links to get you started:</p>
     <ul style="margin: 0.3em 0 0 1.6em;padding: 0;font-size:.875em;">
       <li><a onclick="wiki_nav('Science')">Science</a></li>
       <li><a onclick="wiki_nav('Alan Turing')">Alan Turing</a></li>
@@ -319,49 +318,59 @@ function wiki_update_title(title) {
 function wiki_process_wikitext(wikitext) {
   result_html = '';
 
-  wikitext = wikitext
+  wikitext
     .replace(/\[\[ /g, '\[\[') // Fix spacing around wikilinks
     .replace(/ \]\]/g, '\]\]')
     .replace(/ \| /g, '\|')
     .replace(/\.([^.]*)$/, '.') // Remove sentence at end w/o period
     .replace(/== (.*) == */g, '') // Remove wikititle
     .replace(/ *\\n */g, '\n') // Convert "\\n" to actual newline
+    .replace(/\]\]([a-zA-Z]*)/g, (m, g) => `${g}]]`) // Add extensions
     .replace(/^.*$/gm, sentence => {
       sentence = sentence
-        .replace(/'{3}([^']*)'{3}/g, (m, g) => `<b>${g}</b>`)
-        .replace(/'{2}([^']*)'{2}/g, (m, g) => `<i>${g}</i>`)
-        .replace(/\[\[([^[]*)\|([^\]]*)\]\]/g, (m, g1, g2) => `<a onclick="wiki_nav('${g1}')">${g2}</a>`)
-        .replace(/\[\[([^[|]*)\]\]/g, (m, g) => `<a onclick="wiki_nav('${g}')">${g}</a>`)
-        .replace(/\[\[/g, '')
+        .replace(/'{3}([^']*)'{3}/g, (m, g) => `<b>${g}</b>`) // Bold
+        .replace(/'{2}([^']*)'{2}/g, (m, g) => `<i>${g}</i>`) // Italic
+        // The whole reason that I'm not using Vue or react is for this functionality
+        .replace(/(\[\[([^[]*)\|([^\]]*)\]\])|(\[\[([^[|]*)\]\])/g, (m, g1, g2, g3, g4, g5) => {
+          if (g1 != undefined) {
+            return `<a title="${g2}" onclick="wiki_nav('${g2}')">${g3}</a>`
+          } else {
+            return `<a title="${g5}" onclick="wiki_nav('${g5}')">${g5}</a>`
+          }
+        })
+        .replace(/\[\[/g, '') // Remove stray [[ and ]]
         .replace(/\]\]/g, '')
 
-        result_html += `<p>${sentence}</p>\n`
+      result_html += `<p>${sentence}</p>`
     });
 
   return result_html;
 }
 
 function wiki_update_content(html) {
-  // if (is_loading) {
-    is_loading = false;
-    e_content.style = "";
-    e_loader.style = "display: none;";
-  // }
+  is_loading = false;
+  e_content.style = "";
+  e_loader.style = "display: none;";
   
   e_content.innerHTML = html;
 }
 
 function wiki_update_loader(data) {
-  // if (!is_loading) {
-    is_loading = true;
-    e_content.style = "display: none;";
-    e_loader.style = "";
-  // }
+  is_loading = true;
+  e_content.style = "display: none;";
+  e_loader.style = "";
 
   if (data == 'PROCESSING') {
     e_updates.innerText = 'Your request is currently processing.'
+    e_loader.style = `
+      --rect1: var(--red); 
+      --rect2: var(--orange); 
+      --rect3: var(--green); 
+      --rect4: var(--blue); 
+      --rect5: var(--purple);`
   } else {
     e_updates.innerText = `You are position ${data+1} in the queue.`
+    e_loader.style = ``
   }
 }
 
@@ -387,7 +396,7 @@ function wiki_nav(title, regen=false) {
 }
 
 function wiki_regenerate() {
-  wiki_nav(e_title.innterText, true)
+  wiki_nav(e_title.innerText, true)
 }
 
 function wiki_search() {
@@ -438,7 +447,8 @@ function wiki_random() {
           <li class="wiki-menu-item"><a onclick="wiki_nav('')">Main page</a></li>
           <li class="wiki-menu-item"><a onclick="wiki_random()">Random article</a></li>
           <li class="wiki-menu-item"><a href="/">About Tensorpedia</a></li>
-          <li class="wiki-menu-item"><a href="/about">Contact me</a></li>
+          <li class="wiki-menu-item"><a href="/about">About me</a></li>
+          <li class="wiki-menu-item"><a href="mailto:sussmanjonah+thiswikidne@gmail.com">Report a problem</a></li>
           <li class="wiki-menu-item"><a href="https://www.buymeacoffee.com/JonahSussman">Buy me a coffee</a></li>
         </ul>
       </div>
@@ -478,23 +488,25 @@ function wiki_random() {
           </div>
           <code id="wiki-updates"></code>
           <details>
-            <summary style="cursor: pointer;">Please allow up to 30 seconds once your text begins processing.</summary>
+            <summary style="cursor: pointer;">Please allow a minute or two once your text begins processing.</summary>
             <small>The aitextgen model that Tensorpedia uses is currently running on the server's CPU. While it would be better to run it on a GPU, I am but a college student. My wallet wouldn't be very happy.</small>
           </details>
         </div>
       </div>
     </div>
     <div class="wiki-footer">
-      <p>I am not responsible for any text generated that may be offensive.</p>
-      <p>Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization. I have no association with Wikipedia.</p>
-      <p>Any thoughts expressed by me are mine and mine alone.</p>
+      <!-- <a onclick="wiki_nav('')" class="wiki-logo" style="float: right; width: 60px; height: 60px; background-size: 100%;"></a> -->
       <p style="font-size: 1.1em;">
         <a onclick="wiki_nav('')">Main page</a>
       • <a onclick="wiki_random()">Random article</a>
       • <a href="/">About Tensorpedia</a>
-      • <a href="/about">Contact me</a>
+      • <a href="/about">About me</a>
+      • <a href="mailto:sussmanjonah+thiswikidne@gmail.com">Report a problem</a>
       • <a href="https://www.buymeacoffee.com/JonahSussman">Buy me a coffee</a>
       </p>
+      <p>I am not responsible for any text generated that may be offensive.</p>
+      <p>Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization. I have no association with Wikipedia.</p>
+      <p>Any thoughts expressed by me are mine and mine alone.</p>
     </div>
   </div>
 </div>
