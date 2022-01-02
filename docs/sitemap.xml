@@ -27,6 +27,11 @@
   </url>
   
   <url>
+    <loc>https://jonahsussman.net/tags/project/</loc>
+    <lastmod>2021-11-14</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jonahsussman.net/tags/</loc>
     <lastmod>2021-11-14</lastmod>
   </url>
@@ -57,7 +62,12 @@
   </url>
   
   <url>
+    <loc>https://jonahsussman.net/posts/2022-01-this-wiki-dne/</loc>
+    <lastmod>2022-01-02</lastmod>
+  </url>
+  
+  <url>
     <loc>https://jonahsussman.net/projects/this-wiki-dne/</loc>
-    <lastmod>2021-12-30</lastmod>
+    <lastmod>2022-01-02</lastmod>
   </url>
 </urlset>

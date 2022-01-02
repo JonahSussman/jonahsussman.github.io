@@ -1,6 +1,6 @@
 ---
 layout: layouts/base.njk
-title: this-wiki-dne
+title: Tensorpedia
 
 theme: theme-blue
 ---
@@ -237,8 +237,9 @@ theme: theme-blue
 <script defer>
 
 let socket;
-let e_title, e_content, e_loader, e_updates, e_indicators
+let e_title, e_content, e_loader, e_updates, e_indicators, e_please
 let is_loading = true;
+let first_connect = true;
 
 window.onload = () => {
   e_title   = document.getElementById('wiki-title');
@@ -246,16 +247,33 @@ window.onload = () => {
   e_loader  = document.getElementById('wiki-loader');
   e_updates = document.getElementById('wiki-updates');
   e_indicators = document.getElementById('wiki-indicators');
+  e_please = document.getElementById('wiki-please');
 
   socket = io('https://api.jonahsussman.net/this-wiki-dne', {transports: ['websocket']})
   socket.on('query-response', wiki_handle_response);
-  socket.once('connect', () => { console.log('socket connect'); is_loading = false; wiki_nav('')})
+  socket.on('connect', () => { 
+    console.log('socket connect'); 
+    wiki_set_is_loading(false);
+    const params = new URLSearchParams(window.location.search);
+    const title  = params.get('query');
+    if (first_connect) {
+      first_connect = false;
+      wiki_nav(title, false, true);
+    }
+  });
+  socket.on('connect_error', () => { 
+    console.log('socket connect failed'); 
+    wiki_update_loader('connect_error');
+  });
+  socket.on('reconnect', () => {
+    console.log('reconnected!')
+  })
 }
 
 const wiki_homepage = {
   title: 'Welcome to Tensorpedia!',
   content: /* html */ `
-    <p>Welcome to <b>Tensorpedia</b>! Tensorpedia is a program that synthesizes Wikipedia articles based on nothing but its title, utilizing <a href="https://github.com/minimaxir/aitextgen">aitextgen</a> and <a href="https://openai.com/blog/better-language-models/">GPT-2</a>. In other words, <i>none of these articles exist!</i></p>
+    <p>Welcome to <b>Tensorpedia</b>! Tensorpedia is a program that utilizes artificial intelligence (<a href="https://github.com/minimaxir/aitextgen">aitextgen</a> and <a href="https://openai.com/blog/better-language-models/">GPT-2</a>) to synthesize Wikipedia articles based on nothing but its title. In other words, <i>none of these articles exist!</i></p>
     <p>This website takes a given title and generates a viable-looking Wikipedia-like article about it, using Wikipedia's 10,000 <a href="https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/4">"vital articles"</a> as a dataset. If you want to learn more about how I created this project, check out <a>my article here</a>.</p>
     <p>Feel free to click on any links you see within a page, search using the search bar, or go to a random page by clicking "random page" in the sidebar or footer!</p>
     <p>Here are some interesting links to get you started:</p>
@@ -266,12 +284,14 @@ const wiki_homepage = {
       <li><a onclick="wiki_nav('The Hugo Award')">The Hugo Award</a></li>
       <li><a onclick="wiki_nav('New York City')">New York City</a></li>
       <li><a onclick="wiki_nav('Rijksmuseum')">Rijksmuseum</a></li>
-    </ul>`
+    </ul>
+    <p><small>Note: The current version of Tensorpedia is running on a single core vCPU as that's the only type of server I can afford right now. That means generating <i>new</i> articles can take anywhere from 30 to 90 seconds. Thank you for understanding.</small></p>`
 }
 
 function wiki_update_title(title) {
   title = title.charAt(0).toUpperCase() + title.slice(1);
   e_title.innerText = title;
+  document.title = `${title} - Tensorpedia`;
 }
 
 // God-awful regex replacement stuff. Don't look at this
@@ -293,9 +313,9 @@ function wiki_process_wikitext(wikitext) {
         // The whole reason that I'm not using Vue or react is for this functionality
         .replace(/(\[\[([^[]*)\|([^\]]*)\]\])|(\[\[([^[|]*)\]\])/g, (m, g1, g2, g3, g4, g5) => {
           if (g1 != undefined) {
-            return `<a title="${g2}" onclick="wiki_nav('${g2}')">${g3}</a>`
+            return `<a class="wiki-link" title="${g2}" onclick="wiki_nav('${g2}')">${g3}</a>`
           } else {
-            return `<a title="${g5}" onclick="wiki_nav('${g5}')">${g5}</a>`
+            return `<a class="wiki-link" title="${g5}" onclick="wiki_nav('${g5}')">${g5}</a>`
           }
         })
         .replace(/\[\[/g, '') // Remove stray [[ and ]]
@@ -307,20 +327,39 @@ function wiki_process_wikitext(wikitext) {
   return result_html;
 }
 
+function wiki_set_is_loading(value) {
+  is_loading = value;
+  if (is_loading) {
+    e_content.style = "display: none;";
+    e_loader.style = "";
+    e_please.style = ""; 
+  } else {
+    e_content.style = "";
+    e_loader.style = "display: none;";
+  }
+}
+
 function wiki_update_content(html) {
-  is_loading = false;
-  e_content.style = "";
-  e_loader.style = "display: none;";
+  wiki_set_is_loading(false);
   
   e_content.innerHTML = html;
 }
 
 function wiki_update_loader(data) {
-  is_loading = true;
-  e_content.style = "display: none;";
-  e_loader.style = "";
+  wiki_set_is_loading(true);
 
-  if (data == 'PROCESSING') {
+  if (data == 'connect_error') {
+    e_please.style = "display: none;"; 
+    e_updates.innerHTML = `
+      <p>There is an issue connecting to Tensorpedia. Continuing to try and connect...</p>
+      <p>I may have taken <a href="https://api.jonahsussman.net/">my api server</a> down for maintenance. If that link works, then there is an issue with the client-side code.</p>`;
+    e_loader.style = `
+      --rect1: var(--red); 
+      --rect2: var(--red); 
+      --rect3: var(--red); 
+      --rect4: var(--red); 
+      --rect5: var(--red);`
+  } else if (data == 'PROCESSING') {
     e_updates.innerText = 'Your request is currently processing.'
     e_loader.style = `
       --rect1: var(--red); 
@@ -334,18 +373,42 @@ function wiki_update_loader(data) {
   }
 }
 
-function wiki_nav(title, regen=false) {
+window.onpopstate = (e) => {
+  if (e.state) {
+    wiki_nav(e.state.title, false, true);
+  } else {
+    wiki_nav('', false, true);
+  }
+}
+
+function wiki_nav(title, regen=false, pop_state=false) {
   if (is_loading) {
-    e_updates.innerText = 'Please wait until your request has been processed. '
+    e_updates.innerText = 'Please wait until your request has been processed.'
     return;
   }
 
+  if (!pop_state) {
+    console.log('push')
+    window.history.pushState({title: title}, '', `?query=${title}`);
+  } else {
+    console.log('pop')
+  }
+
   console.log(`Nagvigating to ${title}`)
-  if (title == wiki_homepage.title || title == '') {
+  if (title == wiki_homepage.title || title == '' || title == 'null' || title == null) {
     wiki_update_title(wiki_homepage.title);
     wiki_update_content(wiki_homepage.content);
     return;
   }
+
+  // if (title == 'tensorpedia:connect_failed') {
+  //   wiki_update_title(title);
+  //   wiki_update_content(`
+  //     <p>There was an issue connecting to Tensorpedia. I may have taken <a href="https://api.jonahsussman.net/">my api server</a> down for maintenance or there is an issue with the client-side code.</p>
+  //     <p>In other words, please try again later.</p>
+  //   `)
+  //   return;
+  // }
 
   title = title.charAt(0).toUpperCase() + title.slice(1);
 
@@ -390,7 +453,7 @@ function wiki_random() {
   let xhr = new XMLHttpRequest();
   let url = "https://en.wikipedia.org/api/rest_v1/page/random/summary";
   xhr.open("GET", url , true); // false for synchronous request
-  xhr.onload = () => wiki_nav(JSON.parse(xmlHttp.responseText).displaytitle);
+  xhr.onload = () => wiki_nav(JSON.parse(xhr.responseText).displaytitle);
   xhr.send(null);
 }
 
@@ -447,9 +510,9 @@ function wiki_random() {
             <div class="rect5"></div>
           </div>
           <code id="wiki-updates"></code>
-          <details>
+          <details id="wiki-please" style="display: none;">
             <summary style="cursor: pointer;">Please allow a minute or two once your text begins processing.</summary>
-            <small>The aitextgen model that Tensorpedia uses is currently running on the server's CPU. While it would be better to run it on a GPU, I am but a college student. My wallet wouldn't be very happy.</small>
+            <small>The aitextgen model that Tensorpedia uses is currently running on the server's CPU. Running it on a GPU would be much faster, but I am but a college student and that would be expensive.</small>
           </details>
         </div>
       </div>
@@ -465,8 +528,7 @@ function wiki_random() {
       • <a href="https://www.buymeacoffee.com/JonahSussman">Buy me a coffee</a>
       </p>
       <p>I am not responsible for any text generated that may be offensive.</p>
-      <p>Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization. I have no association with Wikipedia.</p>
-      <p>Any thoughts expressed by me are mine and mine alone.</p>
+      <p>Wikipedia® is a registered trademark of the Wikimedia Foundation, Inc., a non-profit organization. I have no association with Wikipedia. Opinions expressed are solely my own and do not express the views or opinions of my employer.</p>
     </div>
   </div>
 </div>
