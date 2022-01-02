@@ -8,6 +8,50 @@ eleventyNavigation:
 
 theme: theme-green
 ---
+<style>
+  .next-btn {
+    float: right; 
+    font-size: 1rem; 
+    cursor: pointer; 
+    user-select: none; 
+    background-color: white;
+    border: none;
+    /* border-radius: var(--radius);
+    border-top: 0.2rem solid var(--primary);
+    outline: 1px solid var(--primary); */
+
+    /* color: var(--dark-unvisited); */
+  }
+
+  .next-btn:active {
+    transform: translate(var(--radius), var(--radius));
+  }
+
+  .game-details {
+    border-radius: var(--radius);
+    border-top: 0.2rem solid var(--primary);
+    outline: 1px solid var(--primary);
+    padding: var(--dyn-pad-s);
+    /* background-color: var(--primary); */
+  }
+
+  .game-details > summary {
+    cursor: pointer;
+  }
+
+  .game-details > div {
+    /* color: white; */
+    margin-left: calc(-1 * var(--dyn-pad-s));
+    margin-right: calc(-1 * var(--dyn-pad-s));
+    margin-bottom: calc(-1 * var(--dyn-pad-s));
+    margin-top: calc(1 * var(--dyn-pad-s));
+    /* border-top: 1px solid var(--dark-primary); */
+    border-top: 1px solid var(--primary);
+    padding: var(--dyn-pad-s);
+    background-color: white;
+  }
+</style>
+
 <div class="site-content">
 
 <div class="card">
@@ -23,7 +67,9 @@ theme: theme-green
   <p>This past summer, I was an intern at <a href="https://www.fiserv.com/en.html">FiServ</a>, working to remediate security vulnerabilities in the Financial Risk Management Solutions division. I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.</p>
 
   <div id="fun-fact">
-    <h3 id="fun-fact-title">Favorite Encryption Algorithm<span style="color: var(--primary); font-size: 1rem;" id="fun-fact-counter"></span></h3>
+    <!-- <h3 id="fun-fact-title">Favorite Encryption Algorithm<span style="color: var(--primary); font-size: 1rem;" id="fun-fact-counter"></span></h3> -->
+    <button type="button" class="next-btn" onclick="next_fact()">Next fun fact ➡</button>
+    <h3 id="fun-fact-title">Favorite Encryption Algorithm</h3>
     <p id="fun-fact-content" class="container">Rijndael</p>
   </div>
 </div>
@@ -46,7 +92,7 @@ theme: theme-green
 // DON'T LOOK AT THIS FILE UNLESS YOU WANT TO RUIN THE FUN FOR YOURSELF!
 
 let a = [
-  // Qualities
+  // Qualities 9
   ['Alignment', 'Chaotic Good'],
   ['Temperament', '98.6 °F'],
   ['Favorite Color', '512 nm <span style="color: #0fff00 !important; text-shadow: 2px 2px 0px var(--color-text);">■</span>'],
@@ -57,7 +103,7 @@ let a = [
   ['Pronunciation of Gif', '<code>/dʒɪf/</code>'],
   ['Interpupillary Distance', '68 mm'],
 
-  // Physics
+  // Physics 9
   ['Preferred System of Units', 'Lorentz–Heaviside'],
   ['Preferred Unit of Mass', 'The Slug'],
   ['Preferred Unit of Energy', 'The Erg'],
@@ -68,7 +114,7 @@ let a = [
   ['Thoughts on Magnetic Monopoles', 'They exist, but they\'re only rendered when we\'re not looking'],
   ['Status', 'Yet to reach max q'],
 
-  // Programming
+  // Programming 15
   ['Favorite ASCII character', '<code class="language-c"><span class="token number">0x07</span> \'BEL\'</code>'],
   ['Favorite C Keyword', '<code class="language-c token keyword">for</code>'],
   ['Favorite Combinator', '<code>λf.(λx.f (x x)) (λx.f (x x))</code>'],
@@ -78,14 +124,14 @@ let a = [
   ['Favorite Compiler', 'g++'],
   ['Favorite Worst Programming Language', 'DOS Batch Files'],
   ['Favorite Naming Convention', '<code>SCREAMING_SNAKE_CASE</code>'],
-  ['Favorite Time Complexity', '<code>O(sqrt(n))</code>']
+  ['Favorite Time Complexity', '<code>O(sqrt(n))</code>'],
   ['Favorite Code Comment', '<code>// When I wrote this, only God and I understood what I was doing. Now, God only knows.</code>'],
-  ['Favorite HTML Element', '<marquee direction="right"><code><b>&lt;marquee&gt;</b></code></marquee>']
+  ['Favorite HTML Element', '<marquee direction="right"><code><b>&lt;marquee&gt;</b></code></marquee>'],
   ['Thoughts on P vs NP Conjecture', 'Quantum computers will save us'],
   ['Light or Dark Theme?', 'Light theme'],
   ['Favorite Data Structure', 'The Treap'],
 
-  // Math
+  // Math 8
   ['Favorite Integral', '<code>e^(-x^2)</code>'],
   ['Favorite Group', 'The Monster Group'],
   ['Favorite Set', 'ℂ'],
@@ -95,7 +141,7 @@ let a = [
   ['Favorite theorem prover', 'z3'],
   ['Support of Inter-universal Teichmüller Theory', 'Tentative'],
 
-  // Gaming
+  // Gaming 13
   ['Favorite Pokémon', 'Ten Question Marks'],
   ['Favorite NES Game', 'Kirby\'s Adventure'],
   ['Favorite Favorite Super Smash Bros. Stage', 'Minecraft World Ω-form'],
@@ -107,10 +153,37 @@ let a = [
   ['Favorite Mario Kart Bike', 'Mach Bike'],
   ['Favorite Chess Opening', 'King\'s Knight Opening'],
   ['Favorite Chess Defense', 'Caro–Kann'],
-  ['Favorite Games By Year', '<code>1400</code> - Chess <sup>Citation needed</sup><br><code>2012</code> - Fez<br><code>2018</code> - The Curse of the Obra Dinn<br><code>2019</code> - Baba is You<br><code>2020</code> - Half Life: Alyx'],
-  ['Quickest Chess Loss', '<code>1. e4 e5 2. Bc4 Nc6 3. Qf3 Nf6 4. g4 d6 5. g5 Nd7 6. Qxf7#</code>'],
+  ['Quickest Chess Loss', 
+  /* html */ `
+  <details class="game-details">
+    <summary><code>1. e4 e5 2. Bc4 Nc6 3. Qf3 Nf6 4. g4 d6 5. g5 Nd7 6. Qxf7#</code></summary>
+    <div>
+      <iframe src="https://lichess.org/embed/UDDnlKp2?theme=newspaper&bg=auto"
+width=600 height=397 frameborder=0></iframe>
+    </div>
+  </details>`],
+  ['Favorite Games By Year', 
+  /* html */ `
+  <details class="game-details">
+    <summary><b>Click to see the full list</b></summary>
+    <div>
+      <code>1400</code> - Chess <sup>[Citation needed]</sup><br>
+      <code>2010</code> - Minecraft<br>
+      <code>2011</code> - The Elder Scrolls V: Skyrim<br>
+      <code>2012</code> - FTL: Faster Than Light<br>
+      <code>2013</code> - Fez<br>
+      <code>2014</code> - Shovel Knight<br>
+      <code>2015</code> - The Witcher 3: Wild Hunt<br>
+      <code>2016</code> - The Witness<br>
+      <code>2017</code> - Breath of the Wild<br>
+      <code>2018</code> - The Curse of the Obra Dinn<br>
+      <code>2019</code> - Baba is You<br>
+      <code>2020</code> - Half Life: Alyx<br>
+      <code>2021</code> - Psychonauts 2
+    </div>
+  </details>`],
 
-  // Music
+  // Music 14
   ['Favorite Chord', 'Dm7♭5'],
   ['Favorite Brass Instrument', 'Mellophone'],
   ['Favorite Scale', 'Phrygian Dominant (1 ♭2 3 4 5 ♭6 ♭7)'],
@@ -126,7 +199,7 @@ let a = [
   ['Favorite Chord Progression', '<code>𝄁 E - G♯7 - 𝄀 E/C♯ D♯/C D/B D/E 𝄀 A - G♯m - 𝄀 F♯m B E - 𝄂</code>'],
   ['Favorite Jazz Lick', '<code>D E F G E C D</code>'],
 
-  // Other / Favorites
+  // Other / Favorites 16
   ['Favorite Humorist', 'Douglas Adams'],
   ['Favorite Netflix Show', 'BoJack Horseman'],
   ['Favorite Amazon Prime Show', 'Invincible'],
@@ -136,7 +209,7 @@ let a = [
   ['Favorite Top Level Domain', '<code>.net</code> Quod potest videri'],
   ['Favorite Emoji Sequence', '👉😎👉'],
   ['Favorite Public Transit', 'The Chicago "L"'],
-  ['<code style="font-size: 1.5rem; font-weight: bold;">59 6f 75 20 63 6f 6e 76 65 72 74 65 64 20 74 68 69 73 21</code>', '<code>48 65 72 65 2c 20 68 61 76 65 20 61 20 63 6f 6f 6b 69 65 20 🍪</code>']
+  ['<code style="font-size: 1.5rem; font-weight: bold;">59 6f 75 20 63 6f 6e 76 65 72 74 65 64 20 74 68 69 73 21</code>', '<code>48 65 72 65 2c 20 68 61 76 65 20 61 20 63 6f 6f 6b 69 65 20 🍪</code>'],
   ['Opinion on Civil Engineers', 'Tolerable'],
   ['Preferred Drink', 'Sweet Tea '],
   ['Opinion on Pineapple on Pizza', 'I mean, it\'s not like it\'s pretending to be something other than what it is'],
@@ -155,14 +228,23 @@ let $ = function(id) {
 
 let index = 0;
 let count = 0;
+const idx_map = new Map();
 
 function init_page() {
+  for (let i = 0; i < a.length; i++) {
+    idx_map.set(i, i);
+  }
+
   for (let i = a.length - 1; i > 0; i--) {
-  let j = Math.floor(Math.random() * a.length);
-  let t = a[i];
-  a[i] = a[j];
-  a[j] = t;
-}
+    let j = Math.floor(Math.random() * a.length);
+    let t = a[i];
+    a[i] = a[j];
+    a[j] = t;
+
+    t = idx_map.get(i);
+    idx_map.set(i, idx_map.get(j));
+    idx_map.set(j, t);
+  }
 
   let index = 0;
   let count = 0;
@@ -170,24 +252,30 @@ function init_page() {
 
   $('about-img').src = '/assets/about/pic-' + (Math.floor(Math.random() * NUM_PICS)+1) + '.jpg';
 
-  fun_fact();
-  window.setInterval(fun_fact, 1000);
+  next_fact();
+  // fun_fact();
+  // window.setInterval(fun_fact, 1000);
+}
+
+function next_fact() {
+  index = (index + 1) % a.length;
+  // console.log(`${index} -> ${idx_map.get(index)} is ${a[index]}`)
+  // index = 52;
+
+  let title = a[index][0];
+  let content = a[index][1];
+
+  count = Math.max(Math.ceil((title.length + content.length) / 20), 6);
+
+  // $('fun-fact-title').innerHTML = title + ' <span style="color: var(--primary); font-size: 1rem;" id="fun-fact-counter"></span>';
+  $('fun-fact-title').innerHTML = `#${idx_map.get(index)+1}) ${title}`;
+  $('fun-fact-content').innerHTML = content;
 }
 
 function fun_fact() {
   count--;
 
-  if (count <= 0) {
-    index = (index + 1) % a.length;
-
-    let title = a[index][0];
-    let content = a[index][1];
-
-    count = Math.max(Math.ceil((title.length + content.length) / 20), 6);
-
-    $('fun-fact-title').innerHTML = title + ' <span style="color: var(--primary); font-size: 1rem;" id="fun-fact-counter"></span>';
-    $('fun-fact-content').innerHTML = content;
-  }
+  if (count <= 0) next_fact();
 
   $('fun-fact-counter').textContent = '' + (count - 1);
 }
