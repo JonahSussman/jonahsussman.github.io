@@ -16,6 +16,23 @@ layout: layouts/base.njk
 </div>
 
 <div class="card">
+  <h1 class="card-title">Featured Project</h1>
+  <ul class="thumb-list">
+  {% set latest_project = projects | head(1) %}
+  {% for project in latest_project %}
+    <li onclick="location.href='{{ project.link }}';">
+      <img style="max-width: unset;" class="g-left" src="{{ project.thumb }}">
+      <div class="g-right">
+        <a href="{{ project.link | url }}">{{ project.title }}</a>
+        <time datetime="{{ post.date | htmlDateString }}"> — {{ project.date }}</time>
+        <p><i>{{ project.description }}</i></p>
+      </div>
+    </li>
+  {% endfor %}
+  </ul>
+</div>
+
+<div class="card">
 {% set maxPosts = collections.posts.length | min(3) %}
 <h1 class="card-title">Latest {% if maxPosts == 1 %}Post{% else %}{{ maxPosts }} Posts{% endif %}</h1>
 
@@ -24,6 +41,10 @@ layout: layouts/base.njk
 {% include "postslist.njk" %}
 
 </div>
+
+
+
+
 </div>
 
 <script>

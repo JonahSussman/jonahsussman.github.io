@@ -2,49 +2,49 @@
   {
     "thumb": "/assets/wiki-project-thumb.png",
     "title": "Tensorpedia (this-wiki-dne)",
-    "date": "29 Dec 2021",
+    "date": "2022 Jan 02",
     "link": "/projects/this-wiki-dne/",
     "description": "See how a machine learning algorithm generates Wikipedia articles based on nothing but the title. Built with Node and aitextgen."
   },
   {
     "thumb": "/assets/sw-renderer-thumb.jpg",
     "title": "Software Renderer",
-    "date": "22 Apr 2021",
+    "date": "2021 Apr 22",
     "link": "/projects/software-renderer/",
     "description": "👆 Click here to see a live online demo! A software renderer built with a custom SIMD linear algebra library using C++17 and SDL2. Compiled for the web to WebAssembly with Emscripten."
   },
   {
     "thumb": "/assets/closure-thumb.png",
     "title": "SussLang",
-    "date": "28 Dec 2020",
+    "date": "2020 Dec 28",
     "link": "https://www.github.com/JonahSussman/closure-language",
     "description": "A while back I made a closure-based programming language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product."
   },
   {
     "thumb": "/assets/aeditor-thumb.png",
     "title": "Aeditor",
-    "date": "11 Apr 2020",
+    "date": "2020 Apr 11",
     "link": "https://www.github.com/JonahSussman/aeditor",
     "description": "A tool to isolate words in human speech using AI. Written in C++17 and Python 3. Fundamentally, I used this tool to help with one of my more esoteric projects: alphebetizing videos."
   },
   {
     "thumb": "/assets/appendix-a-thumb.png",
     "title": "ChocAn Redux",
-    "date": "20 Dec 2020",
+    "date": "2020 Dec 20",
     "link": "https://www.github.com/JonahSussman/chocan-redux",
     "description": "Java 15 and SQLite implementation of Chocoholics Anonymous found in Object Oriented and Classical Software Engineering, Appendix A."
   },
   {
     "thumb": "/assets/3b1b-paper-thumb.png",
     "title": "Sums of Random Numbers and its Hidden Geometric Connections",
-    "date": "9 May 2020",
+    "date": "2020 May 9",
     "link": "https://jonahsussman.net/assets/3b1b-paper.pdf",
     "description": "During the summer I found a video by 3Blue1Brown and Numberphile that inspired me to flex my multi-dimensional calculus and probability skills. The result was this fun, semi-formal paper!"
   },
   {
     "thumb": "/assets/238-paper-thumb.png",
     "title": "Mixing with Variable Rates",
-    "date": "13 Mar 2020",
+    "date": "2020 Mar 13",
     "link": "https://jonahsussman.net/assets/238-paper.pdf",
     "description": "For my Differential Equations I class, we were required to create a paper discussing a mixing problem. I may have gone a bit overboard in discussing and solving it, but I'm proud of the thoroughness in the final result."
   }

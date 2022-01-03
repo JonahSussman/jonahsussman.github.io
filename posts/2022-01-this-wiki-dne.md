@@ -13,7 +13,10 @@ layout: layouts/post.njk
 
 Have you ever wondered how an AI would interpret the world? How it would see the universe? How it would parse knowledge? How it would dream? [Meet Tensorpedia! - The latest project I've created]({{ '/projects/this-wiki-dne' | url }}). It answers... none of the previous questions, but I think what I've created is interesting nonetheless.
 
-<p style="text-align: center;"><a href="{{ '/projects/this-wiki-dne' | url }}">Click here to check it out!</a></p>
+<p style="text-align: center;">
+<a href="{{ '/projects/this-wiki-dne' | url }}">Click here to check it out!</a><br>
+<a href="#examples-of-generated-articles">Click here to jump to the examples!</a>
+</p>
 
 ## Background
 

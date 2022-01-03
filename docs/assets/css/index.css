@@ -127,6 +127,10 @@ figcaption { /* Convert to shortcode or what have you */
   --link-visited: hsl(198, 98%, 20%);
 }
 
+.shadow {
+  box-shadow: 0 0 2px 0 rgba(171,171,171,.3),0 4px 4px 0 rgba(171,171,171,.2),0 8px 8px 0 rgba(171,171,171,.1),0 16px 16px 0 rgba(171,171,171,.1)
+}
+
 /* Application of themes */
 
 body, html {
