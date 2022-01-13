@@ -19,7 +19,10 @@
 		<id>https://jonahsussman.net/posts/2022-01-this-wiki-dne/</id>
 		<content type="html">&lt;p&gt;&lt;a style=&quot;float: right;&quot; href=&quot;https://jonahsussman.net/projects/this-wiki-dne/&quot;&gt;&lt;img src=&quot;https://jonahsussman.net/assets/projects/wiki-thumb.png&quot; /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Have you ever wondered how an AI would interpret the world? How it would see the universe? How it would parse knowledge? How it would dream? &lt;a href=&quot;https://jonahsussman.net/projects/this-wiki-dne&quot;&gt;Meet Tensorpedia! - The latest project I&#39;ve created&lt;/a&gt;. It answers... none of the previous questions, but I think what I&#39;ve created is interesting nonetheless.&lt;/p&gt;
-&lt;p style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;https://jonahsussman.net/projects/this-wiki-dne&quot;&gt;Click here to check it out!&lt;/a&gt;&lt;/p&gt;
+&lt;p style=&quot;text-align: center;&quot;&gt;
+&lt;a href=&quot;https://jonahsussman.net/projects/this-wiki-dne&quot;&gt;Click here to check it out!&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;https://jonahsussman.net/posts/2022-01-this-wiki-dne/#examples-of-generated-articles&quot;&gt;Click here to jump to the examples!&lt;/a&gt;
+&lt;/p&gt;
 &lt;h2 id=&quot;background&quot;&gt;Background &lt;a class=&quot;direct-link&quot; href=&quot;https://jonahsussman.net/posts/2022-01-this-wiki-dne/#background&quot;&gt;#&lt;/a&gt;&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;An infinite number of monkeys something something Shakespeare. Yeah, that sounds about right.&lt;br /&gt;

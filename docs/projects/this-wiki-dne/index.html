@@ -85,10 +85,6 @@
   .wiki-panel {
     display: none;
   }
-
-  #wiki-input {
-    width: 80vw !important;
-  }
 }
 
 .wiki-logo {
@@ -178,14 +174,22 @@
   justify-content: space-between;
 }
 
-.wiki-nav-right {
+.wiki-nav-right, .wiki-nav-left {
   margin-top: 2.5em;
+}
+
+.wiki-nav-left {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  align-items: center;
 }
 
 #wiki-search {
   height: 2.5em;
   padding-top: .5em;
   padding-bottom: 4px;
+  max-width: unset;
 }
 
 #wiki-input {
@@ -197,6 +201,27 @@
   margin-left: .5em;
 
   height: 100%;
+}
+
+@media (max-width: 500px) {
+  .wiki-head {
+    flex-direction: column;
+  }
+  .wiki-nav-right {
+    margin-top: 0;
+    flex-grow: 1;
+  }
+  .wiki-nav-right, .wiki-nav-left {
+    justify-content: right;
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
+  #wiki-input {
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
 }
 
 .wiki-main {
@@ -214,7 +239,16 @@
 
 .wiki-indicators {
   float: right;
+
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+  /* opacity: 0.5;
+  transition: 0.2s; */
 }
+/* .wiki-indicators:hover {
+  opacity: 1;
+} */
 
 .spinner {
   margin: 100px auto;
@@ -277,7 +311,7 @@
 <script defer>
 
 let socket;
-let e_title, e_content, e_loader, e_updates, e_indicators, e_please
+let e_title, e_content, e_loader, e_updates, e_indicators, e_please, e_force
 let is_loading = true;
 let first_connect = true;
 
@@ -288,6 +322,7 @@ window.onload = () => {
   e_updates = document.getElementById('wiki-updates');
   e_indicators = document.getElementById('wiki-indicators');
   e_please = document.getElementById('wiki-please');
+  // e_force = document.getElementById('wiki-force');
 
   socket = io('https://api.jonahsussman.net/this-wiki-dne', {transports: ['websocket']})
   socket.on('query-response', wiki_handle_response);
@@ -316,6 +351,10 @@ const wiki_homepage = {
     <p>Welcome to <b>Tensorpedia</b>! Tensorpedia is a program that utilizes artificial intelligence (<a href="https://github.com/minimaxir/aitextgen">aitextgen</a> and <a href="https://openai.com/blog/better-language-models/">GPT-2</a>) to synthesize Wikipedia articles based on nothing but its title. In other words, <i>none of these articles exist!</i></p>
     <p>This website takes a given title and generates a viable-looking Wikipedia-like article about it, using Wikipedia's 10,000 <a href="https://en.wikipedia.org/wiki/Wikipedia:Vital_articles/Level/4">"vital articles"</a> as a dataset. If you want to learn more about how I created this project, check out <a href="/posts/2022-01-this-wiki-dne">my article here</a>.</p>
     <p>Feel free to click on any links you see within a page, search using the search bar, or go to a random page by clicking "random page" in the sidebar or footer!</p>
+    <ul style="margin: 0.3em 0 0 1.6em;padding: 0;font-size:.875em;">
+      <li>Once an article is generated, you can regenerate the article using the "Regenerate" button.</li>
+      <li>If the generated article does not talk about the title, you can force the title of the article to be the first words using the "Force title" button.</li>
+    </ul>
     <p>Here are some interesting links to get you started:</p>
     <ul style="margin: 0.3em 0 0 1.6em;padding: 0;font-size:.875em;">
       <li><a onclick="wiki_nav('Science')">Science</a></li>
@@ -421,7 +460,7 @@ window.onpopstate = (e) => {
   }
 }
 
-function wiki_nav(title, regen=false, pop_state=false) {
+function wiki_nav(title, regen=false, pop_state=false, force=false) {
   if (is_loading) {
     e_updates.innerText = 'Please wait until your request has been processed.'
     return;
@@ -451,15 +490,18 @@ function wiki_nav(title, regen=false, pop_state=false) {
   // }
 
   title = title.charAt(0).toUpperCase() + title.slice(1);
+  // let force = e_force.checked;
+  // e_force.checked = false;
+  console.log(`force: ${force}`)
 
-  let query = { title: title, regen: regen }
+  let query = { title: title, regen: regen, force: force }
   console.log(query);
   wiki_update_title(title);
   socket.emit('query', query);
 }
 
-function wiki_regenerate() {
-  wiki_nav(e_title.innerText, true)
+function wiki_regenerate(force) {
+  wiki_nav(e_title.innerText, true, false, force)
 }
 
 function wiki_search() {
@@ -530,7 +572,12 @@ function wiki_random() {
 
   <div class="wiki-content">
     <div class="wiki-head">
-      <div class="wiki-nav-left"></div>
+      <div class="wiki-nav-left">
+        <!-- <input type="checkbox" id="wiki-force" name="wiki-force" value="Force">
+        <label for="wiki-force">Force title</label> -->
+        <button type="button" onclick="wiki_regenerate(false)"><i class="fa fa-refresh"></i> Regenerate</button>
+        <button type="button" onclick="wiki_regenerate(true)"><i class="fa fa-pencil"></i> Force title</button>
+      </div>
       <div class="wiki-nav-right">
         <form id="wiki-search" onsubmit="wiki_search()">
           <input id="wiki-input" type="text" placeholder="Search Tensorpedia">
@@ -539,7 +586,8 @@ function wiki_random() {
 
     <div id="wiki-main" class="wiki-main">
       <div class="wiki-section">
-        <div id="wiki-indicators" class="wiki-indicators"><button style="font-size:0.875em" type="button" onclick="wiki_regenerate()"><i class="fa fa-refresh"></i></button></div>
+        <div id="wiki-indicators" class="wiki-indicators" style="font-size:0.875em" >
+        </div>
         <h1 id="wiki-title">Connecting to Tensorpedia...</h1>
         <h2>From Tensorpedia, the poorly auto-generated encyclopedia</h2>
         <div id="wiki-content" class="wiki-paragraphs" style="display: none;"></div>
@@ -554,7 +602,7 @@ function wiki_random() {
           <code id="wiki-updates"></code>
           <details id="wiki-please" style="display: none;">
             <summary style="cursor: pointer;">Please allow a minute or two once your text begins processing.</summary>
-            <small>The aitextgen model that Tensorpedia uses is currently running on the server's CPU. Running it on a GPU would be much faster, but I am but a college student and that would be expensive.</small>
+            <small>The aitextgen model that Tensorpedia uses is currently running on the server's CPU. Running it on a GPU would be much faster. However, I am but a college student and GPUs are expensive.</small>
           </details>
         </div>
       </div>
