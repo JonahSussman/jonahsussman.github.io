@@ -1,1 +1,2 @@
-npx @11ty/eleventy --serve --incremental
+npx @11ty/eleventy --serve
+# npx @11ty/eleventy --serve --incremental

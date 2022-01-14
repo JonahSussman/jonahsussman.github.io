@@ -273,6 +273,27 @@ section > :last-child  { margin-bottom: 0 !important; }
   margin-top: 0;
 }
 
+.table {
+  text-align: left;
+  border: 1px solid var(--primary);
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border-radius: var(--radius);
+}
+.table thead {
+  border: 1px solid var(--dark-primary);
+  border-top: 0.2rem solid var(--dark-primary);
+}
+.table td {
+  padding: .3rem .6rem 0;
+  border-bottom: 1px solid var(--primary);
+}
+.table th {
+  padding: .3rem .6rem 0;
+  border-bottom: 1px solid var(--dark-primary);
+}
+
 /* table of contents */
 .sticky-toc {
   position: sticky;
