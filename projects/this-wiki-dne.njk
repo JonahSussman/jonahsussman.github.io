@@ -265,6 +265,17 @@ theme: theme-blue
 #wiki-loader {
   text-align: center;
 }
+
+.wiki-error {
+  border: 1px solid #a2a9b1;
+  border-left: 10px solid #f28500;
+  background-color: #fbfbfb;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+}
 </style>
 
 <script src="https://cdn.socket.io/4.4.0/socket.io.min.js" integrity="sha384-1fOn6VtTq3PWwfsOrk45LnYcGosJwzMHv+Xh/Jx5303FVOXzEnw0EpLv30mtjmlj" crossorigin="anonymous"></script>
@@ -317,14 +328,14 @@ const wiki_homepage = {
     </ul>
     <p>Here are some interesting links to get you started:</p>
     <ul style="margin: 0.3em 0 0 1.6em;padding: 0;font-size:.875em;">
-      <li><a onclick="wiki_nav('Science')">Science</a></li>
-      <li><a onclick="wiki_nav('Alan Turing')">Alan Turing</a></li>
-      <li><a onclick="wiki_nav('Jonah Sussman')">Jonah Sussman</a></li>
-      <li><a onclick="wiki_nav('The Hugo Award')">The Hugo Award</a></li>
-      <li><a onclick="wiki_nav('New York City')">New York City</a></li>
-      <li><a onclick="wiki_nav('Rijksmuseum')">Rijksmuseum</a></li>
+      <li><a href="?query=Science" onclick="wiki_nav('Science'); return false;">Science</a></li>
+      <li><a href="?query=Alan Turing" onclick="wiki_nav('Alan Turing'); return false;">Alan Turing</a></li>
+      <li><a href="?query=Jonah Sussman" onclick="wiki_nav('Jonah Sussman'); return false;">Jonah Sussman</a></li>
+      <li><a href="?query=The Hugo Award" onclick="wiki_nav('The Hugo Award'); return false;">The Hugo Award</a></li>
+      <li><a href="?query=New York City" onclick="wiki_nav('New York City'); return false;">New York City</a></li>
+      <li><a href="?query=Rijksmuseum" onclick="wiki_nav('Rijksmuseum'); return false;">Rijksmuseum</a></li>
     </ul>
-    <p><small>Note: The current version of Tensorpedia is running on a single core vCPU as that's the only type of server I can afford right now. That means generating <i>new</i> articles can take anywhere from 30 to 90 seconds. Thank you for understanding.</small></p>`
+    <p><small>Note: The current version of Tensorpedia is running on a single core vCPU as that's the only type of server I can afford right now. That means generating <i>new</i> articles can take anywhere from 10 to 60 seconds. Thank you for understanding.</small></p>`
 }
 
 function wiki_update_title(title) {
@@ -336,13 +347,14 @@ function wiki_update_title(title) {
 // God-awful regex replacement stuff. Don't look at this
 function wiki_process_wikitext(wikitext) {
   result_html = '';
+  let title = '';
 
   wikitext
     .replace(/\[\[ /g, '\[\[') // Fix spacing around wikilinks
     .replace(/ \]\]/g, '\]\]')
     .replace(/ \| /g, '\|')
     .replace(/\.([^.]*)$/, '.') // Remove sentence at end w/o period
-    .replace(/== (.*) == */g, '') // Remove wikititle
+    .replace(/== (.*) == */g, (m, g) => { title = g; return ''; }) // Remove wikititle
     .replace(/ *\\n */g, '\n') // Convert "\\n" to actual newline
     .replace(/\]\]([a-zA-Z]*)/g, (m, g) => `${g}]]`) // Add extensions
     .replace(/^.*$/gm, sentence => {
@@ -352,9 +364,9 @@ function wiki_process_wikitext(wikitext) {
         // The whole reason that I'm not using Vue or react is for this functionality
         .replace(/(\[\[([^[]*)\|([^\]]*)\]\])|(\[\[([^[|]*)\]\])/g, (m, g1, g2, g3, g4, g5) => {
           if (g1 != undefined) {
-            return `<a class="wiki-link" title="${g2}" onclick="wiki_nav('${g2}')">${g3}</a>`
+            return `<a class="wiki-link" title="${g2}" href="?query=${g2}" onclick="wiki_nav('${g2}'); return false;">${g3}</a>`
           } else {
-            return `<a class="wiki-link" title="${g5}" onclick="wiki_nav('${g5}')">${g5}</a>`
+            return `<a class="wiki-link" title="${g5}" href="?query=${g5}" onclick="wiki_nav('${g5}'); return false;">${g5}</a>`
           }
         })
         .replace(/\[\[/g, '') // Remove stray [[ and ]]
@@ -362,6 +374,16 @@ function wiki_process_wikitext(wikitext) {
 
       result_html += `<p>${sentence}</p>`
     });
+
+  title = title.toLocaleLowerCase().replace(/[^a-zA-Z]/g, '').toLowerCase();
+
+  if (title.startsWith('listof')) {
+    result_html = `
+      <div class="wiki-error">
+        <p><b style="text-align: center;">Tensorpedia Lists</b><br>
+        this article is meant to be a list. Tensorpedia was not trained on wikipedia lists. As such, the output may not be what you expect.</p>
+      </div>` + result_html;
+  }
 
   return result_html;
 }
@@ -505,12 +527,12 @@ function wiki_random() {
 
 <div class="wiki-container">
   <div class="wiki-panel">
-    <a onclick="wiki_nav('')" class="wiki-logo"></a>
+    <a href="?query=" onclick="wiki_nav(''); return false;" class="wiki-logo"></a>
     <nav class="wiki-menu">
       <div class="wiki-menu-content">
         <ul class="wiki-menu-list">
-          <li class="wiki-menu-item"><a onclick="wiki_nav('')">Main page</a></li>
-          <li class="wiki-menu-item"><a onclick="wiki_random()">Random article</a></li>
+          <li class="wiki-menu-item"><a href="?query=" onclick="wiki_nav(''); return false;">Main page</a></li>
+          <li class="wiki-menu-item"><a onclick="wiki_random(); return false;">Random article</a></li>
           <li class="wiki-menu-item"><a href="{{ '/posts/2022-01-this-wiki-dne' | url }}">About Tensorpedia</a></li>
           <li class="wiki-menu-item"><a href="/about">About me</a></li>
           <li class="wiki-menu-item"><a href="mailto:sussmanjonah+thiswikidne@gmail.com">Report a problem</a></li>
@@ -535,8 +557,8 @@ function wiki_random() {
       <div class="wiki-nav-left">
         <!-- <input type="checkbox" id="wiki-force" name="wiki-force" value="Force">
         <label for="wiki-force">Force title</label> -->
-        <button type="button" onclick="wiki_regenerate(false)"><i class="fa fa-refresh"></i> Regenerate</button>
-        <button type="button" onclick="wiki_regenerate(true)"><i class="fa fa-pencil"></i> Force title</button>
+        <button type="button" onclick="wiki_regenerate(false); return false;"><i class="fa fa-refresh"></i> Regenerate</button>
+        <button type="button" onclick="wiki_regenerate(true); return false;"><i class="fa fa-pencil"></i> Force title</button>
       </div>
       <div class="wiki-nav-right">
         <form id="wiki-search" onsubmit="wiki_search()">
@@ -570,8 +592,8 @@ function wiki_random() {
     <div class="wiki-footer">
       <!-- <a onclick="wiki_nav('')" class="wiki-logo" style="float: right; width: 60px; height: 60px; background-size: 100%;"></a> -->
       <p style="font-size: 1.1em;">
-        <a onclick="wiki_nav('')">Main page</a>
-      • <a onclick="wiki_random()">Random article</a>
+        <a href="?query=" onclick="wiki_nav(''); return false;">Main page</a>
+      • <a onclick="wiki_random(); return false;">Random article</a>
       • <a href="{{ '/posts/2022-01-this-wiki-dne' | url }}">About Tensorpedia</a>
       • <a href="/about">About me</a>
       • <a href="mailto:sussmanjonah+thiswikidne@gmail.com">Report a problem</a>
