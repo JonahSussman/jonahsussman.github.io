@@ -4,80 +4,102 @@
   <url>
     <loc>https://jonahsussman.net/posts/2021-08-productivity/</loc>
     <lastmod>2021-08-11</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/page-list/</loc>
     <lastmod>2021-11-11</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/posts/</loc>
     <lastmod>2021-11-14</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/tags/musings/</loc>
     <lastmod>2021-11-14</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/tags/project/</loc>
     <lastmod>2021-11-14</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/tags/</loc>
     <lastmod>2021-11-14</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/testing/pie-chart/</loc>
     <lastmod>2021-12-17</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/testing/wikipedia/</loc>
     <lastmod>2021-12-17</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/posts/2022-01-this-wiki-dne/</loc>
     <lastmod>2022-01-02</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/projects/</loc>
     <lastmod>2022-01-03</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/</loc>
     <lastmod>2022-01-03</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/new%20design/</loc>
-    <lastmod>2022-01-13</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/new%20design%20-%20Copy/</loc>
-    <lastmod>2022-01-13</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/projects/software-renderer/</loc>
     <lastmod>2022-01-13</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/about/</loc>
-    <lastmod>2022-01-14</lastmod>
+    
   </url>
   
   <url>
     <loc>https://jonahsussman.net/projects/this-wiki-dne/</loc>
     <lastmod>2022-01-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/about/</loc>
+    <lastmod>2022-01-21</lastmod>
+    
+    <image:image>
+      <image:loc>https://jonahsussman.net/assets/about/pic-1.jpg</image:loc>
+      <image:title>Jonah Sussman</image:title>
+      <image:caption>On top of Kennesaw Mountain</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://jonahsussman.net/assets/about/pic-2.jpg</image:loc>
+      <image:title>Jonah Sussman</image:title>
+      <image:caption>Posing for a photo shoot</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://jonahsussman.net/assets/about/pic-3.jpg</image:loc>
+      <image:title>Jonah Sussman</image:title>
+      <image:caption>On campus, in the snow</image:caption>
+    </image:image>
+    
   </url>
 </urlset>

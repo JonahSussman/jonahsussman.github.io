@@ -82,6 +82,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("CNAME");
+  eleventyConfig.addPassthroughCopy("robots.txt");
 
   eleventyConfig.addPassthroughCopy("projects/software-renderer.js");
   eleventyConfig.addPassthroughCopy("projects/software-renderer.wasm");

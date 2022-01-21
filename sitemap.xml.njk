@@ -9,6 +9,13 @@ eleventyExcludeFromCollections: true
   <url>
     <loc>{{ absoluteUrl }}</loc>
     <lastmod>{{ page.date | htmlDateString }}</lastmod>
+    {% for img in page.data.sitemap.images %}
+    <image:image>
+      {% if img.loc %}<image:loc>{{ img.loc | url | absoluteUrl(metadata.url) }}</image:loc>{% endif %}
+      {% if img.title %}<image:title>{{ img.title }}</image:title>{% endif %}
+      {% if img.caption %}<image:caption>{{ img.caption }}</image:caption>{% endif %}
+    </image:image>
+    {% endfor %}
   </url>
 {%- endfor %}
 </urlset>
