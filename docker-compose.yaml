@@ -1,10 +1,30 @@
+name: jsn
+
 services:
   nginx:
-    image: ./nginx/
+    image: nginx:latest
     ports:
       - 80:80
       - 443:443
     restart: always
     volumes:
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ./certbot/www/:/var/www/certbot/:ro
+      - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
+      - ./certbot/webroot/:/var/certbot/:ro
+# technically supposed to be /var/www/certbot
+      - ./frontend-old/docs/:/var/www/:ro
+      - /etc/letsencrypt/:/etc/nginx/ssl/:ro
+    # hostname: nginx
+    networks:
+      - proxy-project
+
+  software-renderer:
+    image: python:latest
+    volumes:
+      - ./projects/software-renderer/build:/var/www/:ro
+    # hostname: software-renderer
+    networks:
+      - proxy-project
+    command: python3 -m http.server --directory /var/www/
+
+networks:
+  proxy-project: {}

@@ -1,0 +1,11 @@
+https://certbot.eff.org/instructions?ws=nginx&os=ubuntufocal
+
+sudo certbot certonly -d www.jonahsussman.net -d jonahsussman.net --webroot --webroot-path /home/jonah/jonahsussman.github.io/certbot/webroot/
+
+sudo crontab -l to lsit or -e to edit
+0 0 * * * certbot renew
+
+docker compose up -d --build --force-recreate
+
+todo:
+- No prefix and suffix
