@@ -17,6 +17,14 @@ services:
     networks:
       - proxy-project
 
+  scavanger:
+    image: python:latest
+    volumes:
+      - ./projects/scavanger:/var/www/:ro
+    networks:
+      - proxy-project
+    command: python3 -m http.server --directory /var/www/
+
   software-renderer:
     image: python:latest
     volumes:
