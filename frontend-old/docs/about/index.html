@@ -93,16 +93,21 @@
 <div class="site-content">
 
 <div class="card">
-  <img id="about-img" src="/assets/about/pic-1.jpg" style="float: right; margin-left: 1rem; margin-bottom: 1rem; width: min(33vw, 200px); ">
+  <div id="about-carousel" style="float: right; margin-left: 1rem; margin-bottom: 1rem; width: min(33vw, 200px); aspect-ratio: 1; overflow: hidden; position: relative;">
+    <div id="about-track" style="display: flex; transition: transform 0.6s ease-in-out;">
+    </div>
+  </div>
 
   <h1 class="card-title">About Me</h1>
-  <p>I'm Jonah Sussman. I'm a CS and Math double major at The University of Alabama. I love challenging myself and solving hard problems.</p>
+  <p>I'm Jonah Sussman. I'm a Senior Software Engineer at <a href="https://www.redhat.com/">Red Hat</a> and a Master's student in AI at <a href="https://www.utexas.edu/">UT Austin</a>. I hold an MS in Computer Science and a BS in Computer Science & Mathematics from <a href="https://www.ua.edu/">The University of Alabama</a>. I love challenging myself and solving hard problems.</p>
 
   <h3>Experience</h3>
 
-  <p>Currently, I'm a research assistant the <a href="http://dcsl.cs.ua.edu/">Digital Forensics and Control Systems Security Lab</a>, researching how to get data off of Tuscaloosa's traffic system in a secure, sensible manner (part of the overall <a href="https://www.atistrategicplan.com/">Alabama Transportation Institute Strategic Plan</a>). My previous research project dealt with detecting malware using Machine Learning on Android.</p>
+  <p>At Red Hat, I researched and kickstarted <a href="https://github.com/konveyor/kai">Kai</a>, an agentic LLM-driven migration tool that uses static analysis to help developers modernize legacy applications. I <a href="https://www.youtube.com/watch?v=wO1bWs_LD8w">presented Kai at KubeCon EU 2025</a> in London (where I proposed to my loving fiancée). I also contribute to Red Hat internal AI efforts.</p>
 
-  <p>This past summer, I was an intern at <a href="https://www.fiserv.com/en.html">FiServ</a>, working to remediate security vulnerabilities in the Financial Risk Management Solutions division. I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.</p>
+  <p>While at The University of Alabama, I was a research assistant at the <a href="http://dcsl.cs.ua.edu/">Digital Forensics and Control Systems Security Lab</a>, where I researched how to get data off of Tuscaloosa's traffic system in a secure, sensible manner (part of the overall <a href="https://www.atistrategicplan.com/">Alabama Transportation Institute Strategic Plan</a>), resulting in a <a href="https://www.mdpi.com/1424-8220/24/11/3392">published paper</a>. My previous research project dealt with detecting malware using Machine Learning on Android.</p>
+
+  <p>Before that, I interned at <a href="https://www.fiserv.com/en.html">FiServ</a>, working to remediate security vulnerabilities in the Financial Risk Management Solutions division. I've also worked at the Georgia Tech Research Institute, where we developed a night-vision themed exhibit for the Museum of Aviation in Warner Robins, Georgia.</p>
 
   <div id="fun-fact">
     <!-- <h3 id="fun-fact-title">Favorite Encryption Algorithm<span style="color: var(--primary); font-size: 1rem;" id="fun-fact-counter"></span></h3> -->
@@ -322,9 +327,30 @@ function init_page() {
 
   let index = 0;
   let count = 0;
-  let NUM_PICS = 3;
+  let NUM_PICS = 9;
+  let pic_index = 0;
+  let track = $('about-track');
+  let carousel = $('about-carousel');
 
-  $('about-img').src = '/assets/about/pic-' + (Math.floor(Math.random() * NUM_PICS)+1) + '.jpg';
+  for (let i = 0; i <= NUM_PICS; i++) {
+    let img = document.createElement('img');
+    img.src = '/assets/about/pic-' + ((i % NUM_PICS) + 1) + '.jpg';
+    img.style.cssText = 'min-width: 100%; aspect-ratio: 1; object-fit: cover;';
+    track.appendChild(img);
+  }
+
+  setInterval(function() {
+    pic_index++;
+    track.style.transition = 'transform 0.6s ease-in-out';
+    track.style.transform = 'translateX(-' + (pic_index * 100) + '%)';
+    if (pic_index >= NUM_PICS) {
+      setTimeout(function() {
+        track.style.transition = 'none';
+        pic_index = 0;
+        track.style.transform = 'translateX(0)';
+      }, 650);
+    }
+  }, 5000);
 
   next_fact();
   // fun_fact();
@@ -361,7 +387,7 @@ init_page();
       <!-- End base insert -->
 
       <footer class="site-footer">
-        <p>2020 - 2022 | Made with 💖 by Jonah Sussman</p>
+        <p>2020 - 2026 | Made with 💖 by Jonah Sussman</p>
         <p><a href="#navbar">Back to top</a></p>
       </footer>
     </div>

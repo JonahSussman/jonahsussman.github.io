@@ -14,30 +14,6 @@
   </url>
   
   <url>
-    <loc>https://jonahsussman.net/about/</loc>
-    <lastmod>2026-05-14</lastmod>
-    
-    <image:image>
-      <image:loc>https://jonahsussman.net/assets/about/pic-1.jpg</image:loc>
-      <image:title>Jonah Sussman</image:title>
-      <image:caption>On top of Kennesaw Mountain</image:caption>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://jonahsussman.net/assets/about/pic-2.jpg</image:loc>
-      <image:title>Jonah Sussman</image:title>
-      <image:caption>Posing for a photo shoot</image:caption>
-    </image:image>
-    
-    <image:image>
-      <image:loc>https://jonahsussman.net/assets/about/pic-3.jpg</image:loc>
-      <image:title>Jonah Sussman</image:title>
-      <image:caption>On campus, in the snow</image:caption>
-    </image:image>
-    
-  </url>
-  
-  <url>
     <loc>https://jonahsussman.net/posts/</loc>
     <lastmod>2026-05-14</lastmod>
     
@@ -45,12 +21,6 @@
   
   <url>
     <loc>https://jonahsussman.net/error/</loc>
-    <lastmod>2026-05-14</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://jonahsussman.net/</loc>
     <lastmod>2026-05-14</lastmod>
     
   </url>
@@ -106,6 +76,36 @@
   <url>
     <loc>https://jonahsussman.net/testing/wikipedia/</loc>
     <lastmod>2026-05-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/</loc>
+    <lastmod>2026-05-14</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://jonahsussman.net/about/</loc>
+    <lastmod>2026-05-14</lastmod>
+    
+    <image:image>
+      <image:loc>https://jonahsussman.net/assets/about/pic-1.jpg</image:loc>
+      <image:title>Jonah Sussman</image:title>
+      <image:caption>On top of Kennesaw Mountain</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://jonahsussman.net/assets/about/pic-2.jpg</image:loc>
+      <image:title>Jonah Sussman</image:title>
+      <image:caption>Posing for a photo shoot</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://jonahsussman.net/assets/about/pic-3.jpg</image:loc>
+      <image:title>Jonah Sussman</image:title>
+      <image:caption>On campus, in the snow</image:caption>
+    </image:image>
     
   </url>
 </urlset>

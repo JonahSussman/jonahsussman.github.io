@@ -412,6 +412,31 @@ section > :last-child  { margin-bottom: 0 !important; }
   transition: text-shadow 0.2s ease-in-out;
 }
 
+.shout-wrapper {
+  position: relative;
+  display: inline;
+}
+.shout-wrapper .shout {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  font-weight: bold;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.shout-wrapper:hover .shout {
+  animation: shout-arc 1s ease-out forwards;
+}
+@keyframes shout-arc {
+  0%   { opacity: 1; transform: translateX(-50%) translateY(0) rotate(0deg) scale(0.5); }
+  60%  { opacity: 1; }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-3rem) rotate(-12deg) scale(1); }
+}
+.shout-ut { color: #BF5700; }
+.shout-ua { color: #9E1B32; }
+
 
 .site-breadcrumb {
   width: 100%;

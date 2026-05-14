@@ -9,9 +9,11 @@ const markdownItFootnote = require("markdown-it-footnote");
 const pluginTOC = require('eleventy-plugin-toc')
 
 module.exports = function(eleventyConfig) {
-  eleventyConfig.addPairedShortcode("raw_copy", function(content) { 
+  eleventyConfig.addPairedShortcode("raw_copy", function(content) {
     return content;
   });
+
+  eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
 
   // Add plugins

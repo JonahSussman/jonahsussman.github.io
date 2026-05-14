@@ -7,6 +7,13 @@
     "description": "A simulator for placing non-attacking knight-style pieces on an infinite board, producing beautiful fractal-like patterns. Inspired by Numberphile. Click to try the live demo!"
   },
   {
+    "thumb": "/assets/lidats-thumb.png",
+    "title": "Live Intersection Data Acquisition for Traffic Simulators (LIDATS)",
+    "date": "2024 May 24",
+    "link": "https://www.mdpi.com/1424-8220/24/11/3392",
+    "description": "Published in MDPI Sensors. A system for real-time traffic signal acquisition and secure network transmission for intelligent transportation systems, developed at the University of Alabama."
+  },
+  {
     "thumb": "/assets/wiki-project-thumb.png",
     "title": "Tensorpedia (this-wiki-dne)",
     "date": "2022 Jan 02",
@@ -28,13 +35,6 @@
     "description": "A while back I made a closure-based programming language, dubbed SussLang, in Python 3. While there are some things I would change about it, I'm still proud of the final product."
   },
   {
-    "thumb": "/assets/aeditor-thumb.png",
-    "title": "Aeditor",
-    "date": "2020 Apr 11",
-    "link": "https://www.github.com/JonahSussman/aeditor",
-    "description": "A tool to isolate words in human speech using AI. Written in C++17 and Python 3. Fundamentally, I used this tool to help with one of my more esoteric projects: alphebetizing videos."
-  },
-  {
     "thumb": "/assets/appendix-a-thumb.png",
     "title": "ChocAn Redux",
     "date": "2020 Dec 20",
@@ -47,6 +47,13 @@
     "date": "2020 May 9",
     "link": "https://jonahsussman.net/assets/3b1b-paper.pdf",
     "description": "During the summer I found a video by 3Blue1Brown and Numberphile that inspired me to flex my multi-dimensional calculus and probability skills. The result was this fun, semi-formal paper!"
+  },
+  {
+    "thumb": "/assets/aeditor-thumb.png",
+    "title": "Aeditor",
+    "date": "2020 Apr 11",
+    "link": "https://www.github.com/JonahSussman/aeditor",
+    "description": "A tool to isolate words in human speech using AI. Written in C++17 and Python 3. Fundamentally, I used this tool to help with one of my more esoteric projects: alphebetizing videos."
   },
   {
     "thumb": "/assets/238-paper-thumb.png",
