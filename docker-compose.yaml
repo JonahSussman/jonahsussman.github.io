@@ -12,6 +12,7 @@ services:
       - ./certbot/webroot/:/var/certbot/:ro
 # technically supposed to be /var/www/certbot
       - ./frontend-old/docs/:/var/www/:ro
+      - ./projects/red-and-black-knights/build/:/var/www/red-and-black-knights/:ro
       - /etc/letsencrypt/:/etc/nginx/ssl/:ro
     # hostname: nginx
     networks:
