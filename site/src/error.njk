@@ -1,0 +1,22 @@
+---
+layout: layouts/base.njk
+title: Error - Jonah Sussman
+permalink: /error.html
+eleventyExcludeFromCollections: true
+---
+<div class="site-content">
+  <div class="card">
+    <h1 class="card-title">That's a <!--# echo var="status" default="" --> error!</h1>
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem;">
+      <img src="/assets/404/geometrischer-1.jpg" style="max-width: 100%;">
+      <img src="/assets/404/geometrischer-2.jpg" style="max-width: 100%;">
+      <img src="/assets/404/geometrischer-3.jpg" style="max-width: 100%;">
+      <img src="/assets/404/geometrischer-4.jpg" style="max-width: 100%;">
+    </div>
+
+    <p>That error means "<!--# echo var="status_text" default="Something goes wrong" -->".</p>
+    <p>Go <a href="/">home</a>.</p>
+
+    <p class="post-description">Images from <a href="https://publicdomainreview.org/collection/solid-objects">Herzog August Bibliothek in Wolfenbüttel</a>.</p>
+  </div>
+</div>
