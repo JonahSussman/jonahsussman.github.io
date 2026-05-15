@@ -5,66 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title or metadata.title }}</title>
     <meta name="description" content="{{ description or metadata.description }}">
-    <link rel="stylesheet" href="{{ '/assets/css/index.css' | url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/prism-base16-monokai.dark.css' | url }}">
-
+    <link rel="stylesheet" href="/assets/css/index.css">
+    <link rel="stylesheet" href="/assets/css/prism-base16-monokai.dark.css">
     <link rel="alternate" href="{{ metadata.feed.path | url }}" type="application/atom+xml" title="{{ metadata.title }}">
-    <link rel="alternate" href="{{ metadata.jsonfeed.path | url }}" type="application/json" title="{{ metadata.title }}">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> 
     {% if petiteVue %}
     <script src="https://unpkg.com/petite-vue" {% if deferInitVue %} defer init {% endif %}></script>
     {% endif %}
   </head>
-  <body class="{% if theme %} {{ theme }} {% else %} theme-blue {% endif %}">
+  <body class="{% if theme %}{{ theme }}{% else %}theme-blue{% endif %}">
     <div class="site-wrapper">
-
       <header id="navbar" class="site-header">
         <div class="nav-flex">
-          <svg id="nav-toggle" class="" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="var(--black)">
+          <svg id="nav-toggle" viewBox="0 0 100 100" width="2.25rem" height="2.25rem" fill="var(--black)">
             <rect y="10" width="100" height="20" rx="10"></rect>
             <rect y="40" width="100" height="20" rx="10"></rect>
             <rect y="70" width="100" height="20" rx="10"></rect>
           </svg>
           <a class="nav-logo crazy-jonah" href="/">Jonah Sussman</a>
           <div id="nav-menu">
-            <a class="nav-link{% if '/posts/' == page.url %} active{% endif %}" href="/posts/">Posts</a>
-            <a class="nav-link{% if '/about/' == page.url %} active{% endif %}" href="/about/">About</a>
-            <a class="nav-link{% if '/projects/' == page.url %} active{% endif %}" href="/projects/">Projects</a>
+            <a class="nav-link{% if navActive == 'posts' %} active{% endif %}" href="/posts/">Posts</a>
+            <a class="nav-link{% if navActive == 'about' %} active{% endif %}" href="/about/">About</a>
+            <a class="nav-link{% if navActive == 'projects' %} active{% endif %}" href="/projects/">Projects</a>
             <a class="nav-link" href="/assets/Jonah%20Sussman%20Resume%20ONLINE.pdf">Resume</a>
           </div>
         </div>
       </header>
-      
-    <nav class="site-breadcrumb">
-      <!-- <div class="breadcrumb-flex">
-        <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
-      </div> -->
-    </nav>
 
-      <!-- Begin base insert -->
-      <main class="site-main {% if contentLayout %} {{ contentLayout }} {% else %} layout-single {% endif %}">
+      <!-- TODO: breadcrumb nav
+      <nav class="site-breadcrumb">
+        <div class="breadcrumb-flex">
+          <a href="apples">apples</a> » <a>bananas</a> » <a>cherries</a>
+        </div>
+      </nav>
+      -->
+
+      <main class="site-main {% if contentLayout %}{{ contentLayout }}{% else %}layout-single{% endif %}">
         {{ content | safe }}
       </main>
-      <!-- End base insert -->
 
       <footer class="site-footer">
-        <p>2020 - {% year %} | Made with 💖 by Jonah Sussman</p>
+        <p>2020 - {% year %} | Made with &#x1F496; by Jonah Sussman</p>
         <p><a href="#navbar">Back to top</a></p>
       </footer>
     </div>
   </body>
 
   <script>
-    function navResponse() {
-      let m = document.getElementById("nav-menu");
-      m.className = m.className === "" ? "active" : "";
-
-      let btn = document.getElementById("nav-toggle");
-      btn.setAttribute("class", btn.getAttribute("class") === "" ? "active" : "");
-    }
-    document.getElementById("nav-toggle").addEventListener("click", navResponse, false);
+    document.getElementById("nav-toggle").addEventListener("click", function() {
+      document.getElementById("nav-menu").classList.toggle("active");
+      this.classList.toggle("active");
+    });
   </script>
 </html>
