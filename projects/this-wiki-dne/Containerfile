@@ -9,3 +9,4 @@ RUN npx @11ty/eleventy
 
 FROM nginx:alpine
 COPY --from=page-build /site/_site/projects/this-wiki-dne/ /usr/share/nginx/html/
+COPY projects/this-wiki-dne/wiki-thumb.png /usr/share/nginx/html/wiki-thumb.png
