@@ -9,7 +9,7 @@ Browser -> nginx proxy (port 80/443)
              |-- /                              -> main-site container
              |-- /projects/software-renderer/   -> software-renderer container (embedded)
              |-- /projects/red-and-black-knights/-> rbk container (standalone)
-             |-- /projects/scavanger/           -> scavanger container (standalone)
+             |-- /projects/scavenger/           -> scavenger container (standalone)
 ```
 
 Each project runs in its own container with its own nginx. The top-level nginx reverse proxy routes requests by URL path.
@@ -17,7 +17,7 @@ Each project runs in its own container with its own nginx. The top-level nginx r
 ### Project types
 
 - **Embedded**: Has a wrapper page rendered by Eleventy (nav, footer, site theme). Two build steps in the Containerfile: (1) build project artifacts, (2) run Eleventy to render the wrapper page. Example: `software-renderer`.
-- **Standalone**: Serves its own HTML directly, no site shell. Single build step. Example: `red-and-black-knights`, `scavanger`.
+- **Standalone**: Serves its own HTML directly, no site shell. Single build step. Example: `red-and-black-knights`, `scavenger`.
 
 ### Directory structure
 
@@ -53,7 +53,7 @@ jonahsussman.github.io/
     software-renderer/
       Containerfile            # Embedded: emscripten build + Eleventy render
       src/software-renderer.njk  # Wrapper page (copied into site/ at build time)
-    scavanger/
+    scavenger/
       Containerfile            # Standalone: static files -> nginx
     this-wiki-dne/             # Not yet containerized
 ```
@@ -90,6 +90,15 @@ docker compose -f docker-compose.yaml -f docker-compose.dev.yaml build software-
 # Force rebuild (no cache):
 docker compose -f docker-compose.yaml -f docker-compose.dev.yaml build --no-cache software-renderer
 ```
+
+## Build context
+
+The `context` field in `docker-compose.yaml` sets the root directory for the Docker build. All paths in the Containerfile (`COPY`, etc.) are relative to it.
+
+- **`context: .` (repo root)**: Used for embedded projects and the nginx proxy. They need access to `site/` to run Eleventy, so the build context must be the entire repo. Example: `COPY site/package.json .` works because `site/` is inside the context.
+- **`context: ./projects/<name>`**: Used for standalone projects. They only need their own files, so the context is scoped to just the project directory. Example: `COPY index.html /usr/share/nginx/html/` works because `index.html` is directly in that directory.
+
+The `dockerfile` field points to the Containerfile relative to the context.
 
 ## Adding a new project
 

@@ -47,10 +47,20 @@ services:
     networks:
       - internal
 
-  scavanger:
+  scavenger:
     build:
-      context: ./projects/scavanger
+      context: ./projects/scavenger
       dockerfile: Containerfile
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - internal
+
+  this-wiki-dne:
+    build:
+      context: .
+      dockerfile: projects/this-wiki-dne/Containerfile
     restart: always
     expose:
       - "80"

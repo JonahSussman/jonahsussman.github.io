@@ -1,0 +1,11 @@
+FROM node:22-alpine AS page-build
+WORKDIR /site
+COPY site/package.json site/package-lock.json ./
+RUN npm ci
+COPY site/ .
+COPY projects/this-wiki-dne/this-wiki-dne.njk \
+     src/projects/this-wiki-dne/index.njk
+RUN npx @11ty/eleventy
+
+FROM nginx:alpine
+COPY --from=page-build /site/_site/projects/this-wiki-dne/ /usr/share/nginx/html/
