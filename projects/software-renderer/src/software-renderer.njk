@@ -1,7 +1,7 @@
 ---
 layout: layouts/base.njk
 title: software-renderer
-
+navActive: projects
 theme: theme-red
 ---
 <style>
@@ -114,6 +114,10 @@ theme: theme-red
   var Module = {
     preRun: [],
     postRun: [],
+    onRuntimeInitialized: function() {
+      spinnerElement.style.display = 'none';
+      statusElement.style.display = 'none';
+    },
     print: (function() {
       var element = document.getElementById('output');
       if (element) element.value = ''; // clear browser cache
@@ -170,7 +174,11 @@ theme: theme-red
     totalDependencies: 0,
     monitorRunDependencies: function(left) {
       this.totalDependencies = Math.max(this.totalDependencies, left);
-      Module.setStatus(left ? 'Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')' : 'All downloads complete.');
+      if (left) {
+        Module.setStatus('Preparing... (' + (this.totalDependencies-left) + '/' + this.totalDependencies + ')');
+      } else {
+        Module.setStatus('');
+      }
     }
   };
   Module.setStatus('Downloading...');
@@ -182,5 +190,4 @@ theme: theme-red
     };
   };
 </script>
-<script async type="text/javascript" src="../software-renderer.js"></script>
-<!-- <script async type="text/javascript" src="software-renderer.js"></script> -->
+<script async type="text/javascript" src="./software-renderer.js"></script>

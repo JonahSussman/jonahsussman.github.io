@@ -1,0 +1,23 @@
+# Embedded project: Emscripten build + Eleventy page render
+# Build context must be repo root (set in docker-compose.yaml)
+
+FROM emscripten/emsdk:2.0.29 AS project-build
+ARG REF=main
+RUN git clone --depth 1 --branch $REF \
+    https://github.com/JonahSussman/software-renderer.git /src
+WORKDIR /src
+RUN make webhtml
+
+FROM node:22-alpine AS page-build
+WORKDIR /site
+COPY site/package.json site/package-lock.json ./
+RUN npm ci
+COPY site/ .
+COPY projects/software-renderer/src/software-renderer.njk \
+     src/projects/software-renderer/index.njk
+RUN npx @11ty/eleventy
+
+FROM nginx:alpine
+COPY --from=page-build /site/_site/projects/software-renderer/ /usr/share/nginx/html/
+COPY --from=project-build /src/bin/software-renderer.js /usr/share/nginx/html/
+COPY --from=project-build /src/bin/software-renderer.wasm /usr/share/nginx/html/

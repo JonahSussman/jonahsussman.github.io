@@ -1,0 +1,5 @@
+# Standalone project: static files -> nginx
+
+FROM nginx:alpine
+COPY index.html /usr/share/nginx/html/
+COPY template.html /usr/share/nginx/html/

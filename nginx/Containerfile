@@ -1,0 +1,13 @@
+# Build context must be repo root (set in docker-compose.yaml)
+
+FROM node:22-alpine AS site-build
+WORKDIR /site
+COPY site/package.json site/package-lock.json ./
+RUN npm ci
+COPY site/ .
+RUN npx @11ty/eleventy
+
+FROM nginx:alpine
+COPY nginx/nginx.conf /etc/nginx/nginx.conf
+COPY nginx/conf.d/ /etc/nginx/conf.d/
+COPY --from=site-build /site/_site/error.html /usr/share/nginx/html/error.html

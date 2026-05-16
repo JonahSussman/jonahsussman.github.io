@@ -1,0 +1,14 @@
+# Standalone project: Trunk/WASM build -> nginx
+# No site shell — serves the Trunk-generated app directly
+
+FROM rust:slim AS build
+RUN apt-get update && apt-get install -y git pkg-config libssl-dev && rm -rf /var/lib/apt/lists/*
+RUN rustup target add wasm32-unknown-unknown && cargo install trunk
+ARG REF=main
+RUN git clone --depth 1 --branch $REF \
+    https://github.com/JonahSussman/red-and-black-knights.git /src
+WORKDIR /src
+RUN trunk build --release --public-url ./
+
+FROM nginx:alpine
+COPY --from=build /src/dist/ /usr/share/nginx/html/

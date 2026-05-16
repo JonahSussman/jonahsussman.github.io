@@ -2,38 +2,60 @@ name: jsn
 
 services:
   nginx:
-    image: nginx:latest
+    build:
+      context: .
+      dockerfile: nginx/Containerfile
     ports:
-      - 80:80
-      - 443:443
+      - "80:80"
+      - "443:443"
     restart: always
     volumes:
-      - ./nginx/conf.d/:/etc/nginx/conf.d/:ro
-      - ./certbot/webroot/:/var/certbot/:ro
-# technically supposed to be /var/www/certbot
-      - ./frontend-old/docs/:/var/www/:ro
-      - ./projects/red-and-black-knights/build/:/var/rbk/:ro
-      - /etc/letsencrypt/:/etc/nginx/ssl/:ro
-    # hostname: nginx
+      - /etc/letsencrypt:/etc/nginx/ssl:ro
+      - ./certbot/webroot:/var/certbot:ro
+    depends_on:
+      - main-site
     networks:
-      - proxy-project
+      - internal
 
-  scavanger:
-    image: python:latest
-    volumes:
-      - ./projects/scavanger:/var/www/:ro
+  main-site:
+    build:
+      context: ./site
+      dockerfile: Containerfile
+    restart: always
+    expose:
+      - "80"
     networks:
-      - proxy-project
-    command: python3 -m http.server --directory /var/www/
+      - internal
+
+  red-and-black-knights:
+    build:
+      context: .
+      dockerfile: projects/red-and-black-knights/Containerfile
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - internal
 
   software-renderer:
-    image: python:latest
-    volumes:
-      - ./projects/software-renderer/build:/var/www/:ro
-    # hostname: software-renderer
+    build:
+      context: .
+      dockerfile: projects/software-renderer/Containerfile
+    restart: always
+    expose:
+      - "80"
     networks:
-      - proxy-project
-    command: python3 -m http.server --directory /var/www/
+      - internal
+
+  scavanger:
+    build:
+      context: ./projects/scavanger
+      dockerfile: Containerfile
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - internal
 
 networks:
-  proxy-project: {}
+  internal: {}
