@@ -1,23 +1,17 @@
 import { DateTime } from "luxon";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
-import pluginNavigation from "@11ty/eleventy-navigation";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import markdownItFootnote from "markdown-it-footnote";
 import pluginTOC from "eleventy-plugin-toc";
 
 export default function(eleventyConfig) {
-  eleventyConfig.addPairedShortcode("raw_copy", function(content) {
-    return content;
-  });
-
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
 
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
   eleventyConfig.addPlugin(pluginSyntaxHighlight);
-  eleventyConfig.addPlugin(pluginNavigation);
   eleventyConfig.addPlugin(pluginTOC, {
     tags: ['h1', 'h2', 'h3', 'h4'],
     wrapper: 'div',
@@ -65,7 +59,6 @@ export default function(eleventyConfig) {
   // Passthrough copy — files that go straight to output without processing
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
-  eleventyConfig.addPassthroughCopy("src/CNAME");
   eleventyConfig.addPassthroughCopy("src/robots.txt");
 
 

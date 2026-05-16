@@ -2,10 +2,6 @@
 layout: layouts/base.njk
 title: Projects
 navActive: projects
-eleventyNavigation:
-  key: Projects
-  order: 3
-
 theme: theme-red
 ---
 <div class="site-content">
@@ -21,7 +17,7 @@ theme: theme-red
     <img style="max-width: unset;" class="g-left" src="{{ project.thumb }}">
     <div class="g-right">
       <a href="{{ project.link | url }}">{{ project.title }}</a>
-      <time datetime="{{ post.date | htmlDateString }}"> — {{ project.date }}</time>
+      <time> — {{ project.date }}</time>
       <p><i>{{ project.description }}</i></p>
     </div>
   </li>

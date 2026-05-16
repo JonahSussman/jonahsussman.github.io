@@ -1,8 +1,5 @@
 ---
 layout: layouts/base.njk
-<!-- eleventyNavigation:
-  key: Home
-  order: 1 -->
 ---
 <div class="site-content">
 
@@ -26,7 +23,7 @@ layout: layouts/base.njk
       <img style="max-width: unset;" class="g-left" src="{{ project.thumb }}">
       <div class="g-right">
         <a href="{{ project.link | url }}">{{ project.title }}</a>
-        <time datetime="{{ post.date | htmlDateString }}"> — {{ project.date }}</time>
+        <time> — {{ project.date }}</time>
         <p><i>{{ project.description }}</i></p>
       </div>
     </li>
@@ -70,7 +67,5 @@ layout: layouts/base.njk
 
   let greetings = ['Ahoy!', 'Hey!', 'Hi!', 'Hello!', 'Howdy!', timed_greet];
   let greet = rand_select(greetings) + ' My name is <span class="crazy-jonah">Jonah Sussman</span>.';
-  // if (window.innerWidth < 350) greet = 'Hi! My name is Jonah Sussman.'
-
   document.getElementById('greeting').innerHTML = greet;
 </script>

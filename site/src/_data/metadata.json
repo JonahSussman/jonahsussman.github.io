@@ -7,15 +7,15 @@
     "subtitle": "",
     "filename": "feed.xml",
     "path": "/feed/feed.xml",
-    "id": "https://example.com/"
+    "id": "https://jonahsussman.net/"
   },
   "jsonfeed": {
     "path": "/feed/feed.json",
-    "url": "https://example.com/feed/feed.json"
+    "url": "https://jonahsussman.net/feed/feed.json"
   },
   "author": {
-    "name": "Your Name Here",
-    "email": "youremailaddress@example.com",
-    "url": "https://example.com/about-me/"
+    "name": "Jonah Sussman",
+    "email": "sussmanjonah@gmail.com",
+    "url": "https://jonahsussman.net/about/"
   }
 }
