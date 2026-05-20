@@ -92,7 +92,7 @@ services:
     image: ghcr.io/gurucomputing/headscale-ui:latest
     restart: always
     expose:
-      - "80"
+      - "8080"
     networks:
       - internal
 
