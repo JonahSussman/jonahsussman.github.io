@@ -6,10 +6,15 @@ Personal website and project portfolio. Built with Eleventy v3, containerized wi
 
 ```
 Browser -> nginx proxy (port 80/443)
-             |-- /                              -> main-site container
-             |-- /projects/software-renderer/   -> software-renderer container (embedded)
-             |-- /projects/red-and-black-knights/-> rbk container (standalone)
-             |-- /projects/scavenger/           -> scavenger container (standalone)
+             |-- www.jonahsussman.net
+             |     |-- /                              -> main-site container
+             |     |-- /projects/software-renderer/   -> software-renderer container (embedded)
+             |     |-- /projects/red-and-black-knights/-> rbk container (standalone)
+             |     |-- /projects/scavenger/           -> scavenger container (standalone)
+             |
+             |-- vpn.jonahsussman.net
+                   |-- /                              -> headscale container (VPN coordination)
+                   |-- /web/                           -> headscale-ui container (dashboard)
 ```
 
 Each project runs in its own container with its own nginx. The top-level nginx reverse proxy routes requests by URL path.
@@ -39,6 +44,11 @@ jonahsussman.github.io/
       assets/                  # CSS, images, PDFs
       error.njk                # Error page (uses SSI for status codes)
       ...
+
+  headscale/                     # VPN coordination server
+    config.yaml                # Headscale config (secrets via env vars)
+    acl.hujson                 # Access control policy
+    USAGE.md                   # Operational docs
 
   nginx/                       # Reverse proxy
     Containerfile
@@ -176,10 +186,51 @@ docker compose exec nginx nginx -s reload
 
 To auto-renew via crontab, add this to `crontab -e`:
 ```
-0 3 1 */2 * certbot renew --webroot -w /path/to/repo/certbot/webroot --quiet && docker compose -f /path/to/repo/docker-compose.yaml exec nginx nginx -s reload
+0 3 1 * * certbot renew --webroot -w /path/to/repo/certbot/webroot --quiet && docker compose -f /path/to/repo/docker-compose.yaml exec nginx nginx -s reload
 ```
 
-This runs at 3am on the 1st of every other month. Certbot only renews if the certificate is within 30 days of expiry. The reload makes nginx re-read the new certificate without downtime.
+This runs at 3am on the 1st of every month. Certbot only renews if the certificate is within 30 days of expiry. The reload makes nginx re-read the new certificate without downtime.
+
+### VPN / Headscale
+
+A self-hosted [Headscale](https://headscale.net/) coordination server runs at `vpn.jonahsussman.net`, enabling a WireGuard mesh VPN via Tailscale clients. Devices on the network use MagicDNS names under `wicker.lan` (e.g., `homeassistant.wicker.lan`).
+
+#### Prerequisites
+
+1. **DNS**: Add an A record for `vpn.jonahsussman.net` pointing to the VPS IP (in Squarespace DNS settings)
+2. **SSL**: Expand the Let's Encrypt certificate to include the new subdomain:
+   ```bash
+   certbot certonly --webroot -w ./certbot/webroot \
+     -d jonahsussman.net -d www.jonahsussman.net -d vpn.jonahsussman.net \
+     --expand
+   docker compose exec nginx nginx -s reload
+   ```
+3. **OIDC**: Create an OAuth 2.0 Client ID in [Google Cloud Console](https://console.cloud.google.com/apis/credentials):
+   - Application type: Web application
+   - Authorized redirect URI: `https://vpn.jonahsussman.net/oidc/callback`
+4. **Environment**: Copy `.env.example` to `.env` and fill in the Google OIDC credentials
+
+#### First-time setup
+
+```bash
+docker compose up -d --build --force-recreate
+
+# Verify
+curl https://vpn.jonahsussman.net/health
+
+# Generate an API key for the web UI
+docker compose exec headscale headscale apikeys create
+
+# Visit https://vpn.jonahsussman.net/web/ and enter the API key
+```
+
+#### Connecting a device
+
+```bash
+tailscale up --login-server https://vpn.jonahsussman.net
+```
+
+See `headscale/USAGE.md` for full operational documentation (device management, ACLs, private service hosting via Tailscale sidecar containers).
 
 ### www vs non-www
 

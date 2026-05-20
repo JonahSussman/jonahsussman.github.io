@@ -14,6 +14,7 @@ services:
       - ./certbot/webroot:/var/certbot:ro
     depends_on:
       - main-site
+      - headscale
     networks:
       - internal
 
@@ -67,5 +68,36 @@ services:
     networks:
       - internal
 
+  headscale:
+    image: headscale/headscale:0.28.0
+    restart: always
+    read_only: true
+    tmpfs:
+      - /var/run/headscale
+    volumes:
+      - ./headscale/config.yaml:/etc/headscale/config.yaml:ro
+      - ./headscale/acl.hujson:/etc/headscale/acl.hujson:ro
+      - headscale-data:/var/lib/headscale
+    env_file:
+      - .env
+    command: serve
+    ports:
+      - "3478:3478/udp"
+    expose:
+      - "8080"
+    networks:
+      - internal
+
+  headscale-ui:
+    image: ghcr.io/gurucomputing/headscale-ui:latest
+    restart: always
+    expose:
+      - "80"
+    networks:
+      - internal
+
 networks:
   internal: {}
+
+volumes:
+  headscale-data: {}

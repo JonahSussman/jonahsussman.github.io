@@ -56,7 +56,7 @@ export default function(eleventyConfig) {
     return [...tagSet];
   });
 
-  // Passthrough copy — files that go straight to output without processing
+  // Passthrough copy - files that go straight to output without processing
   eleventyConfig.addPassthroughCopy("src/assets");
   eleventyConfig.addPassthroughCopy("src/favicon.ico");
   eleventyConfig.addPassthroughCopy("src/robots.txt");

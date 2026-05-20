@@ -1,0 +1,15 @@
+{
+  // Headscale ACL policy
+  // Docs: https://headscale.net/stable/ref/acls/
+  // See also headscale/USAGE.md for examples
+
+  "acls": [
+    {
+      // Allow all authenticated users full access to all devices
+      // Tighten this once the network is established
+      "action": "accept",
+      "src": ["autogroup:member"],
+      "dst": ["autogroup:member:*"],
+    },
+  ],
+}
