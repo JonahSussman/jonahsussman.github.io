@@ -38,6 +38,7 @@ derp:
     region_id: 999          # arbitrary identifier for this DERP region
     region_code: "jsn"      # short label shown in `tailscale netcheck`
     region_name: "jonahsussman.net"
+    private_key_path: /var/lib/headscale/derp_server_private.key
     stun_listen_addr: 0.0.0.0:3478
     automatically_add_embedded_derp_region: true
   urls: []                  # no external DERP maps (fully self-hosted)
