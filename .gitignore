@@ -2,6 +2,8 @@ certbot/
 etc/
 node_modules/
 site/_site/
+headscale/client_secret.json
+headscale/allowed_users.txt
 
 # -- Node.gitignore --
 

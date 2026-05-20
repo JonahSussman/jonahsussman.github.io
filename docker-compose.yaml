@@ -69,17 +69,20 @@ services:
       - internal
 
   headscale:
-    image: headscale/headscale:0.28.0
+    build:
+      context: ./headscale
+      dockerfile: Containerfile
+      args:
+        HEADSCALE_OIDC_CLIENT_ID: ${HEADSCALE_OIDC_CLIENT_ID}
+        HEADSCALE_OIDC_CLIENT_SECRET: ${HEADSCALE_OIDC_CLIENT_SECRET}
+        # HEADSCALE_OIDC_ALLOWED_USERS is generated from headscale/allowed_users.txt at build time
     restart: always
     read_only: true
     tmpfs:
       - /var/run/headscale
     volumes:
-      - ./headscale/config.yaml:/etc/headscale/config.yaml:ro
       - ./headscale/acl.hujson:/etc/headscale/acl.hujson:ro
       - headscale-data:/var/lib/headscale
-    env_file:
-      - .env
     command: serve
     ports:
       - "3478:3478/udp"

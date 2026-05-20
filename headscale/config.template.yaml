@@ -89,8 +89,9 @@ policy:
 oidc:
   only_start_if_oidc_is_available: true
   issuer: https://accounts.google.com
-  client_id: ""              # overridden by HEADSCALE_OIDC_CLIENT_ID
-  client_secret: ""          # overridden by HEADSCALE_OIDC_CLIENT_SECRET
+  client_id: "${HEADSCALE_OIDC_CLIENT_ID}"
+  client_secret: "${HEADSCALE_OIDC_CLIENT_SECRET}"
+  allowed_users: ${HEADSCALE_OIDC_ALLOWED_USERS}
   scope:
     - openid
     - profile

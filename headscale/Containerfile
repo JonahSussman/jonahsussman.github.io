@@ -1,0 +1,13 @@
+FROM alpine:latest AS config
+RUN apk add --no-cache gettext jq
+ARG HEADSCALE_OIDC_CLIENT_ID
+ARG HEADSCALE_OIDC_CLIENT_SECRET
+COPY allowed_users.txt /tmp/allowed_users.txt
+COPY config.template.yaml /tmp/config.template.yaml
+RUN export HEADSCALE_OIDC_CLIENT_ID="${HEADSCALE_OIDC_CLIENT_ID}" \
+    && export HEADSCALE_OIDC_CLIENT_SECRET="${HEADSCALE_OIDC_CLIENT_SECRET}" \
+    && export HEADSCALE_OIDC_ALLOWED_USERS=$(jq -R 'select(length > 0)' /tmp/allowed_users.txt | jq -sc .) \
+    && envsubst < /tmp/config.template.yaml > /tmp/config.yaml
+
+FROM headscale/headscale:0.28.0
+COPY --from=config /tmp/config.yaml /etc/headscale/config.yaml
