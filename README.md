@@ -209,10 +209,13 @@ A self-hosted [Headscale](https://headscale.net/) coordination server runs at `v
    - Application type: Web application
    - Authorized redirect URI: `https://vpn.jonahsussman.net/oidc/callback`
 4. **Environment**: Copy `.env.example` to `.env` and fill in the Google OIDC credentials
+5. **Allowed users**: Create `headscale/allowed_users.txt` with one email per line
 
 #### First-time setup
 
 ```bash
+# Headscale must be built with --no-cache to inject secrets and allowed users
+docker compose build --no-cache headscale
 docker compose up -d --build --force-recreate
 
 # Verify

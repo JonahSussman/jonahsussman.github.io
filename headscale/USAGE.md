@@ -58,6 +58,16 @@ docker compose exec headscale headscale nodes delete -i <node-id>
 docker compose exec headscale headscale users list
 ```
 
+## Rebuilding Headscale
+
+The Headscale config is baked into the image at build time (secrets and allowed users are injected via `envsubst`). After changing `config.template.yaml`, `allowed_users.txt`, or `.env`, you must rebuild without cache:
+
+```bash
+docker compose build --no-cache headscale && docker compose up -d --force-recreate headscale
+```
+
+`--no-cache` is required because Docker caches the build layers and won't pick up changes to files like `allowed_users.txt` otherwise. `docker compose up --build` alone is not sufficient.
+
 ## ACL policy
 
 Edit `headscale/acl.hujson` to control who can access what. The current policy allows all authenticated members full access. To restrict:
