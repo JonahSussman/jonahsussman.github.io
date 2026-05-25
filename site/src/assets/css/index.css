@@ -26,7 +26,7 @@ figure {
   margin-right: var(--dyn-pad-s);
 }
 
-figure > img, figure > video {
+figure > img, figure > video, figure > iframe {
   margin-left: auto;
   margin-right: auto;
 }

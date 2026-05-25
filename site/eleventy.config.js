@@ -1,13 +1,27 @@
+import fs from "fs";
+import path from "path";
 import { DateTime } from "luxon";
 import pluginRss from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import markdownItFootnote from "markdown-it-footnote";
+import markdownItKatexModule from "@vscode/markdown-it-katex";
+const markdownItKatex = markdownItKatexModule.default;
 import pluginTOC from "eleventy-plugin-toc";
 
 export default function(eleventyConfig) {
   eleventyConfig.addShortcode("year", () => `${new Date().getFullYear()}`);
+
+  eleventyConfig.addShortcode("codefile", (filePath, lang, start, end) => {
+    const resolved = path.resolve("src", filePath);
+    const content = fs.readFileSync(resolved, "utf-8");
+    const lines = content.split("\n");
+    const selected = start != null
+      ? lines.slice(start - 1, end ?? lines.length).join("\n")
+      : content;
+    return `\`\`\`${lang || ""}\n${selected}\n\`\`\``;
+  });
 
   // Plugins
   eleventyConfig.addPlugin(pluginRss);
@@ -73,7 +87,8 @@ export default function(eleventyConfig) {
       class: "direct-link",
       symbol: "#",
     }),
-  }).use(markdownItFootnote);
+  }).use(markdownItFootnote)
+    .use(markdownItKatex);
   eleventyConfig.setLibrary("md", markdownLibrary);
 
   return {
