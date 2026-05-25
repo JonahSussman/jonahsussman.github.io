@@ -209,3 +209,7 @@ So why did I spend a weekend writing a C++ program with multithreading, adaptive
 I think there's something to be said for the "brute force it first, think later" approach. The simulation gave me intuition. The curve fitting told me what *shape* the answer had. And only then did the math click into place. Would I have seen the odd reciprocal sum staring at a blank page? Maybe. But probably not as fast as I did staring at a graph that was screaming "I'm a log, you idiot."
 
 And hey, I got to write some C++ for the first time in a while. That alone was worth it.
+
+---
+
+**Source files:** [random-ends-v1.py]({{ '/assets/posts/2026-05-random-ends/random-ends-v1.py' | url }}), [random-ends-v2.py]({{ '/assets/posts/2026-05-random-ends/random-ends-v2.py' | url }}), [random-ends-v2.cpp]({{ '/assets/posts/2026-05-random-ends/random-ends-v2.cpp' | url }})
