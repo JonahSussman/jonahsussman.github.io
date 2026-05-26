@@ -1,3 +1,5 @@
+import io
+import subprocess
 import time
 import random
 import torch
@@ -49,6 +51,17 @@ def run_trials_python(
       rows.append({'x': n_strings, 'y': perform(n_strings)})
 
   return pd.DataFrame(rows)
+
+
+def run_exact_cpp(
+  max_n_strings: int,
+) -> pd.DataFrame:
+  result = subprocess.run(
+    ['./random-ends-v3', str(max_n_strings)],
+    stdout=subprocess.PIPE, check=True,
+  )
+  ev = np.frombuffer(result.stdout, dtype=np.float64)
+  return pd.DataFrame({'x': np.arange(1, len(ev) + 1), 'y': ev})
 
 
 # --- Hypothesis definitions ---
@@ -113,8 +126,7 @@ def fit_hypotheses(
     lr: float = 0.01,
     epochs: int = 5000,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-  plot_df = trials_df.groupby('x')['y'].agg(
-    mean='mean', std='std', count='count').reset_index()
+  plot_df = trials_df.groupby('x')['y'].agg(mean='mean', std='std', count='count').reset_index()
   plot_df['ci95'] = 1.96 * plot_df['std'] / np.sqrt(plot_df['count'])
 
   x = torch.tensor(plot_df['x'].values, dtype=torch.float32)
@@ -177,11 +189,11 @@ def plot(
 # --- Main function ---
 
 def main() -> None:
-  max_n_strings = 1000
+  max_n_strings = 10_000
 
   print(f"--- Phase 1: Gather data {max_n_strings=} ---")
   start_time = time.time()
-  trials_df = run_trials_python(max_n_strings, 100)
+  trials_df = run_exact_cpp(max_n_strings)
   print(f"  Took {time.time() - start_time:.2f} seconds.")
 
   print("--- Phase 2: Fit hypotheses ---")
@@ -190,14 +202,14 @@ def main() -> None:
     'harmonic': HarmonicModel(),
     'log': LogModel(),
     'power': PowerModel(),
-    'polynomial': PolynomialModel(),
+    # 'polynomial': PolynomialModel(),
   }
   plot_df, meta_df = fit_hypotheses(trials_df, models)
   print(f"  Took {time.time() - start_time:.2f} seconds.")
 
   print("--- Phase 3: Plot ---")
-  plot(plot_df, meta_df, 'random-ends-v1.png')
-  print("  Saved to random-ends-v1.png")
+  plot(plot_df, meta_df, 'random-ends-v3.png')
+  print("  Saved to random-ends-v3.png")
 
 
 if __name__ == "__main__":

@@ -193,9 +193,11 @@ def plot(
 # --- Main function ---
 
 def main() -> None:
-  print("--- Phase 1: Gather data ---")
+  max_n_strings = 1000
+
+  print(f"--- Phase 1: Gather data {max_n_strings=} ---")
   start_time = time.time()
-  trials_df = run_trials_cpp(1000)
+  trials_df = run_trials_cpp(max_n_strings)
   print(f"  Took {time.time() - start_time:.2f} seconds.")
 
   print("--- Phase 2: Fit hypotheses ---")

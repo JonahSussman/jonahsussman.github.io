@@ -1,0 +1,10 @@
+[project]
+name = "2026-05-random-ends"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.10.9",
+    "pandas>=3.0.3",
+    "torch>=2.12.0",
+    "tqdm>=4.67.3",
+]
