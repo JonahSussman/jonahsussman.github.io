@@ -79,6 +79,9 @@ dns:
     - name: ha.wicker.lan
       type: A
       value: 100.64.0.4
+    - name: headlamp.wicker.lan
+      type: A
+      value: 100.64.0.4
 
 # ACL policy file - controls which users/devices can talk to each other
 # Edit headscale/acl.hujson and restart to apply changes
