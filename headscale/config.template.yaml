@@ -76,12 +76,9 @@ dns:
       - 1.1.1.1              # Cloudflare DNS (fallback for non-MagicDNS queries)
       - 1.0.0.1
   extra_records:
-    # Wildcard for K3s cluster services (e.g. ha.wicker.lan, minecraft.wicker.lan)
-    # MagicDNS exact matches (device hostnames like wyse-5070-1.wicker.lan) take
-    # priority, so this only catches names without a matching device.
-    - name: "*.wicker.lan"
+    - name: ha.wicker.lan
       type: A
-      value: 100.64.0.4      # wyse-5070-1 (K3s ingress node)
+      value: 100.64.0.4
 
 # ACL policy file - controls which users/devices can talk to each other
 # Edit headscale/acl.hujson and restart to apply changes
