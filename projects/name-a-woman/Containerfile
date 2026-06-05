@@ -1,0 +1,18 @@
+FROM rust:1.88-bookworm AS builder
+ARG REF=main
+RUN git clone --depth 1 --branch $REF \
+    https://github.com/JonahSussman/name-a-woman.git /src
+WORKDIR /src
+RUN cargo build --release --bin name-a-woman
+
+FROM registry.access.redhat.com/ubi10/ubi-minimal
+COPY --from=builder /src/target/release/name-a-woman /usr/local/bin/
+COPY --from=builder /src/static/ /app/static/
+COPY --from=builder /src/schema.sql /app/
+WORKDIR /app
+ENV RUST_LOG=info
+ENV NAW_MAX_FALLBACK_LOOKUPS=20
+ENV NAW_INACTIVITY_TIMEOUT_SECS=300
+VOLUME ["/app/data"]
+EXPOSE 8080
+CMD ["name-a-woman"]

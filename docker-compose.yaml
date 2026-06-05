@@ -68,6 +68,18 @@ services:
     networks:
       - internal
 
+  name-a-woman:
+    build:
+      context: .
+      dockerfile: projects/name-a-woman/Containerfile
+    restart: always
+    volumes:
+      - name-a-woman-data:/app/data
+    expose:
+      - "8080"
+    networks:
+      - internal
+
   headscale:
     build:
       context: ./headscale
@@ -104,3 +116,4 @@ networks:
 
 volumes:
   headscale-data: {}
+  name-a-woman-data: {}
