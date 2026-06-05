@@ -69,9 +69,7 @@ services:
       - internal
 
   name-a-woman:
-    build:
-      context: .
-      dockerfile: projects/name-a-woman/Containerfile
+    image: localhost/name-a-woman:latest
     restart: always
     volumes:
       - name-a-woman-data:/app/data
